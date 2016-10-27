@@ -1,0 +1,11 @@
+---
+region: "{{ main.region }}"
+ec2_instance_type: "{{ main.instance_type }}"
+ec2_keypair: "{{ main.keypair }}"
+ec2_security_group_name: "{{ main.security_group[0].name }}"
+ec2_volume_size: 8
+ec2_count: 1
+server_role: test
+
+ami_name: "{{ main.ami_name }}"
+ami_owner: "099720109477"

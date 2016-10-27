@@ -1,0 +1,505 @@
+
+
+
+
+
+
+    
+
+
+
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            <title>Custom Metrics - Datadog Training Site</title>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.17" />
+        
+
+
+        
+        
+            <meta name="description" content="Add Metrics to YOUR app">
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Custom Metrics"/>
+<meta name="twitter:description" content="Add Metrics to YOUR app"/>
+<meta name="twitter:site" content="@datadoghq"/>
+
+
+        <meta property="og:title" content="Custom Metrics" />
+<meta property="og:description" content="Add Metrics to YOUR app" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/custommetrics/" />
+
+
+<meta property="og:updated_time" content="2016-10-17T08:47:36-04:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Custom Metrics">
+<meta itemprop="description" content="Add Metrics to YOUR app">
+
+
+<meta itemprop="dateModified" content="2016-10-17T08:47:36-04:00" />
+<meta itemprop="wordCount" content="733">
+
+
+
+<meta itemprop="keywords" content="" />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+<style type="text/css">
+
+  #hainstruction {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.4em;
+  }
+  #webframe {
+        float: right;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: grey;
+    padding: 2px;
+  }
+
+</style>
+    
+<header id="header">
+    
+        <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/summit-training-session/preso/">
+                        
+                            <i class="fa fa-tv">&nbsp;</i>Presentations
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/notes/">
+                        
+                            <i class="fa fa-file-text-o">&nbsp;</i>Notes
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/handson/">
+                        
+                            <i class="fa fa-hand-stop-o">&nbsp;</i>Hands On
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/summit-training-session/preso/">
+                            <h3>
+                                
+                                    <i class="fa fa-tv">&nbsp;</i>
+                                
+                                Presentations
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/notes/">
+                            <h3>
+                                
+                                    <i class="fa fa-file-text-o">&nbsp;</i>
+                                
+                                Notes
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/handson/">
+                            <h3>
+                                
+                                    <i class="fa fa-hand-stop-o">&nbsp;</i>
+                                
+                                Hands On
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+
+
+    
+        
+</section>
+
+
+
+      
+    <div id="main">
+    <h1>Custom Metrics (Hands On Instructions)</h1>
+    <p>Create a custom application to manipulate images, and monitor it. A Docker image has already been created and published to <a href="https://hub.docker.com/r/technovangelist/dd-summit-docker-image-manip/">https://hub.docker.com/r/technovangelist/dd-summit-docker-image-manip/</a> for this session. This image was created using the following Dockerfile:</p>
+
+<pre><code>FROM ubuntu:latest
+
+RUN apt-get update &amp;&amp;\
+    apt-get install -y python-dev python-setuptools &amp;&amp;\
+    apt-get install -y libtiff5-dev libjpeg8-dev zlib1g-dev \
+          libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev \
+          tk8.6-dev python-tk python-pip &amp;&amp;\
+    pip install pillow watchdog datadog
+</code></pre>
+
+<ol>
+<li><p>Create a python file called <code>firsttest.py</code> with the following contents:</p>
+
+<pre><code>print &quot;Hello Datadog Summit&quot;
+</code></pre></li>
+
+<li><p>Run the following docker command to ensure that your Docker environment, including the image, is working: <code>docker run --name firsttest -v $(pwd):/firsttest:rw -t technovangelist/dd-summit-docker-image-manip python /firsttest/firsttest.py</code></p>
+
+<p>Notice what is happening here. You are running a container named firsttest. You are mounting the directory you are in to <code>/firsttest</code> in your docker container. You are creating the container from the image located on Docker Hub called <code>technovangelist/dd-summit-docker-image-manip</code>. When the container starts, run the Python interpreter on the <code>firsttest.py</code> file. If you see <code>Hello World</code>, everything is working and you were able to download the image successfully.</p></li>
+
+<li><p>Stop and remove the Docker container (<code>docker stop firsttest;docker rm firsttest</code>).</p></li>
+
+<li><p>Create a new python file called timedimage.py with the following contents:</p>
+
+<pre><code>import time # for timing functions
+import sys # for CL Args
+import os.path
+from PIL import Image # for image manipulation
+from watchdog.observers import Observer # for watching the directory
+from watchdog.events import FileSystemEventHandler
+
+class Watcher:
+  DIRECTORY_TO_WATCH = sys.argv[1]
+  def __init__(self):
+    self.observer = Observer()
+    print &quot;Watching %s for images&quot; % self.DIRECTORY_TO_WATCH
+
+  def run(self):
+    event_handler = Handler()
+    self.observer.schedule(event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
+    self.observer.start()
+    try:
+      while True:
+        time.sleep(5)
+    except:
+      self.observer.stop()
+      print &quot;Error&quot;
+
+    self.observer.join()
+
+def convert_files(filepath, size):
+  filename = os.path.splitext(os.path.basename(filepath))[0]
+  outfilename = &quot;%s/%s-%s.png&quot; % (sys.argv[2], filename, str(size))
+  if os.path.isfile(outfilename) == False:
+    img = Image.open(filepath)
+    im = img.resize((size, size)).save(outfilename, &quot;png&quot;)
+    print &quot;Saved %s to %s&quot; % (size, outfilename)
+
+class Handler(FileSystemEventHandler):
+
+  @staticmethod
+  def on_any_event(event):
+    if event.is_directory:
+      return None
+
+    elif event.event_type == 'modified' and event.src_path.endswith('png') == True:
+      print &quot;Received modified event - %s.&quot; % event.src_path
+      convert_files(event.src_path, 100)
+      convert_files(event.src_path, 500)
+      convert_files(event.src_path, 1000)
+      convert_files(event.src_path, 2000)
+      convert_files(event.src_path, 5000)
+
+if __name__ == '__main__':
+  w = Watcher()
+  w.run()
+</code></pre>
+
+<p>This Python script uses the Watchdog library to watch a directory for new PNG files. When it sees that a file is modified, then it saves 5 copies that has been resized to different sizes.</p></li>
+
+<li><p>Create two directories in the same directory you created the above python file. Name them <code>images</code> and <code>out</code>.</p></li>
+
+<li><p>Run the following Docker command: <code>docker run --name imagemanip -v $(pwd):/timedimage:rw -t technovangelist/dd-summit-docker-image-manip python /timedimage/timedimage.py /timedimage/images /timedimage/out</code></p>
+
+<p>Notice whats different here. You have named your volume differently, and you are passing two command line arguments to the python file: the images and out directories.</p></li>
+
+<li><p>You should see that the container is watching the images directory. Drag and drop a png file to the images directory. Watch the container process the image. You should also see 5 new copies of the file in the out directory.</p></li>
+
+<li><p>Now lets instrument the application and send those metrics to Datadog. Review the <a href="http://docs.datadoghq.com/libraries/">Libraries documentation</a>.</p></li>
+
+<li><p>Add the following import statement to the top of the python script: <code>from datadog import statsd, initialize</code>.</p></li>
+
+<li><p>Update the convert_files function as follows:</p>
+
+<pre><code>def convert_files(filepath, size):
+  start = time.time()
+  filename = os.path.splitext(os.path.basename(filepath))[0]
+  outfilename = &quot;%s/%s-%s.png&quot; % (sys.argv[2], filename, str(size))
+  if os.path.isfile(outfilename) == False:
+    img = Image.open(filepath)
+    im = img.resize((size, size)).save(outfilename, &quot;png&quot;)
+    print &quot;Saved %s to %s&quot; % (size, outfilename)
+  end = time.time()
+  elapsed = end - start
+  options = {
+    'statsd_host': '172.17.0.3',  
+    'statsd_port': 8125
+  }
+  initialize(**options)
+  statsd.gauge('summit.fileconversion.time', elapsed)
+</code></pre></li>
+
+<li><p>Stop and remove the container, then run it again.</p></li>
+
+<li><p>Drag and drop an image into the images directory.</p></li>
+
+<li><p>Open the Datadog application and navigate to the Metrics Summary. Filter for <code>summit.conversion.time</code>. It may take a few seconds for the metric to show up.</p></li>
+
+<li><p>Create a dashboard with a graph that displays this metric.</p>
+
+<p>This is great but all the values are merged together. Let&rsquo;s add some tags to get more value out of the metrics.</p></li>
+
+<li><p>Update the <code>statsd.gauge</code> line as follows:</p>
+
+<pre><code>statsd.gauge('summit.fileconversion.time', elapsed, 
+  tags=[&quot;conversionsize:&quot; + str(size), &quot;conversionfile:&quot; + filename])
+</code></pre></li>
+
+<li><p>Stop and remove the container. Run it again.</p></li>
+
+<li><p>Drag and drop a few images into the images folder.</p></li>
+
+<li><p>Update your dashboard graph to avg by conversionsize. Save the graph.</p></li>
+
+<li><p>Click the gear icon on the top right. Choose Edit Template Variables.</p></li>
+
+<li><p>Enter File for Variable Name. Choose <code>conversionfile</code> for Tag Group. Click the <strong>Done</strong> button.</p></li>
+
+<li><p>Now view the dashboard and change the File to the different file names you have converted.</p></li>
+</ol>
+
+    
+    <a href="https://datadog.github.io/summit-training-session//preso/custommetrics">Presentation</a> | <a href="https://datadog.github.io/summit-training-session//notes/custommetrics">Notes</a>
+
+    </div>
+
+<section id="sidebar">
+
+    
+        <section id="intro">
+        
+            
+            
+                
+                    <img src="https://datadog.github.io/summit-training-session/images/ddlogo.png" class="intro-circle" width="200px" alt="Datadog" />
+                
+            
+            
+                <header>
+                    <h2>Datadog Summit</h2>
+                    <p>Everything you need to follow along with the training at the Datadog Summit <i class='fa fa-hand-peace-o'></i></p>
+                </header>
+            
+   
+        </section>
+
+
+
+    
+    
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/datadog" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/datadoghq" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; Datadog Training Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+    
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="https://datadog.github.io/summit-training-session//js/jquery.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/skel.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/util.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/main.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/backToTop.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/highlight.pack.js"></script>
+        
+        
+        
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

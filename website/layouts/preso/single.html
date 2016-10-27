@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>{{ .Title }}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {{ .Hugo.Generator }}
+        {{ partial "favicon" . }}
+
+        <!--[if lte IE 8]><script src="/js/ie/html5shiv.js"></script><![endif]-->
+
+            <link rel="stylesheet" href="{{.Site.BaseURL}}/css/google-font.css" />
+            <link rel="stylesheet" href="{{.Site.BaseURL}}/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="{{.Site.BaseURL}}/css/main.css" />
+            <link rel="stylesheet" href="{{.Site.BaseURL}}/css/add-on.css" />
+            <link rel="stylesheet" href="{{.Site.BaseURL}}/css/monokai-sublime.css">
+            <link rel="stylesheet" href="{{.Site.BaseURL}}/reveal.js/css/reveal.css">
+            <link rel="stylesheet" href="{{.Site.BaseURL}}/reveal.js/css/theme/simple.css">
+
+<style type="text/css">
+        #wrapper {
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -moz-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        -moz-transition: opacity 0.5s ease;
+        -webkit-transition: opacity 0.5s ease;
+        -ms-transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease;
+        margin: 0 auto;
+        max-width: 100%;
+        height: 100%;
+        opacity: 1;
+        padding: 4.5em;
+        width: 100%;
+    }
+        .reveal section img {
+            border: none;
+        }
+        .reveal .slides {
+            text-align: left;
+        }
+        .reveal h1 {
+            margin-bottom: 2%;
+        }
+        .reveal h2 {
+            margin-top: 2%;
+        }.reveal li, .reveal p {
+            font-size: 150%;
+        }
+        .reveal li li {
+            margin-left: 10px;
+            font-size: 90%
+        }
+        .reveal pre {
+            font-size: 150%;
+        }
+        .hljs-params, .hljs-class .hljs-title {
+            color: grey;
+        }
+        .hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable {
+            color: #919;
+        }
+        .reveal pre code {
+            max-height: 80%;
+        }
+        .slides {
+            z-index: 10;
+        }
+        .footer {
+          position: absolute; 
+          right: 94%;
+          bottom: 1px;
+          z-index: 1;
+        }
+        .footer img {
+            width:100%;
+            right: 10px;
+            z-index: 1;
+        }
+</style>
+
+        <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie9.css" /><![endif]-->
+        <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie8.css" /><![endif]-->
+        {{ if not (in (printf "%#v" .Site.BaseURL) "localhost") }}
+            {{ template "_internal/google_analytics.html" . }}
+        {{ end }}
+
+    </head>
+    <body>
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+
+    {{ partial "navbar" . }}
+    <!-- Main -->
+        <!-- <div id="main"> -->
+            <div class="reveal">
+                <div class="slides">
+                    <section data-markdown
+                        data-separator="^---"
+                        data-separator-vertical="^--"
+                        data-background="^background:"
+                        data-separator-notes="^Note:"
+                        data-charset="iso-8859-15">
+                        {{ .RawContent }}
+                    </section>
+
+                    <section>
+                        <p><a href="{{ .Site.BaseURL }}">Back to the Agenda</a></p>
+                        <a href="{{ .Site.BaseURL }}/notes/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Notes</a> | <a href="{{ .Site.BaseURL }}/handson/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Hands On Instruction</a>
+                    </section>
+                    
+                </div>
+                
+            </div>
+            <div class="footer"><img src="{{.Site.BaseURL}}/images/ddlogo.png"></div>
+        <!-- </div> -->
+    
+    <script type="text/javascript" src="{{.Site.BaseURL}}/reveal.js/js/reveal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
+<script>Reveal.initialize({
+    width: 1920, 
+    height: 1280,  
+    margin: 0.1,
+    center: false,    
+  minScale: 0.3,
+  maxScale: 7,  
+  slideNumber: true,
+  history: true,  
+  embedded: true,  
+   dependencies: [
+        // Interpret Markdown in <section> elements
+        { src: '{{.Site.BaseURL}}/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '{{.Site.BaseURL}}/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }, 
+        { src: '{{.Site.BaseURL}}/reveal.js/plugin/notes/notes.js', async: true },
+
+    ]
+  });</script>
+{{ partial "footer" . }}

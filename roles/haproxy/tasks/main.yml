@@ -1,0 +1,17 @@
+- name: Delete HAProxy
+  apt: name=haproxy state=absent
+
+- apt: name=software-properties-common update_cache=yes state=latest
+- apt_repository: repo="ppa:vbernat/haproxy-1.6"
+
+- name: Install HAProxy
+  apt: name=haproxy update_cache=yes state=latest
+
+- name: Enable HAProxy
+  lineinfile: dest=/etc/default/haproxy regexp='^ENABLED=0' line=ENABLED=1
+
+- name: Configure HAProxy 
+  template: src=templates/haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
+  notify:
+    - restart haproxy
+

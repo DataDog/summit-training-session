@@ -1,0 +1,80 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - action: ec2_facts
+      register: ec2facts 
+
+- hosts: "tag_Name_datadog_summit_group{{ group }}_web"
+  remote_user: ubuntu
+  become: true
+  become_method: sudo
+  pre_tasks:
+    - include_vars: vars/main.yml
+    - include_vars: ../apikeyvars.yml
+  roles:
+    - apache
+    - php
+    - { role: Datadog.datadog, become: yes}
+  vars:
+    datadog_api_key: "{{api_keys[group_number]}}"
+    datadog_config:
+      tags: "group:{{group_number}}, name:{{ main.eventname }}-group{{ group_number }}-web, event:{{ main.eventname }}, server_role:web, owner:matt"
+    datadog_checks:
+      apache:
+        init_config:
+        instances:
+          - apache_status_url: http://localhost/server-status?auto
+
+- hosts: "tag_Name_datadog_summit_group{{ group }}_loadbalancer"
+  remote_user: ubuntu
+  become: true
+  become_method: sudo
+  pre_tasks:
+    - include_vars: vars/main.yml
+    - include_vars: ../apikeyvars.yml
+  roles:
+    - haproxy
+    - { role: Datadog.datadog, become: yes}
+  vars:
+    datadog_api_key: "{{api_keys[group_number]}}"
+    datadog_config:
+      tags: "group:{{group_number}}, name:{{ main.eventname }}-group{{ group_number }}-loadbalancer, event:{{ main.eventname }}, server_role:loadbalancer, owner:matt"
+    datadog_checks:
+      haproxy:
+        init_config:
+        instances:
+          - url: http://localhost/haproxy?stats
+
+- hosts: "tag_Name_datadog_summit_group{{ group }}_db"
+  remote_user: ubuntu
+  become: true
+  become_method: sudo
+  pre_tasks:
+    - include_vars: vars/main.yml
+    - include_vars: ../apikeyvars.yml
+  roles:
+    - mysql
+    - { role: Datadog.datadog, become: yes}
+  vars:
+    mysql_root_password: datadog
+
+    datadog_api_key: "{{api_keys[group_number]}}"
+    datadog_config:
+      tags: "group:{{group_number}}, name:{{ main.eventname }}-group{{ group_number }}-db, event:{{ main.eventname }}, server_role:db, owner:matt"
+    datadog_checks:
+      mysql:
+        init_config:
+        instances:
+          - server: localhost
+            user: datadog
+            pass: datadog
+            options: 
+              extra_status_metrics: true
+              extra_innodb_metrics: true
+              extra_performance_metrics: true
+
+
+

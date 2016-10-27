@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - include_vars: vars/main.yml
+
+- hosts: "tag_Name_datadog_summit_group{{ group }}_web"
+  remote_user: ubuntu
+  gather_facts: no
+  become: true
+  become_method: sudo
+  pre_tasks:
+    - include_vars: vars/main.yml
+    - include_vars: ../apikeyvars.yml
+
+  tasks:
+    - name: Delete Index.html
+      file: { state: absent, path: /var/www/html/index.html }
+
+    - name: Copy Application PHP files
+      copy: src=application/ dest=/var/www/html/ owner=root

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  pre_tasks:
+    - include_vars: vars/main.yml
+  roles:
+    - ec2sg

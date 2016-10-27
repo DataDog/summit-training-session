@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Handson-rsses on Datadog Training Site</title>
+    <link>https://datadog.github.io/summit-training-session/handson/index.xml</link>
+    <description>Recent content in Handson-rsses on Datadog Training Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://datadog.github.io/summit-training-session/handson/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Monitoring 101</title>
+      <link>https://datadog.github.io/summit-training-session/handson/monitoring101/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/monitoring101/</guid>
+      <description>&lt;p&gt;Everyone should get login information for a Datadog account they can use for this session. If you haven&amp;rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Login to your Demo Datadog Account. &lt;em&gt;Note: Use this demo even if you have the credentials for your company&amp;rsquo;s account since it has been setup to collect data from the demo environment&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Navigate to the Metrics Explorer (&lt;a href=&#34;https://app.datadoghq.com/metric/explore&#34;&gt;https://app.datadoghq.com/metric/explore&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;haproxy&lt;/code&gt; in the &lt;strong&gt;Graph&lt;/strong&gt; textbox. &lt;br&gt;
+This filters down the metrics available to just the ones with &lt;strong&gt;haproxy&lt;/strong&gt; in the name.&lt;/li&gt;
+&lt;li&gt;Select one of the metrics available, for instance &lt;code&gt;haproxy.backend.response.2xx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Notice the the &lt;strong&gt;Over&lt;/strong&gt; dropdown is a list of all the tags relevant to this metric.&lt;/li&gt;
+&lt;li&gt;If you choose &lt;strong&gt;One graph per:&lt;code&gt;host&lt;/code&gt;&lt;/strong&gt; you will only see a single graph, since you have only one haproxy host.&lt;/li&gt;
+&lt;li&gt;Change the metric to &lt;code&gt;apache.net.request_per_s&lt;/code&gt; and set &lt;strong&gt;One graph per&lt;/strong&gt; to &lt;code&gt;host&lt;/code&gt;. You now have 3 graphs since your environment includes 3 webservers.&lt;/li&gt;
+&lt;li&gt;Navigate to Dashboards and create a new Dashboard. Enter &lt;code&gt;First Test&lt;/code&gt; for the name and choose &lt;strong&gt;New TimeBoard&lt;/strong&gt;. We will talk about the differences soon.&lt;/li&gt;
+&lt;li&gt;Notice the different visualization types. We have already talked about each of these.&lt;/li&gt;
+&lt;li&gt;Drag and drop a Timeseries graph onto the canvas.&lt;/li&gt;
+&lt;li&gt;Choose &lt;code&gt;apache.net.request_per_s&lt;/code&gt; and &lt;strong&gt;avg by&lt;/strong&gt; &lt;code&gt;host&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Try out the different &lt;strong&gt;Display&lt;/strong&gt; types (Lines, Area, Bar) to see the differences.&lt;/li&gt;
+&lt;li&gt;Add a Query Value viz to the canvas using the same metric.&lt;/li&gt;
+&lt;li&gt;Add a Heat Map with the same metric.&lt;/li&gt;
+&lt;li&gt;Repeat with the Distribution, Top List, Change, and Hostmap.&lt;/li&gt;
+&lt;li&gt;Which graphs work well for this metric with 3 hosts? Take a look at the instructor&amp;rsquo;s dashboard to see how this is different for all of your hosts on one dashboard.&lt;/li&gt;
+&lt;li&gt;Navigate to the Host Map. Click on one of the webservers running &lt;strong&gt;apache&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Notice the tags assigned to the host.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;a target=&#34;_blank&#34; href=&#34;http://twitter.com/?status=I%27m%20getting%20up%20to%20speed%20on%20Monitoring%20101%20in%20Datadog - Follow along here: https%3a%2f%2fdatadog.github.io%2fsummit-training-session%2fhandson%2fmonitoring101%2f&#34; &gt;Tweet your status&lt;/a&gt;&lt;br&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Building Great Dashboards</title>
+      <link>https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/</guid>
+      <description>
+
+&lt;h1 id=&#34;first-dashboard&#34;&gt;First Dashboard&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;From the menu, create a new dashboard.&lt;/li&gt;
+&lt;li&gt;Enter the name for your first dashboard. We are going to focus on HAProxy, so you can call it &lt;code&gt;My First HAProxy Dash&lt;/code&gt; or anything you like.&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;New Timeboard&lt;/strong&gt; button to create a Timeboard.&lt;/li&gt;
+&lt;li&gt;Drag and drop a timeseries widget onto the first well on the canvas. Notice that you can change the visualization at any time without having to drag another widget on the canvas.&lt;/li&gt;
+&lt;li&gt;In the first textbox under &lt;strong&gt;Choose metrics and events&lt;/strong&gt;, select &lt;code&gt;haproxy.frontend.requests.rate&lt;/code&gt;. Notice that the textbox supports a fuzzy search so i can enter &lt;code&gt;hap.fe.rr&lt;/code&gt; and get to the right metric much more quickly.&lt;/li&gt;
+&lt;li&gt;We have only a single host so a line graph should be fine, but try the other display options from the &lt;strong&gt;Display&lt;/strong&gt; dropdown. Play around with the different color palettes, styles, and strokes as well.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;everywhere&lt;/strong&gt; and &lt;strong&gt;everything&lt;/strong&gt; textboxes don&amp;rsquo;t have much effect on our single host, so click the plus sign to the right to see the different functions available. We will learn more about these in the next section.&lt;/li&gt;
+&lt;li&gt;Now click on the &lt;strong&gt;Add Metric&lt;/strong&gt; button to add another metric line to your graph. Add &lt;code&gt;haproxy.backend.session.rate&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;This created a graph with two lines, but sometimes you want a graph with a single line made up of several metrics. Drag another timeseries widget to the canvas.&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;system.cpu.user&lt;/code&gt; for the metric.&lt;/li&gt;
+&lt;li&gt;Now click the &lt;strong&gt;Advanced&amp;hellip;&lt;/strong&gt; link on the right.&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;Add a metric to this expression&lt;/strong&gt; button and choose &lt;code&gt;system.cpu.system&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Now type &lt;code&gt;a+b&lt;/code&gt; in the &lt;strong&gt;Graph these queries as:&lt;/strong&gt; textbox. You now have a single line representing the value of the two metrics combined.&lt;/li&gt;
+&lt;li&gt;Continue adding graphs to represent all the &lt;strong&gt;Work&lt;/strong&gt; and &lt;strong&gt;Resource&lt;/strong&gt; metrics we talked about.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;How does your dashboard compare to the default HAProxy dashboard? Whats different?&lt;/p&gt;
+
+&lt;p&gt;End of First Dashboard Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/6&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;apache&#34;&gt;Apache&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a new Timeboard.&lt;/li&gt;
+&lt;li&gt;Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard&lt;/li&gt;
+&lt;li&gt;Ensure that you have added both work metrics and resource metrics.&lt;/li&gt;
+&lt;li&gt;Does anything seem strange?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;End of Apache Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/8&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;notebooks&#34;&gt;Notebooks&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;From the menu, create a &lt;strong&gt;New Notebook&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Choose apache metric that represents what was wrong. Adust the time period to ensure you have the problem in view. Configure the graph to ensure you are showing the problem.&lt;/li&gt;
+&lt;li&gt;Click the gear icon at the top left of the current cell and choose &lt;strong&gt;Insert Markdown above&lt;/strong&gt;. Describe the problem encountered.&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;insert Markdown cell at end&lt;/strong&gt; link at the bottom. Describe the change that was made to the configuration.&lt;/li&gt;
+&lt;li&gt;Add another graph cell at the end to show that Apache is running as it should.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;End of Notebooks Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/9/3&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;mysql&#34;&gt;MySQL&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a new Timeboard.&lt;/li&gt;
+&lt;li&gt;Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard&lt;/li&gt;
+&lt;li&gt;Ensure that you have added both work metrics and resource metrics.&lt;/li&gt;
+&lt;li&gt;Try adding some events to some of the graphs.&lt;/li&gt;
+&lt;li&gt;Now do a search at the top for another event.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&#34;combined-dashboard&#34;&gt;Combined Dashboard&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a Screenboard.&lt;/li&gt;
+&lt;li&gt;Add a Text widget to the canvas and enter &lt;code&gt;Load Balancer&lt;/code&gt; in the &lt;strong&gt;Text to display&lt;/strong&gt; textbox.&lt;/li&gt;
+&lt;li&gt;Add some of the HAProxy work metrics using any visualization you like.&lt;/li&gt;
+&lt;li&gt;Repeat the last two steps for the Web Servers, choosing Apache metrics.&lt;/li&gt;
+&lt;li&gt;Repeat again for the Database, choosing MySQL metrics.&lt;/li&gt;
+&lt;li&gt;Arrange everything to create an attractive dashboard that tells a complete story. Whats the right timeperiod to show on this dashboard?&lt;/li&gt;
+&lt;li&gt;Click on the gear icon at the top right of the dashboard and choose &lt;strong&gt;Generate public URL&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Try the URL in a new browser window.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;End of Dashboards Hands On&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Right Alerts</title>
+      <link>https://datadog.github.io/summit-training-session/handson/therightalerts/</link>
+      <pubDate>Mon, 17 Oct 2016 08:46:34 -0400</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/therightalerts/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Click on the &lt;strong&gt;New Monitor&lt;/strong&gt; link under &lt;strong&gt;Monitors&lt;/strong&gt; on the main menu.&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Integration&lt;/strong&gt; and choose &lt;strong&gt;Apache&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Switch to the &lt;strong&gt;Integration Metric&lt;/strong&gt; tab at the top right.&lt;/li&gt;
+&lt;li&gt;Select one of the work metrics for Apache. Decide whether you want an alert for each Apache host or for all of them as a group.&lt;/li&gt;
+&lt;li&gt;Set the appropriate alert conditions based on what you have seen.&lt;/li&gt;
+&lt;li&gt;Enter a Monitor Message. Use the template variables to make it a dynamic message. Format the message using Markdown.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building a Custom Agent Check</title>
+      <link>https://datadog.github.io/summit-training-session/handson/customagentcheck/</link>
+      <pubDate>Mon, 17 Oct 2016 08:46:50 -0400</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/customagentcheck/</guid>
+      <description>&lt;p&gt;In this example we will create a metric that records a value generated by a custom application. The value generated is a count of the widgets created since the last request. The purpose of the exercise is to see how to submit a metric to Datadog.&lt;/p&gt;
+
+&lt;p&gt;So far, we have only used remote machines that you do not have direct access to. For this exercise we need to run a new agent. You can either install the agent on your local laptop, or install to a vagrant machine.&lt;/p&gt;
+
+&lt;p&gt;If you want to use Vagrant (and have Vagrant and VirtualBox installed), create a new directory and run the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;vagrant init ubuntu/trusty64; vagrant up --provider virtualbox;vagrant ssh&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Go to the Agent installation page (&lt;a href=&#34;https://app.datadoghq.com/account/settings#agent&#34;&gt;https://app.datadoghq.com/account/settings#agent&lt;/a&gt;) and select the operating system you are using.&lt;/li&gt;
+&lt;li&gt;Copy the command and execute it in your shell.&lt;/li&gt;
+&lt;li&gt;Change to the &lt;code&gt;conf.d&lt;/code&gt; directory on your system. On the vagrant machine, the directory is &lt;code&gt;/etc/dd-agent/conf.d&lt;/code&gt;. To find it for other operating systems, review &lt;a href=&#34;http://docs.datadoghq.com/guides/agent_checks/#directory&#34;&gt;the documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Create a new config file for your new agent check. Name the file &lt;code&gt;checkvalue.yaml&lt;/code&gt;.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the file to include the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;init_config:
+
+instances:
+  [{}]
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a new check file in the checks.d directory. Name the file &lt;code&gt;checkvalue.py&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the file to include the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from checks import AgentCheck
+class HelloCheck(AgentCheck):
+  def check(self, instance):
+    self.gauge(&#39;hello.world&#39;, 1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Restart the agent. On the vagrant machine, run the following command: &lt;code&gt;sudo /etc/init.d/datadog-agent restart&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Within a minute, you should see a new metric show up in the Metric Summary called &lt;code&gt;hello.world&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now lets expand the script to be something a bit more useful.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Replace the code in &lt;code&gt;checkvalue.py&lt;/code&gt; with the following (replacing the value of lburl with the address of your loadbalancer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import urllib2
+import simplejson
+from checks import AgentCheck
+
+class CheckValue(AgentCheck):
+  def check(self, instance):
+
+    lburl = 1.2.3.4
+
+    response = urllib2.urlopen(&amp;quot;http://&amp;quot; + lburl + &amp;quot;/rest&amp;quot;)
+    data = simplejson.load(response)
+
+    self.gauge(&#39;coreapp.update.value&#39;, data[&amp;quot;value&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Restart the agent. Now run the info command. On the vagrant machine, the command is &lt;code&gt;sudo /etc/init.d/datadog-agent info&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If you have any issues with the agent, you can debug using the following command: &lt;code&gt;sudo -u dd-agent dd-agent check checkvalue&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s make the configuration file a bit more useful.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Update the &lt;code&gt;checkvalue.yaml&lt;/code&gt; file as follows (replacing the &lt;code&gt;ipaddress&lt;/code&gt; with your loadbalancer&amp;rsquo;s ip address):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;init_config:
+
+instances:
+  - ipaddress: 1.2.3.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Update the &lt;code&gt;checkvalue.py&lt;/code&gt; file to be as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import urllib2
+import simplejson
+from checks import AgentCheck
+
+class CheckValue(AgentCheck):
+  def check(self, instance):
+
+    lburl = instance[&#39;ipaddress&#39;]
+
+    response = urllib2.urlopen(&amp;quot;http://&amp;quot; + lburl + &amp;quot;/rest&amp;quot;)
+    data = simplejson.load(response)
+
+    self.gauge(&#39;coreapp.update.value&#39;, data[&amp;quot;value&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a dashboard for this metric.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Docker</title>
+      <link>https://datadog.github.io/summit-training-session/handson/monitordocker/</link>
+      <pubDate>Mon, 17 Oct 2016 08:47:25 -0400</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/monitordocker/</guid>
+      <description>&lt;p&gt;This exercise requires Docker to be installed somewhere. You could do this on your laptop, on the Vagrant box you created earlier, or on any machine you can remotely access. If installing for the first time on your laptop, see &lt;a href=&#34;https://www.docker.com/products/overview&#34;&gt;https://www.docker.com/products/overview&lt;/a&gt; for links to the installers for your platform.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Navigate to the Agent Installation page in the Datadog application (&lt;a href=&#34;https://app.datadoghq.com/account/settings#agent/docker&#34;&gt;https://app.datadoghq.com/account/settings#agent/docker&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Docker&lt;/strong&gt; and copy the first command. Run it where ever you have Docker installed.&lt;/li&gt;
+&lt;li&gt;You now have the Datadog agent running on your Docker machine.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;docker exec -it dd-agent bash&lt;/code&gt; to login to a bash shell on that container.&lt;/li&gt;
+&lt;li&gt;You can now run any of the Datadog commands you have on Linux. For instance, run &lt;code&gt;/etc/init.d/datadog-agent info&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You can try other commands, or type &lt;code&gt;exit&lt;/code&gt; to return to your host machine.&lt;/li&gt;
+&lt;li&gt;Run the Redis docker image (Find out more about this image on &lt;a href=&#34;https://hub.docker.com/_/redis/&#34;&gt;https://hub.docker.com/_/redis/&lt;/a&gt;) using the command: &lt;code&gt;docker run --name dd-redis -d redis&lt;/code&gt;. The Redis docker container is now running.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Although Datadog and Redis are running in Docker, the agent is not collecting any metrics about the Redis server. To enable an integration, like Redis, we need to add the configuration file to the container.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Stop the Agent container and then delete it using the following commands: &lt;code&gt;docker stop dd-agent;docker rm dd-agent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create a new directory called &lt;code&gt;dd-conf&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add a file named &lt;code&gt;redisdb.yaml&lt;/code&gt; to that directory. Add the contents of &lt;strong&gt;redisdb.yaml.example&lt;/strong&gt; at &lt;a href=&#34;https://github.com/DataDog/dd-agent/tree/master/conf.d&#34;&gt;https://github.com/DataDog/dd-agent/tree/master/conf.d&lt;/a&gt; to that file&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Run the following command from the parent of &lt;strong&gt;dd-conf&lt;/strong&gt; (replacing your api key and full path name of your dd-conf directory in the appropriate spot):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -v {full path name}dd-conf:/conf.d:ro \
+  -e API_KEY={your_api_key_here} \
+  datadog/docker-dd-agent
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;To verify that the agent is collecting Redis metrics, run: &lt;code&gt;docker exec -it dd-agent /etc/init.d/datadog-agent info&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Unless you are already a Docker expert and caught the potential problem, you should see an error here connecting to Redis. You are connecting to Redis on the localhost, but you need to enter the IP address of the Docker container.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;docker network inspect bridge&lt;/code&gt; to find the &lt;strong&gt;IPv4Address&lt;/strong&gt; of the &lt;strong&gt;dd-redis&lt;/strong&gt; container.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Replace &lt;strong&gt;localhost&lt;/strong&gt; with the IP Address you just found in &lt;strong&gt;dd-conf/redisdb.yaml&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Stop and delete the container (&lt;code&gt;docker stop dd-agent; docker rm dd-agent&lt;/code&gt;) then run the &lt;code&gt;docker run&lt;/code&gt; command again.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;docker exec -it dd-agent /etc/init.d/datadog-agent info&lt;/code&gt; to see if the agent is collecting Redis metrics. If you don&amp;rsquo;t see any checks running, give it a few seconds to start and try the command again.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once you have the Redis container running, choose another local integration from the &lt;a href=&#34;http://docs.datadoghq.com/integrations/&#34;&gt;Integration documentation&lt;/a&gt;. Start the container using an image found on the &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker Hub&lt;/a&gt; and create a configuration. At the end of this session, lets talk about how you did it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Custom Metrics</title>
+      <link>https://datadog.github.io/summit-training-session/handson/custommetrics/</link>
+      <pubDate>Mon, 17 Oct 2016 08:47:36 -0400</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/custommetrics/</guid>
+      <description>&lt;p&gt;Create a custom application to manipulate images, and monitor it. A Docker image has already been created and published to &lt;a href=&#34;https://hub.docker.com/r/technovangelist/dd-summit-docker-image-manip/&#34;&gt;https://hub.docker.com/r/technovangelist/dd-summit-docker-image-manip/&lt;/a&gt; for this session. This image was created using the following Dockerfile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM ubuntu:latest
+
+RUN apt-get update &amp;amp;&amp;amp;\
+    apt-get install -y python-dev python-setuptools &amp;amp;&amp;amp;\
+    apt-get install -y libtiff5-dev libjpeg8-dev zlib1g-dev \
+          libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev \
+          tk8.6-dev python-tk python-pip &amp;amp;&amp;amp;\
+    pip install pillow watchdog datadog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Create a python file called &lt;code&gt;firsttest.py&lt;/code&gt; with the following contents:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;print &amp;quot;Hello Datadog Summit&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Run the following docker command to ensure that your Docker environment, including the image, is working: &lt;code&gt;docker run --name firsttest -v $(pwd):/firsttest:rw -t technovangelist/dd-summit-docker-image-manip python /firsttest/firsttest.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice what is happening here. You are running a container named firsttest. You are mounting the directory you are in to &lt;code&gt;/firsttest&lt;/code&gt; in your docker container. You are creating the container from the image located on Docker Hub called &lt;code&gt;technovangelist/dd-summit-docker-image-manip&lt;/code&gt;. When the container starts, run the Python interpreter on the &lt;code&gt;firsttest.py&lt;/code&gt; file. If you see &lt;code&gt;Hello World&lt;/code&gt;, everything is working and you were able to download the image successfully.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Stop and remove the Docker container (&lt;code&gt;docker stop firsttest;docker rm firsttest&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a new python file called timedimage.py with the following contents:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import time # for timing functions
+import sys # for CL Args
+import os.path
+from PIL import Image # for image manipulation
+from watchdog.observers import Observer # for watching the directory
+from watchdog.events import FileSystemEventHandler
+
+class Watcher:
+  DIRECTORY_TO_WATCH = sys.argv[1]
+  def __init__(self):
+    self.observer = Observer()
+    print &amp;quot;Watching %s for images&amp;quot; % self.DIRECTORY_TO_WATCH
+
+  def run(self):
+    event_handler = Handler()
+    self.observer.schedule(event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
+    self.observer.start()
+    try:
+      while True:
+        time.sleep(5)
+    except:
+      self.observer.stop()
+      print &amp;quot;Error&amp;quot;
+
+    self.observer.join()
+
+def convert_files(filepath, size):
+  filename = os.path.splitext(os.path.basename(filepath))[0]
+  outfilename = &amp;quot;%s/%s-%s.png&amp;quot; % (sys.argv[2], filename, str(size))
+  if os.path.isfile(outfilename) == False:
+    img = Image.open(filepath)
+    im = img.resize((size, size)).save(outfilename, &amp;quot;png&amp;quot;)
+    print &amp;quot;Saved %s to %s&amp;quot; % (size, outfilename)
+
+class Handler(FileSystemEventHandler):
+
+  @staticmethod
+  def on_any_event(event):
+    if event.is_directory:
+      return None
+
+    elif event.event_type == &#39;modified&#39; and event.src_path.endswith(&#39;png&#39;) == True:
+      print &amp;quot;Received modified event - %s.&amp;quot; % event.src_path
+      convert_files(event.src_path, 100)
+      convert_files(event.src_path, 500)
+      convert_files(event.src_path, 1000)
+      convert_files(event.src_path, 2000)
+      convert_files(event.src_path, 5000)
+
+if __name__ == &#39;__main__&#39;:
+  w = Watcher()
+  w.run()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This Python script uses the Watchdog library to watch a directory for new PNG files. When it sees that a file is modified, then it saves 5 copies that has been resized to different sizes.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create two directories in the same directory you created the above python file. Name them &lt;code&gt;images&lt;/code&gt; and &lt;code&gt;out&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Run the following Docker command: &lt;code&gt;docker run --name imagemanip -v $(pwd):/timedimage:rw -t technovangelist/dd-summit-docker-image-manip python /timedimage/timedimage.py /timedimage/images /timedimage/out&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice whats different here. You have named your volume differently, and you are passing two command line arguments to the python file: the images and out directories.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You should see that the container is watching the images directory. Drag and drop a png file to the images directory. Watch the container process the image. You should also see 5 new copies of the file in the out directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Now lets instrument the application and send those metrics to Datadog. Review the &lt;a href=&#34;http://docs.datadoghq.com/libraries/&#34;&gt;Libraries documentation&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add the following import statement to the top of the python script: &lt;code&gt;from datadog import statsd, initialize&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Update the convert_files function as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def convert_files(filepath, size):
+  start = time.time()
+  filename = os.path.splitext(os.path.basename(filepath))[0]
+  outfilename = &amp;quot;%s/%s-%s.png&amp;quot; % (sys.argv[2], filename, str(size))
+  if os.path.isfile(outfilename) == False:
+    img = Image.open(filepath)
+    im = img.resize((size, size)).save(outfilename, &amp;quot;png&amp;quot;)
+    print &amp;quot;Saved %s to %s&amp;quot; % (size, outfilename)
+  end = time.time()
+  elapsed = end - start
+  options = {
+    &#39;statsd_host&#39;: &#39;172.17.0.3&#39;,  
+    &#39;statsd_port&#39;: 8125
+  }
+  initialize(**options)
+  statsd.gauge(&#39;summit.fileconversion.time&#39;, elapsed)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Stop and remove the container, then run it again.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Drag and drop an image into the images directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open the Datadog application and navigate to the Metrics Summary. Filter for &lt;code&gt;summit.conversion.time&lt;/code&gt;. It may take a few seconds for the metric to show up.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a dashboard with a graph that displays this metric.&lt;/p&gt;
+
+&lt;p&gt;This is great but all the values are merged together. Let&amp;rsquo;s add some tags to get more value out of the metrics.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Update the &lt;code&gt;statsd.gauge&lt;/code&gt; line as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;statsd.gauge(&#39;summit.fileconversion.time&#39;, elapsed, 
+  tags=[&amp;quot;conversionsize:&amp;quot; + str(size), &amp;quot;conversionfile:&amp;quot; + filename])
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Stop and remove the container. Run it again.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Drag and drop a few images into the images folder.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Update your dashboard graph to avg by conversionsize. Save the graph.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Click the gear icon on the top right. Choose Edit Template Variables.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter File for Variable Name. Choose &lt;code&gt;conversionfile&lt;/code&gt; for Tag Group. Click the &lt;strong&gt;Done&lt;/strong&gt; button.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Now view the dashboard and change the File to the different file names you have converted.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,16 @@
+- name: "Install Apache on {{ group }}"
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+    - apache2
+
+- debug:
+    msg: "{{ db_private_ip }}"
+- name: "Enable mod_rewrite {{group }}"
+  apache2_module: name=rewrite state=present
+
+- name: "Enable mod status {{ group }}"
+  apache2_module: name=status state=present
+  notify:
+    - restart apache2
+
+

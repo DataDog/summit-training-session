@@ -1,0 +1,25 @@
+{{$.Scratch.Set "showCategories" false}}
+{{$.Scratch.Set "showRecents" false}}
+
+{{ partial "general-title" . }}
+
+{{ partial "header" . }}
+    {{ partial "navbar" . }}
+
+
+    <!-- Main -->
+    <div id="main">
+        <h1>Presentations</h1>
+{{ range .Data.Pages }}
+    {{if eq .Type "preso" }} 
+        <strong><a href="{{ .Permalink }}">{{.Title}}</a></strong> -
+        {{ .Description }}
+        <br><br>
+    {{end}}
+{{ end }}
+
+      
+    </div>
+
+    {{ partial "sidebar" . }}
+{{ partial "footer" . }}

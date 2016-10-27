@@ -1,0 +1,58 @@
+---
+title: "Custom Metrics"
+date: "2016-10-17T08:47:47-04:00"
+weight: 7
+description: Add Metrics to YOUR app
+---
+
+# Custom Metrics
+---
+# Two Primary Methods to get Metrics into Datadog From Your Applications
+
+## DogStatsd
+## Restful API
+
+--
+
+# DogStatsD
+
+## Python implementation of statsD metric aggregation daemon from Etsy
+## Enables Tags 
+## Sends metrics to the Forwarder 
+
+--
+
+# API
+
+## Sends metrics directly to app.datadoghq.com
+
+--
+# Which To Use?
+
+## Using the API, every metric is a separate network transmission
+* If there are many metrics being sent, this is a lot of overhead
+
+## DogStatsD 
+* batches the metrics
+* generates a histogram
+* submits that on each flush of the forwarder 
+---
+# Many libraries to choose from
+##http://docs.datadoghq.com/libraries/
+![](../../images/custommetrics/libraries.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+---
+# Python
+
+## https://github.com/DataDog/datadogpy
+## http://datadogpy.readthedocs.io/en/latest/
+--
+# Using DogStatsD
+
+    from datadog import initialize, statsd
+
+    options = {
+      'statsd_host': <ipaddress of agent>, 
+      'statsd_port': 8125
+    }
+    statsd.gauge(metricname, value, tags)
+

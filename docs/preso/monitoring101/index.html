@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Monitoring 101 - Getting Started</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.17" />
+        
+
+
+        
+
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/reveal.css">
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/theme/simple.css">
+
+<style type="text/css">
+        #wrapper {
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -moz-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        -moz-transition: opacity 0.5s ease;
+        -webkit-transition: opacity 0.5s ease;
+        -ms-transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease;
+        margin: 0 auto;
+        max-width: 100%;
+        height: 100%;
+        opacity: 1;
+        padding: 4.5em;
+        width: 100%;
+    }
+        .reveal section img {
+            border: none;
+        }
+        .reveal .slides {
+            text-align: left;
+        }
+        .reveal h1 {
+            margin-bottom: 2%;
+        }
+        .reveal h2 {
+            margin-top: 2%;
+        }.reveal li, .reveal p {
+            font-size: 150%;
+        }
+        .reveal li li {
+            margin-left: 10px;
+            font-size: 90%
+        }
+        .reveal pre {
+            font-size: 150%;
+        }
+        .hljs-params, .hljs-class .hljs-title {
+            color: grey;
+        }
+        .hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable {
+            color: #919;
+        }
+        .reveal pre code {
+            max-height: 80%;
+        }
+        .slides {
+            z-index: 10;
+        }
+        .footer {
+          position: absolute; 
+          right: 94%;
+          bottom: 1px;
+          z-index: 1;
+        }
+        .footer img {
+            width:100%;
+            right: 10px;
+            z-index: 1;
+        }
+</style>
+
+        
+        
+        
+            
+        
+
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+
+    
+<header id="header">
+    
+        <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/summit-training-session/preso/">
+                        
+                            <i class="fa fa-tv">&nbsp;</i>Presentations
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/notes/">
+                        
+                            <i class="fa fa-file-text-o">&nbsp;</i>Notes
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/handson/">
+                        
+                            <i class="fa fa-hand-stop-o">&nbsp;</i>Hands On
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/summit-training-session/preso/">
+                            <h3>
+                                
+                                    <i class="fa fa-tv">&nbsp;</i>
+                                
+                                Presentations
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/notes/">
+                            <h3>
+                                
+                                    <i class="fa fa-file-text-o">&nbsp;</i>
+                                
+                                Notes
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/handson/">
+                            <h3>
+                                
+                                    <i class="fa fa-hand-stop-o">&nbsp;</i>
+                                
+                                Hands On
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+
+
+    
+        
+</section>
+
+    
+        
+            <div class="reveal">
+                <div class="slides">
+                    <section data-markdown
+                        data-separator="^---"
+                        data-separator-vertical="^--"
+                        data-background="^background:"
+                        data-separator-notes="^Note:"
+                        data-charset="iso-8859-15">
+                        #Monitoring 101
+Note: This is a speaker note
+---
+&lt;!-- .slide: data-background-image=&#34;../../images/monitoring101/rainondash.png&#34; --&gt;
+--
+&lt;!-- .slide: data-background-image=&#34;../../images/monitoring101/splat.png&#34; --&gt;
+---
+# Collecting data is cheap
+&lt;!-- .slide: data-transition=&#34;fade-out&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Collecting data is cheap &lt;!-- .element: style=&#34;color: grey;&#34; --&gt;
+#**Not having it when you need it is expensive**
+---
+&lt;!-- .slide: data-background-image=&#34;../../images/monitoring101/blogseries.png&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
+![](../../images/monitoring101/workresourceevents-1.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
+![](../../images/monitoring101/workresourceevents-2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
+![](../../images/monitoring101/workresourceevents-3.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
+![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+![](../../images/monitoring101/pageandinvestigate.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+![](../../images/monitoring101/recurse-1.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
+![](../../images/monitoring101/recurse-2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
+![](../../images/monitoring101/recurse-3.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
+![](../../images/monitoring101/recurse-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+---
+# Examples of Metrics &lt;hr&gt;
+## Web Server
+--
+#Work Metrics
+##Page Requests per Second
+##Successful Requests
+--
+#Resource Metrics
+##CPU Utilization
+##Queue Length
+---
+# Tags All the Way Down
+![](../../images/monitoring101/awstags.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+![](../../images/monitoring101/tagexample.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+![](../../images/monitoring101/tagcube.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 79%&#34; --&gt;
+--
+# Asking Better Questions
+![](../../images/monitoring101/betterq1.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+# Asking Better Questions
+![](../../images/monitoring101/betterq2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+
+---
+# Metric Graphs 101
+## Timeseries Graphs
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Line Graphs
+![](../../images/monitoring101/linegraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+Note: Use Line Graphs for the same metric reported by diff scopes to spot outliers at a glance
+
+for tracking single metrics to see evolution over time
+
+related metrics with same units to see correlations 
+
+metrics with clear acceptable domain
+
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Stacked Area Graphs
+![](../../images/monitoring101/stackedareagraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+
+Note: Same metric from different scopes, to check both sum and contribution of each
+
+sum complementary metrics sharing the same unit
+
+If the metrics can&#39;t be added sensibly, don&#39;t use this
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Bar Graphs
+![](../../images/monitoring101/bargraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+
+Note: use this for sparse metrics to convey values without jumpy or misleading interpolation
+
+metrics that represent a count and not a gauge
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Heat Maps
+![](../../images/monitoring101/heatmap.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+
+Note: single metrics reported by a large number of groups to see trends and variations across a group
+
+But if there are few sources, not so useful
+
+---
+# Metric Graphs 101
+## Summary Graphs
+Visualizations that flatten a span
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Aggregation Across Time
+![](../../images/monitoring101/timeaggregation.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Aggregation Across Space
+![](../../images/monitoring101/spaceaggregation.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 80%&#34; --&gt;
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Single Value Summary
+![](../../images/monitoring101/singlevalue.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
+
+Note: work metrics from a given system to make them more visible
+
+critical resource metrics to provide overview at a glance
+
+error metrics to draw attention
+
+computed metric changes compared to previous value
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Top Lists
+![](../../images/monitoring101/toplists.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
+
+Note: work or resource metrics from different hosts or groups to spot outliers or overconsumers
+
+custom metrics to see kpis in a easy to read format
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Change Graphs
+![](../../images/monitoring101/changegraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 50%&#34; --&gt;
+
+Note: cyclic metrics that rise and fall seasonally, to separate trends from periodic baselines
+
+high level infra metrics to spot large scale trends
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Host Maps
+![](../../images/monitoring101/hostmaps.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
+
+Note: resource utilization to spot overloaded components at a glance
+
+id resource misallocation
+
+id degraded hosts
+
+correlation in a single graph or related metrics
+--
+&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
+#Distributions
+![](../../images/monitoring101/distributions.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
+
+Note: single metric to see general health or variations across members of a group
+
+                    </section>
+
+                    <section>
+                        <p><a href="https://datadog.github.io/summit-training-session/">Back to the Agenda</a></p>
+                        <a href="https://datadog.github.io/summit-training-session//notes/monitoring101">Notes</a> | <a href="https://datadog.github.io/summit-training-session//handson/monitoring101">Hands On Instruction</a>
+                    </section>
+                    
+                </div>
+                
+            </div>
+            <div class="footer"><img src="https://datadog.github.io/summit-training-session//images/ddlogo.png"></div>
+        
+    
+    <script type="text/javascript" src="https://datadog.github.io/summit-training-session//reveal.js/js/reveal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
+<script>Reveal.initialize({
+    width: 1920, 
+    height: 1280,  
+    margin: 0.1,
+    center: false,    
+  minScale: 0.3,
+  maxScale: 7,  
+  slideNumber: true,
+  history: true,  
+  embedded: true,  
+   dependencies: [
+        
+        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }, 
+        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/notes/notes.js', async: true },
+
+    ]
+  });</script>
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="https://datadog.github.io/summit-training-session//js/jquery.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/skel.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/util.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/main.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/backToTop.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/highlight.pack.js"></script>
+        
+        
+        
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

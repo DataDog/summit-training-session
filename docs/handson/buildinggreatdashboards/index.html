@@ -1,0 +1,435 @@
+
+
+
+
+
+
+    
+
+
+
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            <title>Building Great Dashboards - Datadog Training Site</title>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.17" />
+        
+
+
+        
+        
+            <meta name="description" content="Let&#39;s start building a set of dashboards to troubleshoot the test environment">
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Building Great Dashboards"/>
+<meta name="twitter:description" content="Let&#39;s start building a set of dashboards to troubleshoot the test environment"/>
+<meta name="twitter:site" content="@datadoghq"/>
+
+
+        <meta property="og:title" content="Building Great Dashboards" />
+<meta property="og:description" content="Let&#39;s start building a set of dashboards to troubleshoot the test environment" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Building Great Dashboards">
+<meta itemprop="description" content="Let&#39;s start building a set of dashboards to troubleshoot the test environment">
+
+
+
+<meta itemprop="wordCount" content="625">
+
+
+
+<meta itemprop="keywords" content="" />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+<style type="text/css">
+
+  #hainstruction {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.4em;
+  }
+  #webframe {
+        float: right;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: grey;
+    padding: 2px;
+  }
+
+</style>
+    
+<header id="header">
+    
+        <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/summit-training-session/preso/">
+                        
+                            <i class="fa fa-tv">&nbsp;</i>Presentations
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/notes/">
+                        
+                            <i class="fa fa-file-text-o">&nbsp;</i>Notes
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/handson/">
+                        
+                            <i class="fa fa-hand-stop-o">&nbsp;</i>Hands On
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/summit-training-session/preso/">
+                            <h3>
+                                
+                                    <i class="fa fa-tv">&nbsp;</i>
+                                
+                                Presentations
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/notes/">
+                            <h3>
+                                
+                                    <i class="fa fa-file-text-o">&nbsp;</i>
+                                
+                                Notes
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/handson/">
+                            <h3>
+                                
+                                    <i class="fa fa-hand-stop-o">&nbsp;</i>
+                                
+                                Hands On
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+
+
+    
+        
+</section>
+
+
+
+      
+    <div id="main">
+    <h1>Building Great Dashboards (Hands On Instructions)</h1>
+    
+
+<h1 id="first-dashboard">First Dashboard</h1>
+
+<ol>
+<li>From the menu, create a new dashboard.</li>
+<li>Enter the name for your first dashboard. We are going to focus on HAProxy, so you can call it <code>My First HAProxy Dash</code> or anything you like.</li>
+<li>Click the <strong>New Timeboard</strong> button to create a Timeboard.</li>
+<li>Drag and drop a timeseries widget onto the first well on the canvas. Notice that you can change the visualization at any time without having to drag another widget on the canvas.</li>
+<li>In the first textbox under <strong>Choose metrics and events</strong>, select <code>haproxy.frontend.requests.rate</code>. Notice that the textbox supports a fuzzy search so i can enter <code>hap.fe.rr</code> and get to the right metric much more quickly.</li>
+<li>We have only a single host so a line graph should be fine, but try the other display options from the <strong>Display</strong> dropdown. Play around with the different color palettes, styles, and strokes as well.</li>
+<li>The <strong>everywhere</strong> and <strong>everything</strong> textboxes don&rsquo;t have much effect on our single host, so click the plus sign to the right to see the different functions available. We will learn more about these in the next section.</li>
+<li>Now click on the <strong>Add Metric</strong> button to add another metric line to your graph. Add <code>haproxy.backend.session.rate</code>.</li>
+<li>This created a graph with two lines, but sometimes you want a graph with a single line made up of several metrics. Drag another timeseries widget to the canvas.</li>
+<li>Select <code>system.cpu.user</code> for the metric.</li>
+<li>Now click the <strong>Advanced&hellip;</strong> link on the right.</li>
+<li>Click the <strong>Add a metric to this expression</strong> button and choose <code>system.cpu.system</code>.</li>
+<li>Now type <code>a+b</code> in the <strong>Graph these queries as:</strong> textbox. You now have a single line representing the value of the two metrics combined.</li>
+<li>Continue adding graphs to represent all the <strong>Work</strong> and <strong>Resource</strong> metrics we talked about.</li>
+</ol>
+
+<p>How does your dashboard compare to the default HAProxy dashboard? Whats different?</p>
+
+<p>End of First Dashboard Section - <a href="../../preso/buildinggreatdashboards/#/6">Return to Presentation</a></p>
+
+<h1 id="apache">Apache</h1>
+
+<ol>
+<li>Create a new Timeboard.</li>
+<li>Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard</li>
+<li>Ensure that you have added both work metrics and resource metrics.</li>
+<li>Does anything seem strange?</li>
+</ol>
+
+<p>End of Apache Section - <a href="../../preso/buildinggreatdashboards/#/8">Return to Presentation</a></p>
+
+<h1 id="notebooks">Notebooks</h1>
+
+<ol>
+<li>From the menu, create a <strong>New Notebook</strong>.</li>
+<li>Choose apache metric that represents what was wrong. Adust the time period to ensure you have the problem in view. Configure the graph to ensure you are showing the problem.</li>
+<li>Click the gear icon at the top left of the current cell and choose <strong>Insert Markdown above</strong>. Describe the problem encountered.</li>
+<li>Click the <strong>insert Markdown cell at end</strong> link at the bottom. Describe the change that was made to the configuration.</li>
+<li>Add another graph cell at the end to show that Apache is running as it should.</li>
+</ol>
+
+<p>End of Notebooks Section - <a href="../../preso/buildinggreatdashboards/#/9/3">Return to Presentation</a></p>
+
+<h1 id="mysql">MySQL</h1>
+
+<ol>
+<li>Create a new Timeboard.</li>
+<li>Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard</li>
+<li>Ensure that you have added both work metrics and resource metrics.</li>
+<li>Try adding some events to some of the graphs.</li>
+<li>Now do a search at the top for another event.</li>
+</ol>
+
+<h1 id="combined-dashboard">Combined Dashboard</h1>
+
+<ol>
+<li>Create a Screenboard.</li>
+<li>Add a Text widget to the canvas and enter <code>Load Balancer</code> in the <strong>Text to display</strong> textbox.</li>
+<li>Add some of the HAProxy work metrics using any visualization you like.</li>
+<li>Repeat the last two steps for the Web Servers, choosing Apache metrics.</li>
+<li>Repeat again for the Database, choosing MySQL metrics.</li>
+<li>Arrange everything to create an attractive dashboard that tells a complete story. Whats the right timeperiod to show on this dashboard?</li>
+<li>Click on the gear icon at the top right of the dashboard and choose <strong>Generate public URL</strong>.</li>
+<li>Try the URL in a new browser window.</li>
+</ol>
+
+<p>End of Dashboards Hands On</p>
+
+    
+    <a href="https://datadog.github.io/summit-training-session//preso/buildinggreatdashboards">Presentation</a> | <a href="https://datadog.github.io/summit-training-session//notes/buildinggreatdashboards">Notes</a>
+
+    </div>
+
+<section id="sidebar">
+
+    
+        <section id="intro">
+        
+            
+            
+                
+                    <img src="https://datadog.github.io/summit-training-session/images/ddlogo.png" class="intro-circle" width="200px" alt="Datadog" />
+                
+            
+            
+                <header>
+                    <h2>Datadog Summit</h2>
+                    <p>Everything you need to follow along with the training at the Datadog Summit <i class='fa fa-hand-peace-o'></i></p>
+                </header>
+            
+   
+        </section>
+
+
+
+    
+    
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/datadog" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/datadoghq" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; Datadog Training Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+    
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="https://datadog.github.io/summit-training-session//js/jquery.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/skel.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/util.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/main.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/backToTop.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/highlight.pack.js"></script>
+        
+        
+        
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

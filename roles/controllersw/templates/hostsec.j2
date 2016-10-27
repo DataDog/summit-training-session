@@ -1,0 +1,3 @@
+{% for host in groups['tag_Server_Role_loadbalancer'] %}
+ http://{{ hostvars[host]['ansible_eth0']['ipv4']['address'] }}/ec
+{% endfor %}

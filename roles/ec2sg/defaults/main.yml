@@ -1,0 +1,3 @@
+---
+ec2_security_groups: "{{ main.security_group }}"
+region: "{{ main.region }}"

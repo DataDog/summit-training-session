@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  pre_tasks:
+    - include_vars: vars/controller.yml
+  roles:
+    - ec2sg
+    - { role: ec2instance, server_role: controller, ec2_count: 1}
+    
+

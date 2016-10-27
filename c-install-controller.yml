@@ -1,0 +1,39 @@
+---
+
+- hosts: "tag_Server_Role_loadbalancer"
+  remote_user: ubuntu
+  become: true
+  become_method: sudo
+  tasks:
+
+
+- hosts: "tag_Name_datadog_summit_controller"
+  remote_user: ubuntu
+  gather_facts: no
+  become: true
+  become_method: sudo
+  # pre_tasks:
+  #   - include_vars: vars/controller.yml
+  #   - include_vars: ../apikeyvars.yml
+  tasks:
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+# - hosts: localhost
+#   connection: local
+#   gather_facts: no
+#   tasks:
+#     - action: ec2_facts
+#       register: ec2facts 
+
+- hosts: "tag_Name_datadog_summit_controller"
+  remote_user: ubuntu
+  gather_facts: no
+  become: true
+  become_method: sudo
+  pre_tasks:
+    - include_vars: vars/controller.yml
+    - include_vars: ../apikeyvars.yml
+  roles:
+    - controllersw
+    

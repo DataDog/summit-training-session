@@ -1,0 +1,121 @@
+
+- name: Search for the latest Ubuntu AMI
+  ec2_ami_find:
+    region: "{{ region }}"
+    name: "{{ ami_name }}"
+    owner: "{{ ami_owner }}"
+    sort: name
+    sort_order: descending
+    sort_end: 1
+    no_result_action: fail
+  register: ami_find_result
+  when: ami_string is undefined
+
+- set_fact:
+    ami_string: "{{ami_find_result.results[0].ami_id}}"
+  when: ami_string is undefined
+
+- name: "Create EC2 Instance(s) for summit server: {{ server_role }}"
+  local_action:
+    module: ec2
+    group: "{{ ec2_security_group_name }}"
+    instance_type: "{{ ec2_instance_type }}"
+    image: "{{ ami_string }}"
+    region: "{{ region }}"
+    keypair: "{{ ec2_keypair }}"
+    wait: True
+    wait_timeout: 600
+    instance_tags:
+      Name: "{{ main.eventname }}-group{{ group_number }}-{{ server_role }}"
+      Event: "{{ main.eventname }}"
+      Server_Role: "{{ server_role }}"
+      Group: "{{ group_number }}"
+      owner: matt
+    volumes:
+      - device_name: /dev/sda1
+        volume_type: gp2
+        volume_size: "{{ ec2_volume_size }}"
+        delete_on_termination: yes
+    count_tag:
+      Event: "{{ main.eventname }}"
+      Group: "{{ group_number }}"
+      Name: "{{ main.eventname }}-group{{ group_number }}-{{ server_role }}"
+      Server_Role: "{{ server_role }}"
+      owner: matt
+    exact_count: "{{ ec2_count }}"
+  register: ec2_info
+  when: summittype=="server"
+
+- set_fact:
+    ec2_instances: "{{ ec2_info['tagged_instances'] }}"
+
+- name: "Create EC2 Instance(s) for controller"
+  when: summittype=="controller"
+  local_action:
+    module: ec2
+    group: "{{ ec2_security_group_name }}"
+    instance_type: "{{ ec2_instance_type }}"
+    image: "{{ ami_string }}"
+    region: "{{ region }}"
+    keypair: "{{ ec2_keypair }}"
+    wait: True
+    wait_timeout: 600
+    instance_tags:
+      Name: "{{ main.eventname }}-controller"
+      Event: "{{ main.eventname }}"
+      Server_Role: "{{ server_role }}"
+      owner: matt
+    volumes:
+      - device_name: /dev/sda1
+        volume_type: gp2
+        volume_size: "{{ ec2_volume_size }}"
+        delete_on_termination: yes
+    count_tag:
+      Event: "{{ main.eventname }}"
+      Name: "{{ main.eventname }}-controller"
+      Server_Role: "{{ server_role }}"
+      owner: matt
+    exact_count: "{{ ec2_count }}"
+  register: controller_info
+
+- name: set controller instance fact
+  when: summittype=="controller"
+  set_fact:
+    controller_instances: "{{ controller_info['instances'] }}"
+
+- name: "Adding hosts to group{{ group_number }}-{{ server_role }}"
+  when: summittype=="server"
+  add_host: name={{ item }} groups="group{{ group_number }}-{{ server_role }}"
+  with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}"
+
+- name: "Adding hosts to tag_Name_datadog_summit_group{{ group }}_{{ server_role }}"
+  when: summittype=="server"
+  add_host: name={{ item }} groups="tag_Name_datadog_summit_group{{ group }}_{{ server_role }}"
+  with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}"
+
+- name: "Adding hosts to group{{ group_number }}"
+  when: summittype=="server"
+  add_host: name={{ item }} groups="group{{ group_number }}"
+  with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}"
+
+- set_fact:
+    instances_id_list: "{{ ec2_info.instance_ids }}"
+  when: summittype=="server"
+
+- name: Wait for SSH to come up on EC2 Instance(s)
+  when: (ec2_info.changed and summittype == "server")
+  wait_for:
+    host: "{{ item }}" 
+    port: 22 
+    state: started
+    delay: 10
+  with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}" 
+
+- name: Wait for SSH to come up on EC2 Instance(s)
+  when: controller_info.changed and summittype=="controller"  
+  wait_for:
+    host: "{{ item }}" 
+    port: 22 
+    state: started
+    delay: 10
+  with_items: "{{ controller_instances | get_ec2_info('public_ip') }}" 

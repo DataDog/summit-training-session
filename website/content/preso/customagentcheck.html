@@ -1,0 +1,93 @@
+---
+title: "Building a Custom Agent Check"
+date: "2016-10-17T08:47:05-04:00"
+weight: 5
+description: Start monitoring something new
+---
+
+# Building a Custom Agent Check
+
+---
+# Agent Architecture
+
+## Four components
+### Collector
+### Forwarder
+### DogstatsD
+### SupervisorD
+--
+# The Collector
+## Runs every 15 seconds
+## Runs each enabled integration check
+## Also runs any custom agent checks
+--
+# The Forwarder
+## Forwards collected metrics to Datadog
+## Stores metrics collected in case of network disruption
+--
+# DogStatsD
+## Python implementation of StatsD (Etsy)
+## Implements tags
+--
+# SupervisorD
+## Runs master process
+## Forks all subprocesses as the user **dd-agent**
+---
+# Running Checks
+## Every 15 seconds Collector collects
+## Official integrations
+## Custom Checks
+--
+# Custom Checks
+
+## Checks have both a Python check and YAML configuration
+--
+# Custom Checks
+## Checks in `/etc/dd-agent/checks.d`
+## Configurations in `/etc/dd-agent/conf.d`
+
+ **On Linux, see http://docs.datadoghq.com/guides/agent_checks/#directory for other platforms.*
+ 
+--
+# Example Configuration
+
+```
+init_config:
+  min_collection_interval: 20
+  key1: val1
+  key2: val2
+instances:
+  - username: jon_smith
+    password: 1234
+
+  - username: jane_smith
+    password: 5678
+```
+--
+# Checks
+## Inherit from **AgentCheck**
+## Require a `check(self, instance)` method 
+--
+# Simple Check 
+```
+from checks import AgentCheck
+class HelloCheck(AgentCheck):
+    def check(self, instance):
+        self.gauge('hello.world', 1)
+```
+---
+# Datadog Metric Types
+## Gauge
+## Rate
+## Count
+--
+# Gauge
+* Record any value
+* If not updated, uses previous value
+--
+# Rate
+* Count per unit of time
+--
+# Count
+* Quantity
+

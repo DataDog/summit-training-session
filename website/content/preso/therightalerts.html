@@ -1,0 +1,107 @@
++++
+title = "The Right Alerts"
+date = "2016-10-17T08:46:22-04:00"
+weight = 4
+description = "When is the right time to alert someone?"
++++
+# Creating the Right Alerts
+---
+# Two Rules for Effective Alerting
+1.  Alert liberally; page judiciously
+1.  Page on symptoms, rather than causes
+--
+# What does that mean?
+* Create lots of alerts for everything. 
+* Alerts become the living history of your infrastructure
+* But only notify people about the **Work Metrics** going awry
+---
+# Paged Alerts Should Always Be Easily Actionable
+## Alerts should be:
+* Grokkable at 3AM, drunk, with one eye closed
+* Filled with all the info you need
+  *     Including who to wake up if you have trouble
+* Consumable by the non-experts
+---
+# Levels of Alerting Urgency
+## Alerts as Records (low severity)
+Use to document the system. Helpful when trying to troubleshoot later.
+## Alerts as Notifications (moderate severity)
+These are things that require intervention, but not right away
+## Alerts as Pages (high severity)
+Wake the right people up and address it immediately!
+---
+# How to Determine the Right Level of Urgency?
+## Is the issue real?
+Don't notify on things that shouldn't be important, like:
+* Test environments
+* System down during planned upgrade
+--
+# How to Determine the Right Level of Urgency?
+## Does the issue require attention?
+* If you can automate a response, do it
+* The costs of calling someone away from work/sleep/personal time is significant. Avoid if you can.
+* If it's **real** and **require's attention**, notify and let the engineer prioritize.
+--
+# How to Determine the Right Level of Urgency?
+## Is the issue urgent?
+* IIF the issue is **real** AND **require's attention** AND is **urgent**, generate a page.
+---
+# Page on Symptoms
+## **Work metrics** not Resource metrics
+![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+---
+<br><br><br>
+# ...except when its an early warning...
+---
+# Early Warning Signs 
+Also page on the early warning signs that come before really bad things:
+* If you are about to run out of disk
+* If you are about to hit a quota limit
+* etc.
+---
+# How To Build an Alert
+## https://app.datadoghq.com/monitors#/create
+![](../../images/therightalerts/createmonitor.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Seven Types
+
+* **Host** - notify on the status of the agent heartbeat
+* **Metric** - metrics collected by agent or API can trigger alerts
+* **Integration** - same as metrics above, applied to specific integrations
+* **Process** - check if a process is running or not
+* **Network Service** - check if a network endpoint is active or not
+* **Custom Check** - run a custom script and alert on the results
+* **Event** - trigger alerts if the quantity of events goes over a threshold
+* **Outlier** - detect when a member of a group is different than the rest
+--
+# Define the Metric
+![](../../images/therightalerts/definemetric.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Set the conditions
+![](../../images/therightalerts/setconditions.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Preview What the Monitor Sees
+![](../../images/therightalerts/monitorview.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Enter a Message
+![](../../images/therightalerts/say.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Make it Dynamic
+![](../../images/therightalerts/makeitdynamic.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Choose Who To Notify
+![](../../images/therightalerts/notify.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+---
+# View the Triggered Monitors
+https://app.datadoghq.com/monitors#triggered
+![](../../images/therightalerts/triggered.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Click on One
+![](../../images/therightalerts/click.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Schedule Downtime
+![](../../images/therightalerts/downtime.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+
+
+
+

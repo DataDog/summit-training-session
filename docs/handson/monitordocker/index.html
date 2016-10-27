@@ -1,0 +1,406 @@
+
+
+
+
+
+
+    
+
+
+
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            <title>Monitoring Docker - Datadog Training Site</title>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.17" />
+        
+
+
+        
+        
+            <meta name="description" content="Add Docker to the Monitoring mix">
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Monitoring Docker"/>
+<meta name="twitter:description" content="Add Docker to the Monitoring mix"/>
+<meta name="twitter:site" content="@datadoghq"/>
+
+
+        <meta property="og:title" content="Monitoring Docker" />
+<meta property="og:description" content="Add Docker to the Monitoring mix" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/monitordocker/" />
+
+
+<meta property="og:updated_time" content="2016-10-17T08:47:25-04:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Monitoring Docker">
+<meta itemprop="description" content="Add Docker to the Monitoring mix">
+
+
+<meta itemprop="dateModified" content="2016-10-17T08:47:25-04:00" />
+<meta itemprop="wordCount" content="464">
+
+
+
+<meta itemprop="keywords" content="" />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+<style type="text/css">
+
+  #hainstruction {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.4em;
+  }
+  #webframe {
+        float: right;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: grey;
+    padding: 2px;
+  }
+
+</style>
+    
+<header id="header">
+    
+        <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/summit-training-session/preso/">
+                        
+                            <i class="fa fa-tv">&nbsp;</i>Presentations
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/notes/">
+                        
+                            <i class="fa fa-file-text-o">&nbsp;</i>Notes
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/handson/">
+                        
+                            <i class="fa fa-hand-stop-o">&nbsp;</i>Hands On
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/summit-training-session/preso/">
+                            <h3>
+                                
+                                    <i class="fa fa-tv">&nbsp;</i>
+                                
+                                Presentations
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/notes/">
+                            <h3>
+                                
+                                    <i class="fa fa-file-text-o">&nbsp;</i>
+                                
+                                Notes
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/handson/">
+                            <h3>
+                                
+                                    <i class="fa fa-hand-stop-o">&nbsp;</i>
+                                
+                                Hands On
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+
+
+    
+        
+</section>
+
+
+
+      
+    <div id="main">
+    <h1>Monitoring Docker (Hands On Instructions)</h1>
+    <p>This exercise requires Docker to be installed somewhere. You could do this on your laptop, on the Vagrant box you created earlier, or on any machine you can remotely access. If installing for the first time on your laptop, see <a href="https://www.docker.com/products/overview">https://www.docker.com/products/overview</a> for links to the installers for your platform.</p>
+
+<ol>
+<li>Navigate to the Agent Installation page in the Datadog application (<a href="https://app.datadoghq.com/account/settings#agent/docker">https://app.datadoghq.com/account/settings#agent/docker</a>).</li>
+<li>Select <strong>Docker</strong> and copy the first command. Run it where ever you have Docker installed.</li>
+<li>You now have the Datadog agent running on your Docker machine.</li>
+<li>Run <code>docker exec -it dd-agent bash</code> to login to a bash shell on that container.</li>
+<li>You can now run any of the Datadog commands you have on Linux. For instance, run <code>/etc/init.d/datadog-agent info</code>.</li>
+<li>You can try other commands, or type <code>exit</code> to return to your host machine.</li>
+<li>Run the Redis docker image (Find out more about this image on <a href="https://hub.docker.com/_/redis/">https://hub.docker.com/_/redis/</a>) using the command: <code>docker run --name dd-redis -d redis</code>. The Redis docker container is now running.</li>
+</ol>
+
+<p>Although Datadog and Redis are running in Docker, the agent is not collecting any metrics about the Redis server. To enable an integration, like Redis, we need to add the configuration file to the container.</p>
+
+<ol>
+<li>Stop the Agent container and then delete it using the following commands: <code>docker stop dd-agent;docker rm dd-agent</code></li>
+<li>Create a new directory called <code>dd-conf</code>.</li>
+<li>Add a file named <code>redisdb.yaml</code> to that directory. Add the contents of <strong>redisdb.yaml.example</strong> at <a href="https://github.com/DataDog/dd-agent/tree/master/conf.d">https://github.com/DataDog/dd-agent/tree/master/conf.d</a> to that file</li>
+
+<li><p>Run the following command from the parent of <strong>dd-conf</strong> (replacing your api key and full path name of your dd-conf directory in the appropriate spot):</p>
+
+<pre><code>docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -v {full path name}dd-conf:/conf.d:ro \
+  -e API_KEY={your_api_key_here} \
+  datadog/docker-dd-agent
+</code></pre></li>
+
+<li><p>To verify that the agent is collecting Redis metrics, run: <code>docker exec -it dd-agent /etc/init.d/datadog-agent info</code></p></li>
+</ol>
+
+<p>Unless you are already a Docker expert and caught the potential problem, you should see an error here connecting to Redis. You are connecting to Redis on the localhost, but you need to enter the IP address of the Docker container.</p>
+
+<ol>
+<li>Run <code>docker network inspect bridge</code> to find the <strong>IPv4Address</strong> of the <strong>dd-redis</strong> container.<br /></li>
+<li>Replace <strong>localhost</strong> with the IP Address you just found in <strong>dd-conf/redisdb.yaml</strong>.</li>
+<li>Stop and delete the container (<code>docker stop dd-agent; docker rm dd-agent</code>) then run the <code>docker run</code> command again.</li>
+<li>Run <code>docker exec -it dd-agent /etc/init.d/datadog-agent info</code> to see if the agent is collecting Redis metrics. If you don&rsquo;t see any checks running, give it a few seconds to start and try the command again.</li>
+</ol>
+
+<p>Once you have the Redis container running, choose another local integration from the <a href="http://docs.datadoghq.com/integrations/">Integration documentation</a>. Start the container using an image found on the <a href="https://hub.docker.com/">Docker Hub</a> and create a configuration. At the end of this session, lets talk about how you did it.</p>
+
+    
+    <a href="https://datadog.github.io/summit-training-session//preso/monitordocker">Presentation</a> | <a href="https://datadog.github.io/summit-training-session//notes/monitordocker">Notes</a>
+
+    </div>
+
+<section id="sidebar">
+
+    
+        <section id="intro">
+        
+            
+            
+                
+                    <img src="https://datadog.github.io/summit-training-session/images/ddlogo.png" class="intro-circle" width="200px" alt="Datadog" />
+                
+            
+            
+                <header>
+                    <h2>Datadog Summit</h2>
+                    <p>Everything you need to follow along with the training at the Datadog Summit <i class='fa fa-hand-peace-o'></i></p>
+                </header>
+            
+   
+        </section>
+
+
+
+    
+    
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/datadog" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/datadoghq" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; Datadog Training Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+    
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="https://datadog.github.io/summit-training-session//js/jquery.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/skel.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/util.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/main.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/backToTop.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/highlight.pack.js"></script>
+        
+        
+        
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

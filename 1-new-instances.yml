@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  pre_tasks:
+    - include_vars: vars/main.yml
+  roles:
+    - ec2sg
+    - { role: ec2instance, server_role: loadbalancer, ec2_count: "{{ main.lb_count }}"}
+    - { role: ec2instance, server_role: web, ec2_count: "{{ main.web_count }}", ec2_instance_type: "t2.medium" }
+    - { role: ec2instance, server_role: db, ec2_count: "{{ main.db_count }}", ec2_instance_type: "t2.medium" }
+  
+

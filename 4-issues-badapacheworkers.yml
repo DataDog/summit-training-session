@@ -1,0 +1,24 @@
+- hosts: messedupapaches
+  remote_user: ubuntu
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Delete mpm_prefork
+      file: { state: absent, path: /etc/apache2/mods-enabled/mpm_prefork.conf }
+    - name: Copy bad mpm_prefork
+      copy: src=badmpm_prefork.conf dest=/etc/apache2/mods-enabled/mpm_prefork.conf owner=root
+
+    # - name: badStartServers
+    #   lineinfile: dest=/etc/apache2/mods-enabled/mpm_prefork.conf regexp='StartServers' line='StartServers   100\nMaxClients 10\nMaxRequestsPerChild 10'
+
+    # - name: MinSpareServers
+    #   lineinfile: dest=/etc/apache2/mods-enabled/mpm_prefork.conf regexp='MinSpareServers' line='MinSpareServers   1'
+
+    # - name: MaxSpareServers
+    #   lineinfile: dest=/etc/apache2/mods-enabled/mpm_prefork.conf regexp='MaxSpareServers' line='MaxSpareServers   1'
+
+    # - name: badMaxRequestWorkers
+    #   lineinfile: dest=/etc/apache2/mods-enabled/mpm_prefork.conf regexp='MaxRequestWorkers' line='MaxRequestWorkers   1'
+
+    - name: restart apache2
+      service: name=apache2 state=restarted

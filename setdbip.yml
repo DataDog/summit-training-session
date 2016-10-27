@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+#   tasks:
+#     - include_vars: vars/main.yml
+
+# - hosts: localhost
+  # remote_user: ubuntu
+  # gather_facts: no
+  # become: true
+  # become_method: sudo
+  pre_tasks:
+    - include_vars: vars/main.yml
+
+  tasks:
+    - action: ec2_facts
+      register: ec2facts 
+    # - debug: var=ec2facts
+
+- hosts: "tag_Name_datadog_summit_group{{ group }}_web"
+  remote_user: ubuntu
+  become: true
+  gather_facts: no
+  become_method: sudo
+  pre_tasks:
+    - include_vars: vars/main.yml
+
+  tasks:
+
+    - debug: 
+        msg: "{{ db_private_ip }}"
+        # msg: "{{ hostvars[groups['tag_Name_datadog_summit_group'+group_number+'_db'][0]].ec2_private_ip_address }}"

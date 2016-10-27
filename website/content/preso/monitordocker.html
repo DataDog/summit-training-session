@@ -1,0 +1,127 @@
+---
+title: "Monitoring Docker"
+date: "2016-10-17T08:47:14-04:00"
+weight: 6
+description: Add Docker to the Monitoring mix
+---
+
+# Monitoring Docker
+---
+# Why Use Docker
+
+* Rapid application deployment
+* Portability across machines
+* Version control and component reuse
+* Sharing
+* Lightweight footprint and minimal overhead
+* Simplified maintenance
+
+*Source: Redhat Docs*
+--
+# Docker Architecture
+![](../../images/monitordocker/architecture.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+# Docker Hub
+![](../../images/monitordocker/hub1.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+# Docker Hub
+![](../../images/monitordocker/hub2.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+# Docker Hub
+![](../../images/monitordocker/hub3.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+---
+# Docker commands
+```
+docker run ...
+docker ps 
+docker logs ...
+docker stop ...
+docker rm ...
+docker network ...
+```
+---
+# Understanding the Datadog Agent Docker command
+
+```
+docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=<api_key> \
+  datadog/docker-dd-agent:latest
+```
+<br>
+## **docker run**: Run a container
+--
+# Understanding the Datadog Agent Docker command
+
+```
+docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=<api_key> \
+  datadog/docker-dd-agent:latest
+```
+<br>
+## **-d**: As a daemon
+--
+# Understanding the Datadog Agent Docker command
+
+```
+docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=<api_key> \
+  datadog/docker-dd-agent:latest
+```
+<br>
+##  **--name dd-agent**: Name the container `dd-agent`
+--
+# Understanding the Datadog Agent Docker command
+
+```
+docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=<api_key> \
+  datadog/docker-dd-agent:latest
+```
+<br>
+## **-v &lt;host directory>:&lt;docker directory>** mount the host directory in this directory on the container
+--
+# Understanding the Datadog Agent Docker command
+
+```
+docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=<api_key> \
+  datadog/docker-dd-agent:latest
+```
+<br>
+## **-e API_KEY=&lt;api_key>** Pass a string as an environment variable
+--
+# Understanding the Datadog Agent Docker command
+
+```
+docker run -d --name dd-agent \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=<api_key> \
+  datadog/docker-dd-agent:latest
+```
+<br>
+## **org/imagename:label** Find an image on DockerHub created by this org. Use the version of the image with this label.
+---
+# Ways of running Docker
+
+## `docker run` is fun for this session but doesn't scale well
+
+## `docker-compose` orchestrates multiple containers
+## `swarm` deals with docker clusters
+## kubernetes, ec2, and other solutions exist

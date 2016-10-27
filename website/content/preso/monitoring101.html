@@ -1,0 +1,173 @@
+---
+description: Learn about the fundamentals of monitoring
+title: Monitoring 101 - Getting Started
+type: preso
+weight: 1
+---
+#Monitoring 101
+Note: This is a speaker note
+---
+<!-- .slide: data-background-image="../../images/monitoring101/rainondash.png" -->
+--
+<!-- .slide: data-background-image="../../images/monitoring101/splat.png" -->
+---
+# Collecting data is cheap
+<!-- .slide: data-transition="fade-out" -->
+--
+<!-- .slide: data-transition="fade-in" -->
+#Collecting data is cheap <!-- .element: style="color: grey;" -->
+#**Not having it when you need it is expensive**
+---
+<!-- .slide: data-background-image="../../images/monitoring101/blogseries.png" -->
+--
+<!-- .slide: data-transition="none" -->
+![](../../images/monitoring101/workresourceevents-1.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="none" -->
+![](../../images/monitoring101/workresourceevents-2.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="none" -->
+![](../../images/monitoring101/workresourceevents-3.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="none" -->
+![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="fade-in" -->
+![](../../images/monitoring101/pageandinvestigate.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="fade-in" -->
+![](../../images/monitoring101/recurse-1.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="none" -->
+![](../../images/monitoring101/recurse-2.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="none" -->
+![](../../images/monitoring101/recurse-3.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="none" -->
+![](../../images/monitoring101/recurse-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+---
+# Examples of Metrics <hr>
+## Web Server
+--
+#Work Metrics
+##Page Requests per Second
+##Successful Requests
+--
+#Resource Metrics
+##CPU Utilization
+##Queue Length
+---
+# Tags All the Way Down
+![](../../images/monitoring101/awstags.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+![](../../images/monitoring101/tagexample.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+![](../../images/monitoring101/tagcube.png)<!-- .element: style="background: none; box-shadow: none; width: 79%" -->
+--
+# Asking Better Questions
+![](../../images/monitoring101/betterq1.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+# Asking Better Questions
+![](../../images/monitoring101/betterq2.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+
+---
+# Metric Graphs 101
+## Timeseries Graphs
+--
+<!-- .slide: data-transition="fade-in" -->
+#Line Graphs
+![](../../images/monitoring101/linegraphs.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+Note: Use Line Graphs for the same metric reported by diff scopes to spot outliers at a glance
+
+for tracking single metrics to see evolution over time
+
+related metrics with same units to see correlations 
+
+metrics with clear acceptable domain
+
+--
+<!-- .slide: data-transition="fade-in" -->
+#Stacked Area Graphs
+![](../../images/monitoring101/stackedareagraphs.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+
+Note: Same metric from different scopes, to check both sum and contribution of each
+
+sum complementary metrics sharing the same unit
+
+If the metrics can't be added sensibly, don't use this
+--
+<!-- .slide: data-transition="fade-in" -->
+#Bar Graphs
+![](../../images/monitoring101/bargraphs.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+
+Note: use this for sparse metrics to convey values without jumpy or misleading interpolation
+
+metrics that represent a count and not a gauge
+--
+<!-- .slide: data-transition="fade-in" -->
+#Heat Maps
+![](../../images/monitoring101/heatmap.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+
+Note: single metrics reported by a large number of groups to see trends and variations across a group
+
+But if there are few sources, not so useful
+
+---
+# Metric Graphs 101
+## Summary Graphs
+Visualizations that flatten a span
+--
+<!-- .slide: data-transition="fade-in" -->
+#Aggregation Across Time
+![](../../images/monitoring101/timeaggregation.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+--
+<!-- .slide: data-transition="fade-in" -->
+#Aggregation Across Space
+![](../../images/monitoring101/spaceaggregation.png)<!-- .element: style="background: none; box-shadow: none; width: 80%" -->
+--
+<!-- .slide: data-transition="fade-in" -->
+#Single Value Summary
+![](../../images/monitoring101/singlevalue.png)<!-- .element: style="background: none; box-shadow: none; width: 70%" -->
+
+Note: work metrics from a given system to make them more visible
+
+critical resource metrics to provide overview at a glance
+
+error metrics to draw attention
+
+computed metric changes compared to previous value
+--
+<!-- .slide: data-transition="fade-in" -->
+#Top Lists
+![](../../images/monitoring101/toplists.png)<!-- .element: style="background: none; box-shadow: none; width: 70%" -->
+
+Note: work or resource metrics from different hosts or groups to spot outliers or overconsumers
+
+custom metrics to see kpis in a easy to read format
+--
+<!-- .slide: data-transition="fade-in" -->
+#Change Graphs
+![](../../images/monitoring101/changegraphs.png)<!-- .element: style="background: none; box-shadow: none; width: 50%" -->
+
+Note: cyclic metrics that rise and fall seasonally, to separate trends from periodic baselines
+
+high level infra metrics to spot large scale trends
+--
+<!-- .slide: data-transition="fade-in" -->
+#Host Maps
+![](../../images/monitoring101/hostmaps.png)<!-- .element: style="background: none; box-shadow: none; width: 70%" -->
+
+Note: resource utilization to spot overloaded components at a glance
+
+id resource misallocation
+
+id degraded hosts
+
+correlation in a single graph or related metrics
+--
+<!-- .slide: data-transition="fade-in" -->
+#Distributions
+![](../../images/monitoring101/distributions.png)<!-- .element: style="background: none; box-shadow: none; width: 70%" -->
+
+Note: single metric to see general health or variations across members of a group

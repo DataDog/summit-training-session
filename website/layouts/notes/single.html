@@ -1,0 +1,19 @@
+{{$.Scratch.Set "showCategories" false}}
+{{$.Scratch.Set "showRecents" false}}
+
+{{ partial "general-title" . }}
+
+{{ partial "header" . }}
+    {{ partial "navbar" . }}
+
+
+    <!-- Main -->
+    <div id="main">
+    <h1>{{ .Title }} (Notes)</h1>
+    {{ .Content }}
+    <a href="{{ .Site.BaseURL }}/preso/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Presentation</a> | <a href="{{ .Site.BaseURL }}/handson/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Hands On Instruction</a>
+
+    </div>
+
+    {{ partial "sidebar" . }}
+{{ partial "footer" . }}

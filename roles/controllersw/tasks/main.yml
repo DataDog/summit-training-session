@@ -1,0 +1,20 @@
+
+- name: Install sw
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+    - apache2-utils
+    - golang-go
+
+- template: src=templates/hosts.j2 dest=/home/ubuntu/hosts
+- template: src=templates/hostsec.j2 dest=/home/ubuntu/echosts
+- get_url: url="http://download.joedog.org/siege/siege-latest.tar.gz" dest=/home/ubuntu/siege.tar.gz
+- unarchive: src="/home/ubuntu/siege.tar.gz" dest="/home/ubuntu/" copy=no
+- shell: ls -d */
+  register: siegedir
+- shell: ./configure;make;make install 
+  args:
+    chdir: "{{ item }}"
+  with_items: siegedir.stdout_lines
+
+
+

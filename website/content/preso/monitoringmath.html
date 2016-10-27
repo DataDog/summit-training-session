@@ -1,0 +1,187 @@
+---
+description: See how a few functions can enhance the value of your graphs
+title: Monitoring Math 
+type: preso
+weight: 3
+---
+# Monitoring Math
+Getting more out of your graphs
+---
+#Metric Aggregation
+--
+# Timeseries Data
+* Metrics are stored as timeseries based on combinations of the metric name and tag combinations
+* Queries require an aggregation function (sum, min, max, avg) to aggregate over timeseries matching the query
+* Aggregation is applied at each point on the graph, bringing multiple timeseries value into one point on the graph
+--
+# Aggregation Example
+* Start with a basic query “sum:system.disk.used{host:oracle-xe}”
+* Disk metrics are tagged by disk using the “device” tag, with an individual timeseries created on each host for every device reported
+
+![](../../images/monitoringmath/aggexample.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# Aggregation Example
+
+* Using “by {device}” break the graph down to show one stacked are per disk
+* Sum from previous graph is now broken down by individual disks making up the previous aggregate
+
+![](../../images/monitoringmath/aggexample2.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+---
+#Functions
+--
+# Function Types
+* Interpolation
+* Timeshift
+* Rate
+* Count
+* Smoothing
+* Time Aggregation
+* Ranking
+* Algorithm
+---
+# Interpolation - .fill()
+
+* Not meant to fill in empty spaces, but to align multiple series together
+* Helpful for aggregation and arithmetic across multiple sources
+* Available options include linear interpolation or inserting 0’s or the most recent value
+* More on this in our KBs: http://dtdg.co/kb-fill 
+---
+# Timeshift
+## Helpful for comparing metrics with previously reported values
+--
+# hour_before()
+![](../../images/monitoringmath/hour_before.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# day_before()
+![](../../images/monitoringmath/day_before.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+--
+# week_before()
+![](../../images/monitoringmath/week_before.png)
+--
+# month_before()
+![](../../images/monitoringmath/month_before.png)
+---
+# Rate
+## Compare metric values with their previous value
+--
+# per_second()
+Compare the metric with the previous value, returning difference in value divided by the difference in time
+![](../../images/monitoringmath/rate_per_second.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+
+--
+# per_minute()
+Compare the metric with the previous value, returning difference in value divided by the difference in time
+
+![](../../images/monitoringmath/rate_per_minute.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+Note: 60 * the per_second() value
+--
+# per_hour()  Rate 
+Compare the metric with the previous value, returning difference in value divided by the difference in time
+![](../../images/monitoringmath/rate_per_hour.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+
+Note: 3600 * the per_second() value
+--
+# dt()
+![](../../images/monitoringmath/dt.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+Note: Time in seconds between the current and previous points
+--
+# diff()
+![](../../images/monitoringmath/diff.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+Note: The difference in value between the current and previous points
+--
+# derivative()
+![](../../images/monitoringmath/derivative.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+
+Note: 1st order derivative function applied to the graph: diff() / dt()
+---
+# Count
+## Keep track of the number of values reported in your graphs
+--
+# count_nonzero()
+![](../../images/monitoringmath/count_nonzero.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+Note: Current track of all non-zero values graphed at a given moment in time
+--
+# count_not_null()
+![](../../images/monitoringmath/count_not_null.png)<!-- .element: style="background: none; box-shadow: none; width : 100%" -->
+Note: Current track of all non-null values graphed at a given moment in time
+---
+# Smoothing
+## Even out the values on your graph
+--
+# ewma_3()
+![](../../images/monitoringmath/ewma_3.png)
+Note: Exponentially weighted moving average spanning 3 points (previous, current, next)
+--
+# ewma_5()
+![](../../images/monitoringmath/ewma_5.png)
+Note: Exponentially weighted moving average spanning 5 points
+--
+# ewma_10()
+![](../../images/monitoringmath/ewma_10.png)
+Note: Exponentially weighted moving average spanning 10 points
+--
+# ewma_20()
+![](../../images/monitoringmath/ewma_20.png)
+Note: Exponentially weighted moving average spanning 20 points
+--
+# median_3()
+![](../../images/monitoringmath/median_3.png)
+Note: Median value spanning 3 points (median of the previous, current, and next point)
+--
+# median_5()
+![](../../images/monitoringmath/median_5.png)
+Note: Median value spanning 5 points
+--
+# median_7()
+![](../../images/monitoringmath/median_7.png)
+Note: Median value spanning 7 points
+--
+# median_9()
+![](../../images/monitoringmath/median_9.png)
+Note: Median value spanning 9 points
+---
+# Time Aggregation
+## Smooth out your graphs by aggregating timeseries data
+--
+# .rollup($method, $time)
+* Apply aggregation $method to multiple values over $time in seconds
+* Available methods: sum, min, max, avg
+* Allows overriding the default rollup function used for smoothing graphs over larger timeframes
+* Various methods available can allow preservation of spikes/dips in graphs
+* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth 
+---
+# Ranking
+## Avoid clutter by viewing only the most relevant timeseries
+--
+# top()
+Avoid clutter by viewing only the most relevant timeseries
+![](../../images/monitoringmath/top.png)
+Note: * Select the top series responsive to a given query, according to a provided ranking method
+* Parameters for the top function include 
+  * metric query itself
+  * the number of series you’d like returned
+  * a ranking function (one of 'max', 'min', 'last', 'l2norm', or 'area')
+  * sort order (either 'desc' for descending order or 'asc' for ascending order)
+--
+# top_offset()
+Avoid clutter by viewing only the most relevant timeseries
+
+![](../../images/monitoringmath/topoffset.png)
+
+Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts. 
+
+For example, an offset of 2 would start graphing at the number 3 ranked series, according to the chosen ranking metric.
+---
+# Algorithm
+## Analyze your metrics compared to concurrent or previous metric data
+--
+#outliers()
+* Compare timeseries values with each other
+* Highlights individual timeseries based on ones that deviate too far from the norm at a given moment in time
+* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect  
+--
+#anomalies()
+* Beta functionality to compare historic metric data
+* Allows comparison of the current value with norms calculated across previous timeframes
+* Can alert on anomalous spikes/dips in metric values based on deviation from this norm
+

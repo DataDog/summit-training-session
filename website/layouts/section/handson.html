@@ -1,0 +1,25 @@
+{{$.Scratch.Set "showCategories" false}}
+{{$.Scratch.Set "showRecents" false}}
+
+{{ partial "general-title" . }}
+
+{{ partial "header" . }}
+    {{ partial "navbar" . }}
+
+
+    <!-- Main -->
+    <div id="main">
+        <h1>Hands On Instructions</h1>
+{{ range .Data.Pages }}
+    {{if eq .Type "handson" }} 
+        <strong><a href="{{ .Permalink }}">{{.Title}}</a></strong> <i>({{ .Params.duration }})</i> -
+        {{ .Description }}
+        <br><br> 
+    {{end}}
+{{ end }}
+
+      
+    </div>
+
+    {{ partial "sidebar" . }}
+{{ partial "footer" . }}

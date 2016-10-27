@@ -1,0 +1,10 @@
+- name: restart apache2
+  service: name=apache2 state=restarted
+
+- name: restart haproxy
+  service: name=haproxy state=restarted
+
+- name: Restart MySQL
+  service:
+    name: mysql
+    state: restarted

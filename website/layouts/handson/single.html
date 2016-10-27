@@ -1,0 +1,38 @@
+{{$.Scratch.Set "showCategories" false}}
+{{$.Scratch.Set "showRecents" false}}
+
+{{ partial "general-title" . }}
+
+{{ partial "header" . }}
+<style type="text/css">
+
+  #hainstruction {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.4em;
+  }
+  #webframe {
+        float: right;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: grey;
+    padding: 2px;
+  }
+
+</style>
+    {{ partial "navbar" . }}
+
+
+      <!-- Main -->
+    <div id="main">
+    <h1>{{ .Title }} (Hands On Instructions)</h1>
+    {{ .Content }}
+    
+    <a href="{{ .Site.BaseURL }}/preso/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Presentation</a> | <a href="{{ .Site.BaseURL }}/notes/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Notes</a>
+
+    </div>
+{{ partial "sidebar" .}}    
+{{ partial "footer" . }}

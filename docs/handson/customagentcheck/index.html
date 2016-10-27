@@ -1,0 +1,455 @@
+
+
+
+
+
+
+    
+
+
+
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            <title>Building a Custom Agent Check - Datadog Training Site</title>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.17" />
+        
+
+
+        
+        
+            <meta name="description" content="Start monitoring something new">
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Building a Custom Agent Check"/>
+<meta name="twitter:description" content="Start monitoring something new"/>
+<meta name="twitter:site" content="@datadoghq"/>
+
+
+        <meta property="og:title" content="Building a Custom Agent Check" />
+<meta property="og:description" content="Start monitoring something new" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/customagentcheck/" />
+
+
+<meta property="og:updated_time" content="2016-10-17T08:46:50-04:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Building a Custom Agent Check">
+<meta itemprop="description" content="Start monitoring something new">
+
+
+<meta itemprop="dateModified" content="2016-10-17T08:46:50-04:00" />
+<meta itemprop="wordCount" content="422">
+
+
+
+<meta itemprop="keywords" content="" />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+        
+
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+<style type="text/css">
+
+  #hainstruction {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.4em;
+  }
+  #webframe {
+        float: right;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: grey;
+    padding: 2px;
+  }
+
+</style>
+    
+<header id="header">
+    
+        <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/summit-training-session/preso/">
+                        
+                            <i class="fa fa-tv">&nbsp;</i>Presentations
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/notes/">
+                        
+                            <i class="fa fa-file-text-o">&nbsp;</i>Notes
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/summit-training-session/handson/">
+                        
+                            <i class="fa fa-hand-stop-o">&nbsp;</i>Hands On
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:https://datadog.github.io/summit-training-session/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/summit-training-session/preso/">
+                            <h3>
+                                
+                                    <i class="fa fa-tv">&nbsp;</i>
+                                
+                                Presentations
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/notes/">
+                            <h3>
+                                
+                                    <i class="fa fa-file-text-o">&nbsp;</i>
+                                
+                                Notes
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/summit-training-session/handson/">
+                            <h3>
+                                
+                                    <i class="fa fa-hand-stop-o">&nbsp;</i>
+                                
+                                Hands On
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+
+
+    
+        
+</section>
+
+
+
+      
+    <div id="main">
+    <h1>Building a Custom Agent Check (Hands On Instructions)</h1>
+    <p>In this example we will create a metric that records a value generated by a custom application. The value generated is a count of the widgets created since the last request. The purpose of the exercise is to see how to submit a metric to Datadog.</p>
+
+<p>So far, we have only used remote machines that you do not have direct access to. For this exercise we need to run a new agent. You can either install the agent on your local laptop, or install to a vagrant machine.</p>
+
+<p>If you want to use Vagrant (and have Vagrant and VirtualBox installed), create a new directory and run the following command:</p>
+
+<p><code>vagrant init ubuntu/trusty64; vagrant up --provider virtualbox;vagrant ssh</code></p>
+
+<ol>
+<li>Go to the Agent installation page (<a href="https://app.datadoghq.com/account/settings#agent">https://app.datadoghq.com/account/settings#agent</a>) and select the operating system you are using.</li>
+<li>Copy the command and execute it in your shell.</li>
+<li>Change to the <code>conf.d</code> directory on your system. On the vagrant machine, the directory is <code>/etc/dd-agent/conf.d</code>. To find it for other operating systems, review <a href="http://docs.datadoghq.com/guides/agent_checks/#directory">the documentation</a></li>
+<li>Create a new config file for your new agent check. Name the file <code>checkvalue.yaml</code>.</li>
+
+<li><p>Edit the file to include the following:</p>
+
+<pre><code>init_config:
+
+instances:
+  [{}]
+</code></pre></li>
+
+<li><p>Create a new check file in the checks.d directory. Name the file <code>checkvalue.py</code>.</p></li>
+
+<li><p>Edit the file to include the following:</p>
+
+<pre><code class="language-python">from checks import AgentCheck
+class HelloCheck(AgentCheck):
+  def check(self, instance):
+    self.gauge('hello.world', 1)
+</code></pre></li>
+
+<li><p>Restart the agent. On the vagrant machine, run the following command: <code>sudo /etc/init.d/datadog-agent restart</code></p></li>
+
+<li><p>Within a minute, you should see a new metric show up in the Metric Summary called <code>hello.world</code>.</p></li>
+</ol>
+
+<p>Now lets expand the script to be something a bit more useful.</p>
+
+<ol>
+<li><p>Replace the code in <code>checkvalue.py</code> with the following (replacing the value of lburl with the address of your loadbalancer:</p>
+
+<pre><code class="language-python">import urllib2
+import simplejson
+from checks import AgentCheck
+
+class CheckValue(AgentCheck):
+  def check(self, instance):
+
+    lburl = 1.2.3.4
+
+    response = urllib2.urlopen(&quot;http://&quot; + lburl + &quot;/rest&quot;)
+    data = simplejson.load(response)
+
+    self.gauge('coreapp.update.value', data[&quot;value&quot;])
+</code></pre></li>
+
+<li><p>Restart the agent. Now run the info command. On the vagrant machine, the command is <code>sudo /etc/init.d/datadog-agent info</code>.</p></li>
+
+<li><p>If you have any issues with the agent, you can debug using the following command: <code>sudo -u dd-agent dd-agent check checkvalue</code></p></li>
+</ol>
+
+<p>Now let&rsquo;s make the configuration file a bit more useful.</p>
+
+<ol>
+<li><p>Update the <code>checkvalue.yaml</code> file as follows (replacing the <code>ipaddress</code> with your loadbalancer&rsquo;s ip address):</p>
+
+<pre><code>init_config:
+
+instances:
+  - ipaddress: 1.2.3.4
+</code></pre></li>
+
+<li><p>Update the <code>checkvalue.py</code> file to be as follows:</p>
+
+<pre><code class="language-python">import urllib2
+import simplejson
+from checks import AgentCheck
+
+class CheckValue(AgentCheck):
+  def check(self, instance):
+
+    lburl = instance['ipaddress']
+
+    response = urllib2.urlopen(&quot;http://&quot; + lburl + &quot;/rest&quot;)
+    data = simplejson.load(response)
+
+    self.gauge('coreapp.update.value', data[&quot;value&quot;])
+</code></pre></li>
+
+<li><p>Create a dashboard for this metric.</p></li>
+</ol>
+
+    
+    <a href="https://datadog.github.io/summit-training-session//preso/customagentcheck">Presentation</a> | <a href="https://datadog.github.io/summit-training-session//notes/customagentcheck">Notes</a>
+
+    </div>
+
+<section id="sidebar">
+
+    
+        <section id="intro">
+        
+            
+            
+                
+                    <img src="https://datadog.github.io/summit-training-session/images/ddlogo.png" class="intro-circle" width="200px" alt="Datadog" />
+                
+            
+            
+                <header>
+                    <h2>Datadog Summit</h2>
+                    <p>Everything you need to follow along with the training at the Datadog Summit <i class='fa fa-hand-peace-o'></i></p>
+                </header>
+            
+   
+        </section>
+
+
+
+    
+    
+    
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/datadog" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/datadoghq" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; Datadog Training Site. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+    
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="https://datadog.github.io/summit-training-session//js/jquery.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/skel.min.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/util.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/main.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/backToTop.js"></script>
+            <script src="https://datadog.github.io/summit-training-session//js/highlight.pack.js"></script>
+        
+        
+        
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

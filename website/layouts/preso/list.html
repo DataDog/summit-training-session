@@ -1,0 +1,24 @@
+{{$.Scratch.Set "showCategories" false}}
+{{$.Scratch.Set "showRecents" false}}
+
+{{ partial "general-title" . }}
+
+{{ partial "header" . }}
+    {{ partial "navbar" . }}
+
+
+    <!-- Main -->
+    <div id="main">
+        
+{{ range .Data.Pages }}
+    {{if eq .Type "homepage" }} 
+        <h1>{{.Title}}</h1>
+        {{.Content}}
+    {{end}}
+{{ end }}
+
+      
+    </div>
+
+    {{ partial "sidebar" . }}
+{{ partial "footer" . }}

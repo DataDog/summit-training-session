@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/</loc>
+    <lastmod>2016-10-14T16:27:42-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/</loc>
+    <lastmod>2016-10-14T16:27:42-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/handson/monitoring101/</loc>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/notes/monitoring101/</loc>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/preso/monitoring101/</loc>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/notes/buildinggreatdashboards/</loc>
+    <lastmod>2016-10-17T08:46:04-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/</loc>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/preso/buildinggreatdashboards/</loc>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/notes/monitoringmath/</loc>
+    <lastmod>2016-10-17T08:44:38-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/preso/monitoringmath/</loc>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/handson/therightalerts/</loc>
+    <lastmod>2016-10-17T08:46:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/preso/therightalerts/</loc>
+    <lastmod>2016-10-17T08:46:22-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/notes/therightalerts/</loc>
+    <lastmod>2016-10-17T08:46:17-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/preso/customagentcheck/</loc>
+    <lastmod>2016-10-17T08:47:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/notes/customagentcheck/</loc>
+    <lastmod>2016-10-17T08:46:59-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/handson/customagentcheck/</loc>
+    <lastmod>2016-10-17T08:46:50-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/handson/monitordocker/</loc>
+    <lastmod>2016-10-17T08:47:25-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/notes/monitordocker/</loc>
+    <lastmod>2016-10-17T08:47:20-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/preso/monitordocker/</loc>
+    <lastmod>2016-10-17T08:47:14-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/preso/custommetrics/</loc>
+    <lastmod>2016-10-17T08:47:47-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/notes/custommetrics/</loc>
+    <lastmod>2016-10-17T08:47:41-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/handson/custommetrics/</loc>
+    <lastmod>2016-10-17T08:47:36-04:00</lastmod>
+  </url>
+  
+</urlset>
