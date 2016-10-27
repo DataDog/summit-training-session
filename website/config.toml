@@ -81,6 +81,12 @@ paginate = 3
     identifier = "fa fa-hand-stop-o"
     weight = 3
 
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    identifier = "fa fa-question-circle"
+    weight = 4
+
 # Insert your username and the icon will apear on the page as long as
 # socialAppearAtTop or socialAppearAtBottom is set to true in the params area
 # The social media icons will appear on the sidebar
