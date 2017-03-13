@@ -1,12 +1,13 @@
 
 main:
   instance_type: m3.large
-  security_group: 
+  security_group:
     - name: "summit-controller"
       description: "Security group for Datadog Summit Training Session Controller"
   # image: ami-2ef48339
   region: us-west-1
   keypair: datadog-demo-west1
-  eventname: "datadog-summit"
+  eventname: "sfsummit"
   ami_name: "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"
-summittype: controller
+summittype: "controller"
+controller: true

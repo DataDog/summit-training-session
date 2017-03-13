@@ -13,7 +13,7 @@ This training will cover four main topics (plus three others if we have time):
 [Presentation][7] | [Notes][8] | [Hands On Instructions][9]
 ### Monitoring Math
 *Learn about the functions that will provide additional value to your graphs* <br>
-[Presentation][4] | [Notes][5] 
+[Presentation][4] | [Notes][5] | [Hands On Instructions][6]
 
 
 ### Creating the Right Alerts

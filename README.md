@@ -1,4 +1,4 @@
-This repo is all the content used for the Hands-On Training. 
+This repo is all the content used for the Hands-On Training.
 
 To see the site used in the training, visit https://datadog.github.io/summit-training-session/
 
@@ -15,7 +15,7 @@ To get started with ansible, first create a file called `apikeyvars.yml` in the 
             "2": "secondgroupapikey"
             "3": "thirdgroupapikey"
 
-Next, go to vars/main.yml and update the different variables to what you  need. 
+Next, go to vars/main.yml and update the different variables to what you  need.
 
 Now you should be able to run the scripts (you do have ansible installed, right?)
 
@@ -37,7 +37,7 @@ The group variable tells it which group to create. So if you want to create 2 gr
 
 Now you should have 5 machines ready to go. Run this command to install the applications and the agents:
 
-        ansible-playbook -i inventory 2-install-instances.yml --extra-vars "group=1"
+        ansible-playbook -i inventory 2-install-instances.yml --extra-vars "group=1 eventname=sfsummit"
 
 Now haproxy, apache, and mysql should be ready to go. Run this command to install the app that apache runs:
 
@@ -45,6 +45,6 @@ Now haproxy, apache, and mysql should be ready to go. Run this command to instal
 
 And finally use 4-issues-badapacheworkers.yml and 5-issues-badapacheworkers-opt1.yml to see a bad config added to one of the apache servers in each group. To get that to work you have to create a group in your inventory/hosts file pointing to one 'bad' apache server in each group. Also, you don't need the extra-vars arg for these.
 
-The 1-new-instances with set up a AWS Security Group that allows only you to ssh in. Running 0-updatesg.yml will update all the security groups in case you have a new external ip address. 
+The 1-new-instances with set up a AWS Security Group that allows only you to ssh in. Running 0-updatesg.yml will update all the security groups in case you have a new external ip address.
 
 Hopefelly that answers all questions, but if you have more, you can reach me at mattw@datadoghq.com or on Twitter, I am @technovangelist

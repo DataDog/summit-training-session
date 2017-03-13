@@ -3,7 +3,7 @@ global
   maxconn 2000
   user haproxy
   group haproxy
-  
+
 defaults
   log     global
   mode    http
@@ -14,8 +14,8 @@ defaults
   timeout connect 5000
   timeout client 10000
   timeout server 10000
-  
-  
+
+
 listen summitdemo 0.0.0.0:80
   mode    http
   stats   enable
@@ -24,7 +24,7 @@ listen summitdemo 0.0.0.0:80
   balance roundrobin
   option  httpclose
   option  forwardfor
-  {% for host in groups["tag_Name_datadog_summit_group"+group+"_web"] %}
+  {% for host in groups["tag_Name_" + eventname + "_group"+group+"_web"] %}
   server {{hostvars[host]['ansible_nodename']}} {{hostvars[host]['ansible_eth0']['ipv4']['address']}}:80 check
   {% endfor %}
 

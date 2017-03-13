@@ -3,7 +3,7 @@ global
   maxconn 2000
   user haproxy
   group haproxy
-  
+
 defaults
   log     global
   mode    http
@@ -20,7 +20,7 @@ backend roundrobin
   mode http
   option  httpclose
   option  forwardfor
- {% for host in groups["tag_Name_datadog_summit_group"+group+"_web"] %}
+ {% for host in groups["tag_Name_" + eventname + "_group"+group+"_web"] %}
   server {{hostvars[host]['ansible_nodename']}} {{hostvars[host]['ansible_eth0']['ipv4']['address']}}:80 check
   {% endfor %}
 
@@ -29,7 +29,7 @@ backend leastconn
   mode http
   option  httpclose
   option  forwardfor
-  {% for host in groups["tag_Name_datadog_summit_group"+group+"_web"] %}
+  {% for host in groups["tag_Name_" + eventname + "_group"+group+"_web"] %}
   server {{hostvars[host]['ansible_nodename']}} {{hostvars[host]['ansible_eth0']['ipv4']['address']}}:80 check
   {% endfor %}
 
@@ -40,7 +40,7 @@ frontend summitdemo
   acl rr path_beg /rr
   use_backend roundrobin if rr
   acl lc path_beg /lc
-  use_backend leastconn if lc 
+  use_backend leastconn if lc
   http-request redirect code 301 location http://%[hdr(host)]%[url,regsub(^/rr,/,)] if { path_beg /rr }
   http-request redirect code 301 location http://%[hdr(host)]%[url,regsub(^/lc,/,)] if { path_beg /lc }
   default_backend roundrobin

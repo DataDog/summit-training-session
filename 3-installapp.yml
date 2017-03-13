@@ -6,7 +6,7 @@
   tasks:
     - include_vars: vars/main.yml
 
-- hosts: "tag_Name_datadog_summit_group{{ group }}_web"
+- hosts: "tag_Name_{{ eventname }}_group{{ group }}_web"
   remote_user: ubuntu
   gather_facts: no
   become: true

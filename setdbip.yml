@@ -16,10 +16,10 @@
 
   tasks:
     - action: ec2_facts
-      register: ec2facts 
+      register: ec2facts
     # - debug: var=ec2facts
 
-- hosts: "tag_Name_datadog_summit_group{{ group }}_web"
+- hosts: "tag_Name_{{eventname}}_group{{ group }}_web"
   remote_user: ubuntu
   become: true
   gather_facts: no
@@ -29,6 +29,6 @@
 
   tasks:
 
-    - debug: 
+    - debug:
         msg: "{{ db_private_ip }}"
-        # msg: "{{ hostvars[groups['tag_Name_datadog_summit_group'+group_number+'_db'][0]].ec2_private_ip_address }}"
+        # msg: "{{ hostvars[groups['tag_Name_{{eventname}}_group'+group_number+'_db'][0]].ec2_private_ip_address }}"

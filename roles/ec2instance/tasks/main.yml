@@ -46,8 +46,15 @@
   register: ec2_info
   when: summittype=="server"
 
-- set_fact:
+- name: set ec2instance fact for servers
+  set_fact:
     ec2_instances: "{{ ec2_info['tagged_instances'] }}"
+  when: summittype=="server"
+
+- name: set controller fact for servers
+  set_fact:
+    controller_instances: []
+  when: summittype=="server"
 
 - name: "Create EC2 Instance(s) for controller"
   when: summittype=="controller"
@@ -78,19 +85,27 @@
     exact_count: "{{ ec2_count }}"
   register: controller_info
 
-- name: set controller instance fact
+- debug:
+    msg: "summittype = {{summittype}}"
+
+- name: set controller instance fact for controllers
   when: summittype=="controller"
   set_fact:
     controller_instances: "{{ controller_info['instances'] }}"
 
-- name: "Adding hosts to group{{ group_number }}-{{ server_role }}"
-  when: summittype=="server"
+- name: set ec2instance fact for controllers
+  set_fact:
+    ec2_instances: []
+  when: summittype=="controller"
+
+- name: "xAdding hosts to group{{ group_number }}-{{ server_role }}"
+  when: summittype == 'server'
   add_host: name={{ item }} groups="group{{ group_number }}-{{ server_role }}"
   with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}"
 
-- name: "Adding hosts to tag_Name_datadog_summit_group{{ group }}_{{ server_role }}"
+- name: "Adding hosts to tag_Name_{{eventname}}_group{{ group }}_{{ server_role }}"
   when: summittype=="server"
-  add_host: name={{ item }} groups="tag_Name_datadog_summit_group{{ group }}_{{ server_role }}"
+  add_host: name={{ item }} groups="tag_Name_{{eventname}}_group{{ group }}_{{ server_role }}"
   with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}"
 
 - name: "Adding hosts to group{{ group_number }}"
@@ -105,17 +120,17 @@
 - name: Wait for SSH to come up on EC2 Instance(s)
   when: (ec2_info.changed and summittype == "server")
   wait_for:
-    host: "{{ item }}" 
-    port: 22 
+    host: "{{ item }}"
+    port: 22
     state: started
     delay: 10
-  with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}" 
+  with_items: "{{ ec2_instances | get_ec2_info('public_ip') }}"
 
 - name: Wait for SSH to come up on EC2 Instance(s)
-  when: controller_info.changed and summittype=="controller"  
+  when: controller_info.changed and summittype=="controller"
   wait_for:
-    host: "{{ item }}" 
-    port: 22 
+    host: "{{ item }}"
+    port: 22
     state: started
     delay: 10
-  with_items: "{{ controller_instances | get_ec2_info('public_ip') }}" 
+  with_items: "{{ controller_instances | get_ec2_info('public_ip') }}"
