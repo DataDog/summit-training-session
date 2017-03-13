@@ -5,7 +5,7 @@
         <title>Monitoring Math</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.17" />
+        <meta name="generator" content="Hugo 0.19" />
         
 
 
@@ -260,6 +260,7 @@ Getting more out of your graphs
 #Functions
 --
 # Function Types
+* Arithmetic
 * Interpolation
 * Timeshift
 * Rate
@@ -269,12 +270,22 @@ Getting more out of your graphs
 * Ranking
 * Algorithm
 ---
+# Arithmetic
+## Absolute Value
+* Always displays the absolute value of the metric.
+
+## Log2/Log10
+* The occasional spike may skew the scale of a graph. Log will smooth out the spike while not eliminating them.
+
+## Cumulative Sum / Integral
+* Adds each value shown on the graph cumulatively.
+---
 # Interpolation - .fill()
 
 * Not meant to fill in empty spaces, but to align multiple series together
 * Helpful for aggregation and arithmetic across multiple sources
 * Available options include linear interpolation or inserting 0’s or the most recent value
-* More on this in our KBs: http://dtdg.co/kb-fill 
+* More on this in our KBs: http://dtdg.co/kb-fill
 ---
 # Timeshift
 ## Helpful for comparing metrics with previously reported values
@@ -305,7 +316,7 @@ Compare the metric with the previous value, returning difference in value divide
 ![](../../images/monitoringmath/rate_per_minute.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: 60 * the per_second() value
 --
-# per_hour()  Rate 
+# per_hour()  Rate
 Compare the metric with the previous value, returning difference in value divided by the difference in time
 ![](../../images/monitoringmath/rate_per_hour.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 
@@ -378,7 +389,7 @@ Note: Median value spanning 9 points
 * Available methods: sum, min, max, avg
 * Allows overriding the default rollup function used for smoothing graphs over larger timeframes
 * Various methods available can allow preservation of spikes/dips in graphs
-* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth 
+* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth
 ---
 # Ranking
 ## Avoid clutter by viewing only the most relevant timeseries
@@ -387,7 +398,7 @@ Note: Median value spanning 9 points
 Avoid clutter by viewing only the most relevant timeseries
 ![](../../images/monitoringmath/top.png)
 Note: * Select the top series responsive to a given query, according to a provided ranking method
-* Parameters for the top function include 
+* Parameters for the top function include
   * metric query itself
   * the number of series you’d like returned
   * a ranking function (one of &#39;max&#39;, &#39;min&#39;, &#39;last&#39;, &#39;l2norm&#39;, or &#39;area&#39;)
@@ -398,7 +409,7 @@ Avoid clutter by viewing only the most relevant timeseries
 
 ![](../../images/monitoringmath/topoffset.png)
 
-Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts. 
+Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts.
 
 For example, an offset of 2 would start graphing at the number 3 ranked series, according to the chosen ranking metric.
 ---
@@ -408,7 +419,7 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
 #outliers()
 * Compare timeseries values with each other
 * Highlights individual timeseries based on ones that deviate too far from the norm at a given moment in time
-* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect  
+* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect
 --
 #anomalies()
 * Beta functionality to compare historic metric data

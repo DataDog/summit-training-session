@@ -19,7 +19,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.17" />
+        <meta name="generator" content="Hugo 0.19" />
         
 
 
@@ -34,15 +34,18 @@
 
 
 
+<meta name="twitter:text:title" content="Monitoring 101"/>
 <meta name="twitter:title" content="Monitoring 101"/>
 <meta name="twitter:description" content="Get started working with metrics and graphs"/>
 <meta name="twitter:site" content="@datadoghq"/>
-
 
         <meta property="og:title" content="Monitoring 101" />
 <meta property="og:description" content="Get started working with metrics and graphs" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/monitoring101/" />
+
+
+
 
 
 
@@ -62,7 +65,7 @@
 
 
 
-<meta itemprop="wordCount" content="335">
+<meta itemprop="wordCount" content="410">
 
 
 
@@ -249,7 +252,9 @@
       
     <div id="main">
     <h1>Monitoring 101 (Hands On Instructions)</h1>
-    <p>Everyone should get login information for a Datadog account they can use for this session. If you haven&rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.</p>
+    
+
+<p>Everyone should get login information for a Datadog account they can use for this session. If you haven&rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.</p>
 
 <ol>
 <li>Login to your Demo Datadog Account. <em>Note: Use this demo even if you have the credentials for your company&rsquo;s account since it has been setup to collect data from the demo environment</em></li>
@@ -271,6 +276,15 @@ This filters down the metrics available to just the ones with <strong>haproxy</s
 <li>Which graphs work well for this metric with 3 hosts? Take a look at the instructor&rsquo;s dashboard to see how this is different for all of your hosts on one dashboard.</li>
 <li>Navigate to the Host Map. Click on one of the webservers running <strong>apache</strong>.</li>
 <li>Notice the tags assigned to the host.</li>
+</ol>
+
+<h2 id="questions">Questions</h2>
+
+<ol>
+<li>In this hands-on exercise, you created a heat map. Was it interesting? How could it be more interesting?</li>
+<li>What is the width in pixels for each graph? How many data points are shown in that space? Does this change for the different sizes on the graph? How about as you zoom in and out.</li>
+<li>How do you adjust how data is aggregated over time?</li>
+<li>How do you adjust how data is aggregated over space?</li>
 </ol>
 
 <a target="_blank" href="http://twitter.com/?status=I%27m%20getting%20up%20to%20speed%20on%20Monitoring%20101%20in%20Datadog - Follow along here: https%3a%2f%2fdatadog.github.io%2fsummit-training-session%2fhandson%2fmonitoring101%2f" >Tweet your status</a><br>
