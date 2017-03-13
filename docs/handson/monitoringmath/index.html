@@ -14,7 +14,7 @@
 <html>
     <head>
         
-            <title>Presos - Datadog Training Site</title>
+            <title>Monitoring Math - Datadog Training Site</title>
         
 
         <meta charset="utf-8" />
@@ -25,20 +25,30 @@
 
         
         
-            
-                <meta name="description" content="Datadog Customer Summit Training Site">
-            
+            <meta name="description" content="Learn about the functions that provide additional value to your graphs">
         
 
         
-        <meta property="og:title" content="Presos" />
-<meta property="og:description" content="Datadog Customer Summit Training Site" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://datadog.github.io/summit-training-session/preso/" />
+
+  <meta name="twitter:card" content="summary"/>
 
 
 
-<meta property="og:updated_time" content="2016-10-17T08:46:22-04:00"/>
+<meta name="twitter:text:title" content="Monitoring Math"/>
+<meta name="twitter:title" content="Monitoring Math"/>
+<meta name="twitter:description" content="Learn about the functions that provide additional value to your graphs"/>
+<meta name="twitter:site" content="@datadoghq"/>
+
+        <meta property="og:title" content="Monitoring Math" />
+<meta property="og:description" content="Learn about the functions that provide additional value to your graphs" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/monitoringmath/" />
+
+
+
+
+
+
 
 
 
@@ -50,9 +60,16 @@
 
 
         
-<meta itemprop="name" content="Presos">
-<meta itemprop="description" content="Datadog Customer Summit Training Site">
+<meta itemprop="name" content="Monitoring Math">
+<meta itemprop="description" content="Learn about the functions that provide additional value to your graphs">
 
+
+
+<meta itemprop="wordCount" content="270">
+
+
+
+<meta itemprop="keywords" content="" />
 
         
 
@@ -86,6 +103,25 @@
         
         <div id="wrapper">
 
+<style type="text/css">
+
+  #hainstruction {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 0.4em;
+  }
+  #webframe {
+        float: right;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: grey;
+    padding: 2px;
+  }
+
+</style>
     
 <header id="header">
     
@@ -213,57 +249,40 @@
 
 
 
-    
-    <div id="main">
-        <h1>Presentations</h1>
-
-     
-        <strong><a href="https://datadog.github.io/summit-training-session/preso/monitoring101/">Monitoring 101 - Getting Started</a></strong> -
-        Learn about the fundamentals of monitoring
-        <br><br>
-    
-
-     
-        <strong><a href="https://datadog.github.io/summit-training-session/preso/buildinggreatdashboards/">Building Great Dashboards</a></strong> -
-        Assemble your graphs into comprehensive dashboards
-        <br><br>
-    
-
-     
-        <strong><a href="https://datadog.github.io/summit-training-session/preso/monitoringmath/">Monitoring Math</a></strong> -
-        See how a few functions can enhance the value of your graphs
-        <br><br>
-    
-
-     
-        <strong><a href="https://datadog.github.io/summit-training-session/preso/therightalerts/">The Right Alerts</a></strong> -
-        When is the right time to alert someone?
-        <br><br>
-    
-
-     
-        <strong><a href="https://datadog.github.io/summit-training-session/preso/customagentcheck/">Building a Custom Agent Check</a></strong> -
-        Start monitoring something new
-        <br><br>
-    
-
-     
-        <strong><a href="https://datadog.github.io/summit-training-session/preso/monitordocker/">Monitoring Docker</a></strong> -
-        Add Docker to the Monitoring mix
-        <br><br>
-    
-
-     
-        <strong><a href="https://datadog.github.io/summit-training-session/preso/custommetrics/">Custom Metrics</a></strong> -
-        Add Metrics to YOUR app
-        <br><br>
-    
-
-
       
+    <div id="main">
+    <h1>Monitoring Math (Hands On Instructions)</h1>
+    
+
+<ol>
+<li>Create a new Timeboard</li>
+<li>Add a timeseries graph. Choose any metric; the default <code>system.load.1</code> will work just fine.</li>
+<li>Click the Add Metric button and add the same metric.</li>
+<li>Click the plus sign to the right of the metric query for the second metric. Hover over each of the choices to see what&rsquo;s available.</li>
+<li>Select Day Before from the Timeshift section. Notice there are now two lines on the graph. Click <strong>Save</strong>.</li>
+<li>Change the time window for the current dashboard to <code>The Past Week</code>. Notice that the lines show the same values separated by a day.</li>
+<li>Edit the graph you just created. Delete the second metric.</li>
+<li>Click the Advanced link on the first metric.</li>
+<li>Click the <strong>Add a metric to this expression</strong> button. Select the same metric and choose Day Before again in the Math Functions dialog.</li>
+<li>Change the math function from <code>a ; b</code> to <code>a - b</code>. Notice that the values are sometimes negative.</li>
+<li>Change the math function again to <code>abs( a - b )</code>. Click <strong>Save</strong>.</li>
+<li>Add a new graph with the same metric you used before. Click the Plus sign and choose Anomalies. Hover over the graph and select different values for bounds to see what changes.</li>
+<li>Change the anomaly aggregation method to each of the options. How does the graph change?</li>
+<li>Add another metric to the graph. If the metric was added with the anomaly function attached, remove it.</li>
+<li>Add a Robust Trend line to this second metric. Try out the other two trend lines to see the difference.</li>
+</ol>
+
+<h2 id="questions">Questions</h2>
+
+<ol>
+<li>Above you worked with anomalies. Why do you think I didn&rsquo;t have you work with outliers?</li>
+</ol>
+
+    
+    <a href="https://datadog.github.io/summit-training-session//preso/monitoringmath">Presentation</a> | <a href="https://datadog.github.io/summit-training-session//notes/monitoringmath">Notes</a>
+
     </div>
 
-    
 <section id="sidebar">
 
     
@@ -296,9 +315,6 @@
     
         <section id="footer">
             <ul class="icons">
-                
-                    <li><a href="https://datadog.github.io/summit-training-session/preso/index.xml" type="application/rss+xml"
-                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
                 
                 
                     
@@ -364,7 +380,7 @@
         </section>
 
 </section>
-
+    
             </div>
         <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
         

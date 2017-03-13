@@ -6,75 +6,8 @@
     <description>Recent content on Datadog Training Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Oct 2016 16:27:42 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 17 Oct 2016 08:46:04 -0400</lastBuildDate>
     <atom:link href="https://datadog.github.io/summit-training-session/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>About the site</title>
-      <link>https://datadog.github.io/summit-training-session/about/</link>
-      <pubDate>Fri, 14 Oct 2016 16:27:42 -0400</pubDate>
-      
-      <guid>https://datadog.github.io/summit-training-session/about/</guid>
-      <description>&lt;p&gt;This site was created for the First Annual Datadog Customer Summit in NYC on October 26, 2016. We had about 40 people in the room and it was very successful.&lt;/p&gt;
-
-&lt;p&gt;The site is built using Hugo (&lt;a href=&#34;http://gohugo.io&#34;&gt;http://gohugo.io&lt;/a&gt;) and Reveal.js (&lt;a href=&#34;http://lab.hakim.se/reveal-js/#/&#34;&gt;http://lab.hakim.se/reveal-js/#/&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;To see the source for this site, visit &lt;a href=&#34;https://github.com/DataDog/summit-training-session&#34;&gt;https://github.com/DataDog/summit-training-session&lt;/a&gt; and go to the website directory.&lt;/p&gt;
-
-&lt;p&gt;To rebuild, run &lt;code&gt;hugo&lt;/code&gt; from that directory and it should build /docs. Github.com then publishes whatever is in the docs directory to the GithubPages.&lt;/p&gt;
-
-&lt;p&gt;To build out the environment used in the first 4 sections of the training, review the readme in the repo.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Agenda</title>
-      <link>https://datadog.github.io/summit-training-session/</link>
-      <pubDate>Fri, 14 Oct 2016 16:27:42 -0400</pubDate>
-      
-      <guid>https://datadog.github.io/summit-training-session/</guid>
-      <description>
-
-&lt;p&gt;This training will cover four main topics (plus three others if we have time):&lt;/p&gt;
-
-&lt;h3 id=&#34;monitoring-101&#34;&gt;Monitoring 101&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;What metrics do I need to monitor&lt;/em&gt;&lt;br&gt;
-&lt;a href=&#34;preso/monitoring101&#34;&gt;Presentation&lt;/a&gt; | &lt;a href=&#34;notes/monitoring101&#34;&gt;Notes&lt;/a&gt; | &lt;a href=&#34;handson/monitoring101&#34;&gt;Hands On Instructions&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;building-great-dashboards&#34;&gt;Building Great Dashboards&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Start building the dashboards that will help you discover the issues of your environment&lt;/em&gt; &lt;br&gt;
-&lt;a href=&#34;preso/buildinggreatdashboards&#34;&gt;Presentation&lt;/a&gt; | &lt;a href=&#34;notes/buildinggreatdashboards&#34;&gt;Notes&lt;/a&gt; | &lt;a href=&#34;handson/buildinggreatdashboards&#34;&gt;Hands On Instructions&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;monitoring-math&#34;&gt;Monitoring Math&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Learn about the functions that will provide additional value to your graphs&lt;/em&gt; &lt;br&gt;
-&lt;a href=&#34;preso/monitoringmath&#34;&gt;Presentation&lt;/a&gt; | &lt;a href=&#34;notes/monitoringmath&#34;&gt;Notes&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;creating-the-right-alerts&#34;&gt;Creating the Right Alerts&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Get notified for the right things and sleep peacefully through everything else&lt;/em&gt; &lt;br&gt;
-&lt;a href=&#34;preso/therightalerts&#34;&gt;Presentation&lt;/a&gt; | &lt;a href=&#34;notes/therightalerts&#34;&gt;Notes&lt;/a&gt; | &lt;a href=&#34;handson/therightalerts&#34;&gt;Hands On Instructions&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;If we have time&amp;hellip;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;building-a-custom-agent-check&#34;&gt;Building a Custom Agent Check&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Monitor something we don&amp;rsquo;t have an integration for&lt;/em&gt;&lt;br&gt;
-&lt;a href=&#34;preso/customagentcheck&#34;&gt;Presentation&lt;/a&gt; | &lt;a href=&#34;notes/customagentcheck&#34;&gt;Notes&lt;/a&gt; | &lt;a href=&#34;handson/customagentcheck&#34;&gt;Hands On Instructions&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;monitoring-docker&#34;&gt;Monitoring Docker&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;How is monitoring different for containers&lt;/em&gt;&lt;br&gt;
-&lt;a href=&#34;preso/monitordocker&#34;&gt;Presentation&lt;/a&gt; | &lt;a href=&#34;notes/monitordocker&#34;&gt;Notes&lt;/a&gt; | &lt;a href=&#34;handson/monitordocker&#34;&gt;Hands On Instructions&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;custom-metrics&#34;&gt;Custom Metrics&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Have an application? Monitor it!&lt;/em&gt;&lt;br&gt;
-&lt;a href=&#34;preso/custommetrics&#34;&gt;Presentation&lt;/a&gt; | &lt;a href=&#34;notes/custommetrics&#34;&gt;Notes&lt;/a&gt; | &lt;a href=&#34;handson/custommetrics&#34;&gt;Hands On Instructions&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>Monitoring 101</title>
@@ -82,7 +15,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/monitoring101/</guid>
-      <description>&lt;p&gt;Everyone should get login information for a Datadog account they can use for this session. If you haven&amp;rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Everyone should get login information for a Datadog account they can use for this session. If you haven&amp;rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Login to your Demo Datadog Account. &lt;em&gt;Note: Use this demo even if you have the credentials for your company&amp;rsquo;s account since it has been setup to collect data from the demo environment&lt;/em&gt;&lt;/li&gt;
@@ -104,6 +39,15 @@ This filters down the metrics available to just the ones with &lt;strong&gt;hapr
 &lt;li&gt;Which graphs work well for this metric with 3 hosts? Take a look at the instructor&amp;rsquo;s dashboard to see how this is different for all of your hosts on one dashboard.&lt;/li&gt;
 &lt;li&gt;Navigate to the Host Map. Click on one of the webservers running &lt;strong&gt;apache&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Notice the tags assigned to the host.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;In this hands-on exercise, you created a heat map. Was it interesting? How could it be more interesting?&lt;/li&gt;
+&lt;li&gt;What is the width in pixels for each graph? How many data points are shown in that space? Does this change for the different sizes on the graph? How about as you zoom in and out.&lt;/li&gt;
+&lt;li&gt;How do you adjust how data is aggregated over time?&lt;/li&gt;
+&lt;li&gt;How do you adjust how data is aggregated over space?&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;a target=&#34;_blank&#34; href=&#34;http://twitter.com/?status=I%27m%20getting%20up%20to%20speed%20on%20Monitoring%20101%20in%20Datadog - Follow along here: https%3a%2f%2fdatadog.github.io%2fsummit-training-session%2fhandson%2fmonitoring101%2f&#34; &gt;Tweet your status&lt;/a&gt;&lt;br&gt;
@@ -881,7 +825,12 @@ Note: single metric to see general health or variations across members of a grou
 &lt;li&gt;Continue adding graphs to represent all the &lt;strong&gt;Work&lt;/strong&gt; and &lt;strong&gt;Resource&lt;/strong&gt; metrics we talked about.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;How does your dashboard compare to the default HAProxy dashboard? Whats different?&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;How does your dashboard compare to the default HAProxy dashboard? Whats different?&lt;/li&gt;
+&lt;li&gt;You added two metrics in the Advanced section. What else can you do with these metrics?&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;End of First Dashboard Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/6&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
 
@@ -1245,6 +1194,40 @@ See https://www.datadoghq.com/blog/monitoring-mysql-performance-metrics/ for mor
     
     <item>
       <title>Monitoring Math</title>
+      <link>https://datadog.github.io/summit-training-session/handson/monitoringmath/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/monitoringmath/</guid>
+      <description>
+
+&lt;ol&gt;
+&lt;li&gt;Create a new Timeboard&lt;/li&gt;
+&lt;li&gt;Add a timeseries graph. Choose any metric; the default &lt;code&gt;system.load.1&lt;/code&gt; will work just fine.&lt;/li&gt;
+&lt;li&gt;Click the Add Metric button and add the same metric.&lt;/li&gt;
+&lt;li&gt;Click the plus sign to the right of the metric query for the second metric. Hover over each of the choices to see what&amp;rsquo;s available.&lt;/li&gt;
+&lt;li&gt;Select Day Before from the Timeshift section. Notice there are now two lines on the graph. Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Change the time window for the current dashboard to &lt;code&gt;The Past Week&lt;/code&gt;. Notice that the lines show the same values separated by a day.&lt;/li&gt;
+&lt;li&gt;Edit the graph you just created. Delete the second metric.&lt;/li&gt;
+&lt;li&gt;Click the Advanced link on the first metric.&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;Add a metric to this expression&lt;/strong&gt; button. Select the same metric and choose Day Before again in the Math Functions dialog.&lt;/li&gt;
+&lt;li&gt;Change the math function from &lt;code&gt;a ; b&lt;/code&gt; to &lt;code&gt;a - b&lt;/code&gt;. Notice that the values are sometimes negative.&lt;/li&gt;
+&lt;li&gt;Change the math function again to &lt;code&gt;abs( a - b )&lt;/code&gt;. Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Add a new graph with the same metric you used before. Click the Plus sign and choose Anomalies. Hover over the graph and select different values for bounds to see what changes.&lt;/li&gt;
+&lt;li&gt;Change the anomaly aggregation method to each of the options. How does the graph change?&lt;/li&gt;
+&lt;li&gt;Add another metric to the graph. If the metric was added with the anomaly function attached, remove it.&lt;/li&gt;
+&lt;li&gt;Add a Robust Trend line to this second metric. Try out the other two trend lines to see the difference.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Above you worked with anomalies. Why do you think I didn&amp;rsquo;t have you work with outliers?&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Math</title>
       <link>https://datadog.github.io/summit-training-session/preso/monitoringmath/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1275,6 +1258,7 @@ Getting more out of your graphs
 #Functions
 --
 # Function Types
+* Arithmetic
 * Interpolation
 * Timeshift
 * Rate
@@ -1284,12 +1268,22 @@ Getting more out of your graphs
 * Ranking
 * Algorithm
 ---
+# Arithmetic
+## Absolute Value
+* Always displays the absolute value of the metric.
+
+## Log2/Log10
+* The occasional spike may skew the scale of a graph. Log will smooth out the spike while not eliminating them.
+
+## Cumulative Sum / Integral
+* Adds each value shown on the graph cumulatively.
+---
 # Interpolation - .fill()
 
 * Not meant to fill in empty spaces, but to align multiple series together
 * Helpful for aggregation and arithmetic across multiple sources
 * Available options include linear interpolation or inserting 0’s or the most recent value
-* More on this in our KBs: http://dtdg.co/kb-fill 
+* More on this in our KBs: http://dtdg.co/kb-fill
 ---
 # Timeshift
 ## Helpful for comparing metrics with previously reported values
@@ -1320,7 +1314,7 @@ Compare the metric with the previous value, returning difference in value divide
 ![](../../images/monitoringmath/rate_per_minute.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: 60 * the per_second() value
 --
-# per_hour()  Rate 
+# per_hour()  Rate
 Compare the metric with the previous value, returning difference in value divided by the difference in time
 ![](../../images/monitoringmath/rate_per_hour.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 
@@ -1393,7 +1387,7 @@ Note: Median value spanning 9 points
 * Available methods: sum, min, max, avg
 * Allows overriding the default rollup function used for smoothing graphs over larger timeframes
 * Various methods available can allow preservation of spikes/dips in graphs
-* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth 
+* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth
 ---
 # Ranking
 ## Avoid clutter by viewing only the most relevant timeseries
@@ -1402,7 +1396,7 @@ Note: Median value spanning 9 points
 Avoid clutter by viewing only the most relevant timeseries
 ![](../../images/monitoringmath/top.png)
 Note: * Select the top series responsive to a given query, according to a provided ranking method
-* Parameters for the top function include 
+* Parameters for the top function include
   * metric query itself
   * the number of series you’d like returned
   * a ranking function (one of &#39;max&#39;, &#39;min&#39;, &#39;last&#39;, &#39;l2norm&#39;, or &#39;area&#39;)
@@ -1413,7 +1407,7 @@ Avoid clutter by viewing only the most relevant timeseries
 
 ![](../../images/monitoringmath/topoffset.png)
 
-Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts. 
+Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts.
 
 For example, an offset of 2 would start graphing at the number 3 ranked series, according to the chosen ranking metric.
 ---
@@ -1423,7 +1417,7 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
 #outliers()
 * Compare timeseries values with each other
 * Highlights individual timeseries based on ones that deviate too far from the norm at a given moment in time
-* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect  
+* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect
 --
 #anomalies()
 * Beta functionality to compare historic metric data
@@ -1463,7 +1457,7 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
 1.  Page on symptoms, rather than causes
 --
 # What does that mean?
-* Create lots of alerts for everything. 
+* Create lots of alerts for everything.
 * Alerts become the living history of your infrastructure
 * But only notify people about the **Work Metrics** going awry
 ---
@@ -1505,7 +1499,7 @@ Don&#39;t notify on things that shouldn&#39;t be important, like:
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 # ...except when its an early warning...
 ---
-# Early Warning Signs 
+# Early Warning Signs
 Also page on the early warning signs that come before really bad things:
 * If you are about to run out of disk
 * If you are about to hit a quota limit
@@ -1515,7 +1509,7 @@ Also page on the early warning signs that come before really bad things:
 ## https://app.datadoghq.com/monitors#/create
 ![](../../images/therightalerts/createmonitor.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 --
-# Seven Types
+# Eight Types
 
 * **Host** - notify on the status of the agent heartbeat
 * **Metric** - metrics collected by agent or API can trigger alerts
@@ -1685,6 +1679,107 @@ class HelloCheck(AgentCheck):
       
       <guid>https://datadog.github.io/summit-training-session/notes/customagentcheck/</guid>
       <description>&lt;p&gt;Review &lt;a href=&#34;http://docs.datadoghq.com/guides/agent_checks/&#34;&gt;the Agent Check documentation&lt;/a&gt; for more details about creating checks.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building a Custom Agent Check</title>
+      <link>https://datadog.github.io/summit-training-session/handson/customagentcheck/</link>
+      <pubDate>Mon, 17 Oct 2016 08:46:50 -0400</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/customagentcheck/</guid>
+      <description>&lt;p&gt;In this example we will create a metric that records a value generated by a custom application. The value generated is a count of the widgets created since the last request. The purpose of the exercise is to see how to submit a metric to Datadog.&lt;/p&gt;
+
+&lt;p&gt;So far, we have only used remote machines that you do not have direct access to. For this exercise we need to run a new agent. You can either install the agent on your local laptop, or install to a vagrant machine.&lt;/p&gt;
+
+&lt;p&gt;If you want to use Vagrant (and have Vagrant and VirtualBox installed), create a new directory and run the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;vagrant init ubuntu/trusty64; vagrant up --provider virtualbox;vagrant ssh&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Go to the Agent installation page (&lt;a href=&#34;https://app.datadoghq.com/account/settings#agent&#34;&gt;https://app.datadoghq.com/account/settings#agent&lt;/a&gt;) and select the operating system you are using.&lt;/li&gt;
+&lt;li&gt;Copy the command and execute it in your shell.&lt;/li&gt;
+&lt;li&gt;Change to the &lt;code&gt;conf.d&lt;/code&gt; directory on your system. On the vagrant machine, the directory is &lt;code&gt;/etc/dd-agent/conf.d&lt;/code&gt;. To find it for other operating systems, review &lt;a href=&#34;http://docs.datadoghq.com/guides/agent_checks/#directory&#34;&gt;the documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Create a new config file for your new agent check. Name the file &lt;code&gt;checkvalue.yaml&lt;/code&gt;.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the file to include the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;init_config:
+
+instances:
+  [{}]
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a new check file in the checks.d directory. Name the file &lt;code&gt;checkvalue.py&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the file to include the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from checks import AgentCheck
+class HelloCheck(AgentCheck):
+  def check(self, instance):
+    self.gauge(&#39;hello.world&#39;, 1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Restart the agent. On the vagrant machine, run the following command: &lt;code&gt;sudo /etc/init.d/datadog-agent restart&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Within a minute, you should see a new metric show up in the Metric Summary called &lt;code&gt;hello.world&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now lets expand the script to be something a bit more useful.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Replace the code in &lt;code&gt;checkvalue.py&lt;/code&gt; with the following (replacing the value of lburl with the address of your loadbalancer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import urllib2
+import simplejson
+from checks import AgentCheck
+
+class CheckValue(AgentCheck):
+  def check(self, instance):
+
+    lburl = 1.2.3.4
+
+    response = urllib2.urlopen(&amp;quot;http://&amp;quot; + lburl + &amp;quot;/rest&amp;quot;)
+    data = simplejson.load(response)
+
+    self.gauge(&#39;coreapp.update.value&#39;, data[&amp;quot;value&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Restart the agent. Now run the info command. On the vagrant machine, the command is &lt;code&gt;sudo /etc/init.d/datadog-agent info&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If you have any issues with the agent, you can debug using the following command: &lt;code&gt;sudo -u dd-agent dd-agent check checkvalue&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s make the configuration file a bit more useful.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Update the &lt;code&gt;checkvalue.yaml&lt;/code&gt; file as follows (replacing the &lt;code&gt;ipaddress&lt;/code&gt; with your loadbalancer&amp;rsquo;s ip address):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;init_config:
+
+instances:
+  - ipaddress: 1.2.3.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Update the &lt;code&gt;checkvalue.py&lt;/code&gt; file to be as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import urllib2
+import simplejson
+from checks import AgentCheck
+
+class CheckValue(AgentCheck):
+  def check(self, instance):
+
+    lburl = instance[&#39;ipaddress&#39;]
+
+    response = urllib2.urlopen(&amp;quot;http://&amp;quot; + lburl + &amp;quot;/rest&amp;quot;)
+    data = simplejson.load(response)
+
+    self.gauge(&#39;coreapp.update.value&#39;, data[&amp;quot;value&amp;quot;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a dashboard for this metric.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
     </item>
     

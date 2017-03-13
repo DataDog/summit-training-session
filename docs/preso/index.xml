@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Preso-rsses on Datadog Training Site</title>
+    <title>Presos on Datadog Training Site</title>
     <link>https://datadog.github.io/summit-training-session/preso/index.xml</link>
-    <description>Recent content in Preso-rsses on Datadog Training Site</description>
+    <description>Recent content in Presos on Datadog Training Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 17 Oct 2016 08:46:22 -0400</lastBuildDate>
     <atom:link href="https://datadog.github.io/summit-training-session/preso/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -501,6 +502,7 @@ Getting more out of your graphs
 #Functions
 --
 # Function Types
+* Arithmetic
 * Interpolation
 * Timeshift
 * Rate
@@ -510,12 +512,22 @@ Getting more out of your graphs
 * Ranking
 * Algorithm
 ---
+# Arithmetic
+## Absolute Value
+* Always displays the absolute value of the metric.
+
+## Log2/Log10
+* The occasional spike may skew the scale of a graph. Log will smooth out the spike while not eliminating them.
+
+## Cumulative Sum / Integral
+* Adds each value shown on the graph cumulatively.
+---
 # Interpolation - .fill()
 
 * Not meant to fill in empty spaces, but to align multiple series together
 * Helpful for aggregation and arithmetic across multiple sources
 * Available options include linear interpolation or inserting 0’s or the most recent value
-* More on this in our KBs: http://dtdg.co/kb-fill 
+* More on this in our KBs: http://dtdg.co/kb-fill
 ---
 # Timeshift
 ## Helpful for comparing metrics with previously reported values
@@ -546,7 +558,7 @@ Compare the metric with the previous value, returning difference in value divide
 ![](../../images/monitoringmath/rate_per_minute.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: 60 * the per_second() value
 --
-# per_hour()  Rate 
+# per_hour()  Rate
 Compare the metric with the previous value, returning difference in value divided by the difference in time
 ![](../../images/monitoringmath/rate_per_hour.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 
@@ -619,7 +631,7 @@ Note: Median value spanning 9 points
 * Available methods: sum, min, max, avg
 * Allows overriding the default rollup function used for smoothing graphs over larger timeframes
 * Various methods available can allow preservation of spikes/dips in graphs
-* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth 
+* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth
 ---
 # Ranking
 ## Avoid clutter by viewing only the most relevant timeseries
@@ -628,7 +640,7 @@ Note: Median value spanning 9 points
 Avoid clutter by viewing only the most relevant timeseries
 ![](../../images/monitoringmath/top.png)
 Note: * Select the top series responsive to a given query, according to a provided ranking method
-* Parameters for the top function include 
+* Parameters for the top function include
   * metric query itself
   * the number of series you’d like returned
   * a ranking function (one of &#39;max&#39;, &#39;min&#39;, &#39;last&#39;, &#39;l2norm&#39;, or &#39;area&#39;)
@@ -639,7 +651,7 @@ Avoid clutter by viewing only the most relevant timeseries
 
 ![](../../images/monitoringmath/topoffset.png)
 
-Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts. 
+Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts.
 
 For example, an offset of 2 would start graphing at the number 3 ranked series, according to the chosen ranking metric.
 ---
@@ -649,7 +661,7 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
 #outliers()
 * Compare timeseries values with each other
 * Highlights individual timeseries based on ones that deviate too far from the norm at a given moment in time
-* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect  
+* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect
 --
 #anomalies()
 * Beta functionality to compare historic metric data
@@ -672,7 +684,7 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
 1.  Page on symptoms, rather than causes
 --
 # What does that mean?
-* Create lots of alerts for everything. 
+* Create lots of alerts for everything.
 * Alerts become the living history of your infrastructure
 * But only notify people about the **Work Metrics** going awry
 ---
@@ -714,7 +726,7 @@ Don&#39;t notify on things that shouldn&#39;t be important, like:
 &lt;br&gt;&lt;br&gt;&lt;br&gt;
 # ...except when its an early warning...
 ---
-# Early Warning Signs 
+# Early Warning Signs
 Also page on the early warning signs that come before really bad things:
 * If you are about to run out of disk
 * If you are about to hit a quota limit
@@ -724,7 +736,7 @@ Also page on the early warning signs that come before really bad things:
 ## https://app.datadoghq.com/monitors#/create
 ![](../../images/therightalerts/createmonitor.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 --
-# Seven Types
+# Eight Types
 
 * **Host** - notify on the status of the agent heartbeat
 * **Metric** - metrics collected by agent or API can trigger alerts

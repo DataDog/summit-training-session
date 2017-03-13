@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Handson-rsses on Datadog Training Site</title>
+    <title>Handsons on Datadog Training Site</title>
     <link>https://datadog.github.io/summit-training-session/handson/index.xml</link>
-    <description>Recent content in Handson-rsses on Datadog Training Site</description>
+    <description>Recent content in Handsons on Datadog Training Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 17 Oct 2016 08:46:34 -0400</lastBuildDate>
     <atom:link href="https://datadog.github.io/summit-training-session/handson/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -14,7 +15,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/monitoring101/</guid>
-      <description>&lt;p&gt;Everyone should get login information for a Datadog account they can use for this session. If you haven&amp;rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Everyone should get login information for a Datadog account they can use for this session. If you haven&amp;rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Login to your Demo Datadog Account. &lt;em&gt;Note: Use this demo even if you have the credentials for your company&amp;rsquo;s account since it has been setup to collect data from the demo environment&lt;/em&gt;&lt;/li&gt;
@@ -36,6 +39,15 @@ This filters down the metrics available to just the ones with &lt;strong&gt;hapr
 &lt;li&gt;Which graphs work well for this metric with 3 hosts? Take a look at the instructor&amp;rsquo;s dashboard to see how this is different for all of your hosts on one dashboard.&lt;/li&gt;
 &lt;li&gt;Navigate to the Host Map. Click on one of the webservers running &lt;strong&gt;apache&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;Notice the tags assigned to the host.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;In this hands-on exercise, you created a heat map. Was it interesting? How could it be more interesting?&lt;/li&gt;
+&lt;li&gt;What is the width in pixels for each graph? How many data points are shown in that space? Does this change for the different sizes on the graph? How about as you zoom in and out.&lt;/li&gt;
+&lt;li&gt;How do you adjust how data is aggregated over time?&lt;/li&gt;
+&lt;li&gt;How do you adjust how data is aggregated over space?&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;a target=&#34;_blank&#34; href=&#34;http://twitter.com/?status=I%27m%20getting%20up%20to%20speed%20on%20Monitoring%20101%20in%20Datadog - Follow along here: https%3a%2f%2fdatadog.github.io%2fsummit-training-session%2fhandson%2fmonitoring101%2f&#34; &gt;Tweet your status&lt;/a&gt;&lt;br&gt;
@@ -70,7 +82,12 @@ This filters down the metrics available to just the ones with &lt;strong&gt;hapr
 &lt;li&gt;Continue adding graphs to represent all the &lt;strong&gt;Work&lt;/strong&gt; and &lt;strong&gt;Resource&lt;/strong&gt; metrics we talked about.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;How does your dashboard compare to the default HAProxy dashboard? Whats different?&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;How does your dashboard compare to the default HAProxy dashboard? Whats different?&lt;/li&gt;
+&lt;li&gt;You added two metrics in the Advanced section. What else can you do with these metrics?&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;End of First Dashboard Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/6&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
 
@@ -121,6 +138,40 @@ This filters down the metrics available to just the ones with &lt;strong&gt;hapr
 &lt;/ol&gt;
 
 &lt;p&gt;End of Dashboards Hands On&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Monitoring Math</title>
+      <link>https://datadog.github.io/summit-training-session/handson/monitoringmath/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/handson/monitoringmath/</guid>
+      <description>
+
+&lt;ol&gt;
+&lt;li&gt;Create a new Timeboard&lt;/li&gt;
+&lt;li&gt;Add a timeseries graph. Choose any metric; the default &lt;code&gt;system.load.1&lt;/code&gt; will work just fine.&lt;/li&gt;
+&lt;li&gt;Click the Add Metric button and add the same metric.&lt;/li&gt;
+&lt;li&gt;Click the plus sign to the right of the metric query for the second metric. Hover over each of the choices to see what&amp;rsquo;s available.&lt;/li&gt;
+&lt;li&gt;Select Day Before from the Timeshift section. Notice there are now two lines on the graph. Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Change the time window for the current dashboard to &lt;code&gt;The Past Week&lt;/code&gt;. Notice that the lines show the same values separated by a day.&lt;/li&gt;
+&lt;li&gt;Edit the graph you just created. Delete the second metric.&lt;/li&gt;
+&lt;li&gt;Click the Advanced link on the first metric.&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;Add a metric to this expression&lt;/strong&gt; button. Select the same metric and choose Day Before again in the Math Functions dialog.&lt;/li&gt;
+&lt;li&gt;Change the math function from &lt;code&gt;a ; b&lt;/code&gt; to &lt;code&gt;a - b&lt;/code&gt;. Notice that the values are sometimes negative.&lt;/li&gt;
+&lt;li&gt;Change the math function again to &lt;code&gt;abs( a - b )&lt;/code&gt;. Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Add a new graph with the same metric you used before. Click the Plus sign and choose Anomalies. Hover over the graph and select different values for bounds to see what changes.&lt;/li&gt;
+&lt;li&gt;Change the anomaly aggregation method to each of the options. How does the graph change?&lt;/li&gt;
+&lt;li&gt;Add another metric to the graph. If the metric was added with the anomaly function attached, remove it.&lt;/li&gt;
+&lt;li&gt;Add a Robust Trend line to this second metric. Try out the other two trend lines to see the difference.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Above you worked with anomalies. Why do you think I didn&amp;rsquo;t have you work with outliers?&lt;/li&gt;
+&lt;/ol&gt;
 </description>
     </item>
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About-rsses on Datadog Training Site</title>
+    <title>Abouts on Datadog Training Site</title>
     <link>https://datadog.github.io/summit-training-session/about/index.xml</link>
-    <description>Recent content in About-rsses on Datadog Training Site</description>
+    <description>Recent content in Abouts on Datadog Training Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 14 Oct 2016 16:27:42 -0400</lastBuildDate>
@@ -15,7 +15,7 @@
       <pubDate>Fri, 14 Oct 2016 16:27:42 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/about/</guid>
-      <description>&lt;p&gt;This site was created for the First Annual Datadog Customer Summit in NYC on October 26, 2016. We had about 40 people in the room and it was very successful.&lt;/p&gt;
+      <description>&lt;p&gt;This site was created for the First Annual Datadog Customer Summit in NYC on October 26, 2016 and updated for the second Summit in San Francisco on March 14, 2017. We had about 40 people in the room the first time around and it was very successful.&lt;/p&gt;
 
 &lt;p&gt;The site is built using Hugo (&lt;a href=&#34;http://gohugo.io&#34;&gt;http://gohugo.io&lt;/a&gt;) and Reveal.js (&lt;a href=&#34;http://lab.hakim.se/reveal-js/#/&#34;&gt;http://lab.hakim.se/reveal-js/#/&lt;/a&gt;).&lt;/p&gt;
 
