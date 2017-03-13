@@ -5,9 +5,9 @@
 
   tasks:
     - action: ec2_facts
-      register: ec2facts 
+      register: ec2facts
 
-- hosts: "tag_Name_datadog_summit_group{{ group }}_web"
+- hosts: "tag_Name_{{ eventname }}_group{{ group }}_web"
   remote_user: ubuntu
   become: true
   become_method: sudo
@@ -28,7 +28,7 @@
         instances:
           - apache_status_url: http://localhost/server-status?auto
 
-- hosts: "tag_Name_datadog_summit_group{{ group }}_loadbalancer"
+- hosts: "tag_Name_{{eventname}}_group{{ group }}_loadbalancer"
   remote_user: ubuntu
   become: true
   become_method: sudo
@@ -48,7 +48,7 @@
         instances:
           - url: http://localhost/haproxy?stats
 
-- hosts: "tag_Name_datadog_summit_group{{ group }}_db"
+- hosts: "tag_Name_{{eventname}}_group{{ group }}_db"
   remote_user: ubuntu
   become: true
   become_method: sudo
@@ -71,7 +71,7 @@
           - server: localhost
             user: datadog
             pass: datadog
-            options: 
+            options:
               extra_status_metrics: true
               extra_innodb_metrics: true
               extra_performance_metrics: true

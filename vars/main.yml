@@ -1,13 +1,13 @@
 
 main:
   instance_type: t2.micro
-  security_group: 
-    - name: "summit-training-sg-{{ group_number }}"
+  security_group:
+    - name: "sf-summit-training-sg-{{ group_number }}"
       description: "Security group for Group {{ group_number}} Datadog Summit Training Session"
   # image: ami-2ef48339
   region: us-west-1
   keypair: datadog-demo-west1
-  eventname: "datadog-summit"
+  eventname: "sfsummit"
   group_count: 1
   lb_count: 1
   web_count: 3
@@ -17,5 +17,7 @@ group_number: "{{ group }}"
 mysql_app_db_name: employees
 mysql_app_db_user: demo
 mysql_app_db_password: demo
-db_private_ip: "{{ hostvars[groups['tag_Name_datadog_summit_group'+group_number+'_db'][0]].ec2_private_ip_address }}"
+db_private_ip: "{{ hostvars[groups['tag_Name_' + eventname + '_group'+group_number+'_db'][0]].ec2_private_ip_address }}"
 summittype: server
+
+
