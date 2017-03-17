@@ -43,7 +43,7 @@ Now haproxy, apache, and mysql should be ready to go. Run this command to instal
 
         ansible-playbook -i inventory 3-installapp.yml --extra-vars "group=1"
 
-And finally use 4-issues-badapacheworkers.yml and 5-issues-badapacheworkers-opt1.yml to see a bad config added to one of the apache servers in each group. To get that to work you have to create a group in your inventory/hosts file pointing to one 'bad' apache server in each group. Also, you don't need the extra-vars arg for these.
+And finally use 4-issues-badapacheworkers.yml and 5-issues-badapacheworkers-opt1.yml to see a bad config added to one of the apache servers in each group. **To get that to work you have to create a group in your inventory/hosts file pointing to one 'bad' apache server in each group**. Also, you don't need the extra-vars arg for these.
 
 The 1-new-instances with set up a AWS Security Group that allows only you to ssh in. Running 0-updatesg.yml will update all the security groups in case you have a new external ip address.
 

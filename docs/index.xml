@@ -21,11 +21,11 @@
 
 &lt;ol&gt;
 &lt;li&gt;Login to your Demo Datadog Account. &lt;em&gt;Note: Use this demo even if you have the credentials for your company&amp;rsquo;s account since it has been setup to collect data from the demo environment&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Navigate to the Metrics Explorer (&lt;a href=&#34;https://app.datadoghq.com/metric/explore&#34;&gt;https://app.datadoghq.com/metric/explore&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;Navigate to the Metrics Explorer (&lt;a href=&#34;https://app.datadoghq.com/metric/explorer&#34;&gt;https://app.datadoghq.com/metric/explorer&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;Type &lt;code&gt;haproxy&lt;/code&gt; in the &lt;strong&gt;Graph&lt;/strong&gt; textbox. &lt;br&gt;
 This filters down the metrics available to just the ones with &lt;strong&gt;haproxy&lt;/strong&gt; in the name.&lt;/li&gt;
 &lt;li&gt;Select one of the metrics available, for instance &lt;code&gt;haproxy.backend.response.2xx&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Notice the the &lt;strong&gt;Over&lt;/strong&gt; dropdown is a list of all the tags relevant to this metric.&lt;/li&gt;
+&lt;li&gt;Notice the &lt;strong&gt;Over&lt;/strong&gt; dropdown is a list of all the tags relevant to this metric.&lt;/li&gt;
 &lt;li&gt;If you choose &lt;strong&gt;One graph per:&lt;code&gt;host&lt;/code&gt;&lt;/strong&gt; you will only see a single graph, since you have only one haproxy host.&lt;/li&gt;
 &lt;li&gt;Change the metric to &lt;code&gt;apache.net.request_per_s&lt;/code&gt; and set &lt;strong&gt;One graph per&lt;/strong&gt; to &lt;code&gt;host&lt;/code&gt;. You now have 3 graphs since your environment includes 3 webservers.&lt;/li&gt;
 &lt;li&gt;Navigate to Dashboards and create a new Dashboard. Enter &lt;code&gt;First Test&lt;/code&gt; for the name and choose &lt;strong&gt;New TimeBoard&lt;/strong&gt;. We will talk about the differences soon.&lt;/li&gt;
@@ -1420,7 +1420,7 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
 * More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect
 --
 #anomalies()
-* Beta functionality to compare historic metric data
+* Compares historic metric data
 * Allows comparison of the current value with norms calculated across previous timeframes
 * Can alert on anomalous spikes/dips in metric values based on deviation from this norm
 

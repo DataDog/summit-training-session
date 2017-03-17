@@ -8,11 +8,11 @@ duration: 15-25 minutes
 Everyone should get login information for a Datadog account they can use for this session. If you haven't received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.
 
 1.  Login to your Demo Datadog Account. *Note: Use this demo even if you have the credentials for your company's account since it has been setup to collect data from the demo environment*
-1.  Navigate to the Metrics Explorer (https://app.datadoghq.com/metric/explore).
+1.  Navigate to the Metrics Explorer (https://app.datadoghq.com/metric/explorer).
 1.  Type `haproxy` in the **Graph** textbox. <br>
     This filters down the metrics available to just the ones with **haproxy** in the name.
 1.  Select one of the metrics available, for instance `haproxy.backend.response.2xx`
-1.  Notice the the **Over** dropdown is a list of all the tags relevant to this metric.
+1.  Notice the **Over** dropdown is a list of all the tags relevant to this metric.
 1.  If you choose **One graph per:`host`** you will only see a single graph, since you have only one haproxy host.
 1.  Change the metric to `apache.net.request_per_s` and set **One graph per** to `host`. You now have 3 graphs since your environment includes 3 webservers.
 1.  Navigate to Dashboards and create a new Dashboard. Enter `First Test` for the name and choose **New TimeBoard**. We will talk about the differences soon.
