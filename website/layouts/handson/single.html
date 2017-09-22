@@ -31,7 +31,7 @@
     <h1>{{ .Title }} (Hands On Instructions)</h1>
     {{ .Content }}
     
-    <a href="{{ .Site.BaseURL }}/preso/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Presentation</a> | <a href="{{ .Site.BaseURL }}/notes/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Notes</a>
+    <a href="{{ .Site.BaseURL }}preso/{{ .File.BaseFileName }}">Presentation</a> | <a href="{{ .Site.BaseURL }}notes/{{ .File.BaseFileName }}">Notes</a>
 
     </div>
 {{ partial "sidebar" .}}    

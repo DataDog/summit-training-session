@@ -1,0 +1,144 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'National', 'Lato', sans-serif;
+$mainColor: #fff;
+$headingFont: 'National', 'News Cycle', Impact, sans-serif;
+$headingColor: #fff;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #F96928;
+$linkColor: #191947;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+.reveal .controls {
+    .navigate-left, .navigate-left.enabled {
+        border-right-color: white;
+    }
+    .navigate-right, .navigate-right.enabled {
+        border-left-color: white;
+    } 
+    .navigate-down, .navigate-down.enabled {
+        border-top-color: white;
+    }
+    .navigate-up, .navigate-up.enabled {
+        border-bottom-color: white;
+    }
+}
+
+#ddlogo {
+    position: relative;
+    overflow: hidden;
+    // width: 100%;
+}
+ #ddlogo:before {
+    // min-height: 100%;
+        // min-width: 100%;
+    content:"";
+    // z-index: 20;
+    position:absolute;
+    // background-position-x: ;
+    display:inline-block;
+    background-image: url(/summit-training-session/images/ddsummitlogo.png);
+    background-repeat: no-repeat;
+    // background-size: 1000px 1000px;
+    // background-position: right bottom;
+    // transform:translate(100%, 300px);
+    //   -webkit-transform:rotate(-10deg);
+    //  -moz-transform:rotate(-10deg);
+    //   -ms-transform:rotate(-10deg);
+    //    -o-transform:rotate(-10deg);
+    // transform-origin: 500px 500px;
+        //   transform:rotate(-3deg); 
+    width:100px;
+    height:100px;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+    // background-color: #000;
+}
+
+
+body:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    content: '';
+    background-color: #f0f;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+
+.whitebackground {
+    body {
+        background-color: white;
+    }
+    .reveal .controls {
+        .navigate-left, .navigate-left.enabled {
+            border-right-color: $backgroundColor;
+        }
+        .navigate-right, .navigate-right.enabled {
+            border-left-color: $backgroundColor;
+        } 
+        .navigate-down, .navigate-down.enabled {
+            border-top-color: $backgroundColor;
+        }
+        .navigate-up, .navigate-up.enabled {
+            border-bottom-color: $backgroundColor;
+        }
+    }
+    h1, h2, h3, h4, h5 {
+        color: black;
+    }
+    
+}
+
+strong {
+    color: white;
+    text-decoration: underline dotted;
+    h1 & {
+        text-decoration: none;
+    }
+}
+
+pre code {
+    background-color: black;
+}
+
+td {
+    span.tabletext, em.tabletext, strong.tabletext {
+        font-size: 90%;
+    }
+}
+
+.reveal input,.reveal  select,.reveal textarea,.reveal b, .reveal strong {
+    color: #fff;
+}

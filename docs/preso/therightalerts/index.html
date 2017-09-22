@@ -1,105 +1,113 @@
 <!DOCTYPE HTML>
 
 <html>
-    <head>
-        <title>The Right Alerts</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.19" />
-        
+
+<head>
+    <title>Datadog 101 - The Right Alerts</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta name="generator" content="Hugo 0.25.1" /> 
 
 
-        
+    
 
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/reveal.css">
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/theme/simple.css">
-
-<style type="text/css">
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+    
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/theme/whitesimple.css">
+    <style type="text/css">
         #wrapper {
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: flex;
-        -moz-flex-direction: row-reverse;
-        -webkit-flex-direction: row-reverse;
-        -ms-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-        -moz-transition: opacity 0.5s ease;
-        -webkit-transition: opacity 0.5s ease;
-        -ms-transition: opacity 0.5s ease;
-        transition: opacity 0.5s ease;
-        margin: 0 auto;
-        max-width: 100%;
-        height: 100%;
-        opacity: 1;
-        padding: 4.5em;
-        width: 100%;
-    }
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -moz-flex-direction: row-reverse;
+            -webkit-flex-direction: row-reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+            -moz-transition: opacity 0.5s ease;
+            -webkit-transition: opacity 0.5s ease;
+            -ms-transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease;
+            margin: 0 auto;
+            max-width: 100%;
+            height: 100%;
+            opacity: 1;
+            padding: 4.5em;
+            width: 100%;
+        }
+
         .reveal section img {
             border: none;
         }
+
         .reveal .slides {
             text-align: left;
         }
+
         .reveal h1 {
             margin-bottom: 2%;
         }
+
         .reveal h2 {
             margin-top: 2%;
-        }.reveal li, .reveal p {
+        }
+
+        .reveal li,
+        .reveal p {
             font-size: 150%;
         }
+
         .reveal li li {
             margin-left: 10px;
             font-size: 90%
         }
+
         .reveal pre {
             font-size: 150%;
         }
-        .hljs-params, .hljs-class .hljs-title {
-            color: grey;
-        }
-        .hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable {
-            color: #919;
-        }
+ 
+
         .reveal pre code {
             max-height: 80%;
         }
+
         .slides {
             z-index: 10;
         }
+
         .footer {
-          position: absolute; 
-          right: 94%;
-          bottom: 1px;
-          z-index: 1;
+            position: absolute;
+            right: 94%;
+            bottom: 1px;
+            z-index: 1;
         }
+
         .footer img {
-            width:100%;
+            width: 100%;
             right: 10px;
             z-index: 1;
         }
-</style>
-
-        
-        
-        
-            
-        
-
-    </head>
-    <body>
-
-        
-        <div id="wrapper">
-
+    </style>
 
     
+    
+      
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/lib/css/sunburst.css">
+    
+    
+</head>
+
+<body>
+
+    
+    <div id="wrapper">
+
+
+
+        
 <header id="header">
     
         <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
@@ -224,17 +232,14 @@
         
 </section>
 
-    
         
-            <div class="reveal">
-                <div class="slides">
-                    <section data-markdown
-                        data-separator="^---"
-                        data-separator-vertical="^--"
-                        data-background="^background:"
-                        data-separator-notes="^Note:"
-                        data-charset="iso-8859-15">
-                        # Creating the Right Alerts
+        
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown data-separator="^---" data-separator-vertical="^--" data-background="^background:" data-separator-notes="^Note:"
+                    data-charset="iso-8859-15">
+                    <textarea data-template>
+                    # Creating the Right Alerts
 ---
 # Two Rules for Effective Alerting
 1.  Alert liberally; page judiciously
@@ -336,40 +341,54 @@ https://app.datadoghq.com/monitors#triggered
 
 
 
-                    </section>
+                </textarea>
+                </section>
 
-                    <section>
-                        <p><a href="https://datadog.github.io/summit-training-session/">Back to the Agenda</a></p>
-                        <a href="https://datadog.github.io/summit-training-session//notes/therightalerts">Notes</a> | <a href="https://datadog.github.io/summit-training-session//handson/therightalerts">Hands On Instruction</a>
-                    </section>
+                <section>
+                    <p><a href="https://datadog.github.io/summit-training-session/">Back to the Agenda</a></p>
+                    <a href="https://datadog.github.io/summit-training-session/notes/therightalerts">Notes</a>                    
+                    | <a href="https://datadog.github.io/summit-training-session/handson/therightalerts">Hands On Instruction</a>
+
+                </section>
+
+            </div>
+
+        </div>
+        <div class="footer"><img src="https://datadog.github.io/summit-training-session//images/ddlogo.png"></div>
+        <div id="ddlogo"></div>
+        
+
+        <script type="text/javascript" src="https://datadog.github.io/summit-training-session//reveal.js/js/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
+        <script>
+            Reveal.initialize({
+                width: 1920,
+                height: 1280,
+                margin: 0.0,
+                controls: false,
+                center: false,
+                minScale: 0.3,
+                maxScale: 7,
+                slideNumber: false,
+                history: true,
+                embedded: true,
+                transition: 'none', 
+                dependencies: [
                     
-                </div>
-                
-            </div>
-            <div class="footer"><img src="https://datadog.github.io/summit-training-session//images/ddlogo.png"></div>
-        
-    
-    <script type="text/javascript" src="https://datadog.github.io/summit-training-session//reveal.js/js/reveal.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
-<script>Reveal.initialize({
-    width: 1920, 
-    height: 1280,  
-    margin: 0.1,
-    center: false,    
-  minScale: 0.3,
-  maxScale: 7,  
-  slideNumber: true,
-  history: true,  
-  embedded: true,  
-   dependencies: [
-        
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }, 
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/notes/notes.js', async: true },
-
-    ]
-  });</script>
-            </div>
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/notes/notes.js', async: true },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ], 
+            });
+            
+            
+            
+            
+            
+            
+        </script>
+                    </div>
         <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
         
 
@@ -394,4 +413,3 @@ https://app.datadoghq.com/monitors#triggered
             
     </body>
 </html>
-

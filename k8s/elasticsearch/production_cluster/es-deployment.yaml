@@ -1,0 +1,263 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: elasticsearch
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch
+  labels:
+    component: elasticsearch
+    role: client
+spec:
+  type: LoadBalancer
+  selector:
+    component: elasticsearch
+    role: client
+  ports:
+  - name: http
+    port: 9200
+    protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch-discovery
+  labels:
+    component: elasticsearch
+    role: master
+spec:
+  selector:
+    component: elasticsearch
+    role: master
+  ports:
+  - name: transport
+    port: 9300
+    protocol: TCP
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: es-master
+  labels:
+    component: elasticsearch
+    role: master
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        service-discovery.datadoghq.com/es-master.check_names: '["elastic"]'
+        service-discovery.datadoghq.com/es-master.init_configs: '[{}]'
+        service-discovery.datadoghq.com/es-master.instances: '[{"url": "http://%%host%%:9200", "tags": ["demo:matt"]}]'
+      labels:
+        component: elasticsearch
+        role: master
+    spec:
+      serviceAccount: elasticsearch
+      containers:
+      - name: es-master
+        securityContext:
+          capabilities:
+            add:
+              - IPC_LOCK
+        image: quay.io/pires/docker-elasticsearch-kubernetes:5.5.2
+        env:
+        - name: KUBERNETES_CA_CERTIFICATE_FILE
+          value: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: "CLUSTER_NAME"
+          value: "mattsmyesdb"
+        - name: NODE_MASTER
+          value: "true"
+        - name: NODE_DATA
+          value: "false"
+        - name: HTTP_ENABLE
+          value: "true"
+        ports:
+        - containerPort: 9200
+          name: http
+          protocol: TCP
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /data
+          name: storage
+      volumes:
+      - name: storage
+        emptyDir: {}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: es-client
+  labels:
+    component: elasticsearch
+    role: client
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        service-discovery.datadoghq.com/es-client.check_names: '["elastic"]'
+        service-discovery.datadoghq.com/es-client.init_configs: '[{}]'
+        service-discovery.datadoghq.com/es-client.instances: '[{"url": "http://%%host%%:9200", "tags": "demo:matt"}]'
+      labels:
+        component: elasticsearch
+        role: client
+    spec:
+      serviceAccount: elasticsearch
+      containers:
+      - name: es-client
+        securityContext:
+          capabilities:
+            add:
+              - IPC_LOCK
+        image: quay.io/pires/docker-elasticsearch-kubernetes:5.5.2
+        env:
+        - name: KUBERNETES_CA_CERTIFICATE_FILE
+          value: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: "CLUSTER_NAME"
+          value: "mattsmyesdb"
+        - name: NODE_MASTER
+          value: "false"
+        - name: NODE_DATA
+          value: "false"
+        - name: HTTP_ENABLE
+          value: "true"
+        ports:
+        - containerPort: 9200
+          name: http
+          protocol: TCP
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /data
+          name: storage
+      volumes:
+      - name: storage
+        emptyDir: {}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: es-data
+  labels:
+    component: elasticsearch
+    role: data
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        service-discovery.datadoghq.com/es-data.check_names: '["elastic"]'
+        service-discovery.datadoghq.com/es-data.init_configs: '[{}]'
+        service-discovery.datadoghq.com/es-data.instances: '[{"url": "http://%%host%%:9200", "tags": "demo:matt"}]'
+
+      labels:
+        component: elasticsearch
+        role: data
+    spec:
+      serviceAccount: elasticsearch
+      containers:
+      - name: es-data
+        securityContext:
+          capabilities:
+            add:
+              - IPC_LOCK
+        image: quay.io/pires/docker-elasticsearch-kubernetes:5.5.2
+        env:
+        - name: KUBERNETES_CA_CERTIFICATE_FILE
+          value: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: "CLUSTER_NAME"
+          value: "mattsmyesdb"
+        - name: NODE_MASTER
+          value: "false"
+        - name: HTTP_ENABLE
+          value: "true"
+        ports:
+        - containerPort: 9200
+          name: http
+          protocol: TCP
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /data
+          name: storage
+      volumes:
+      - name: storage
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana
+  labels:
+    component: elasticsearch
+    role: ui
+spec:
+  type: LoadBalancer
+  selector:
+    component: elasticsearch
+    role: ui
+  ports:
+  - name: http
+    port: 80
+    targetPort: 5601
+    protocol: TCP
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kibana
+  labels:
+    component: elasticsearch
+    role: ui
+spec:
+  replicas: 1
+  template: 
+    metadata:
+      labels:
+        component: elasticsearch
+        role: ui
+    spec:
+      containers:
+      - name: kibana
+        image: cfontes/kibana-xpack-less:5.5.0
+        env:
+        - name: "SERVER_NAME"
+          value: "elasticsearch"
+        - name: "CLUSTER_NAME"
+          value: "mattsmyesdb"
+        - name: XPACK_SECURITY_ENABLED
+          value: 'false'
+        - name: XPACK_GRAPH_ENABLED
+          value: 'false'
+        - name: XPACK_ML_ENABLED
+          value: 'false'
+        - name: XPACK_REPORTING_ENABLED
+          value: 'false'
+        resources:
+          limits:
+            cpu: 1000m
+          requests:
+            cpu: 100m
+        ports:
+        - containerPort: 5601
+          name: kibana
+          protocol: TCP

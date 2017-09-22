@@ -14,12 +14,12 @@
 <html>
     <head>
         
-            <title>Monitoring 101 - Datadog Training Site</title>
+            <title>Datadog 101 - Monitoring 101 - Datadog Training Site</title>
         
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.19" />
+        <meta name="generator" content="Hugo 0.25.1" />
         
 
 
@@ -34,12 +34,12 @@
 
 
 
-<meta name="twitter:text:title" content="Monitoring 101"/>
-<meta name="twitter:title" content="Monitoring 101"/>
+<meta name="twitter:text:title" content="Datadog 101 - Monitoring 101"/>
+<meta name="twitter:title" content="Datadog 101 - Monitoring 101"/>
 <meta name="twitter:description" content="Get started working with metrics and graphs"/>
 <meta name="twitter:site" content="@datadoghq"/>
 
-        <meta property="og:title" content="Monitoring 101" />
+        <meta property="og:title" content="Datadog 101 - Monitoring 101" />
 <meta property="og:description" content="Get started working with metrics and graphs" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/monitoring101/" />
@@ -60,12 +60,12 @@
 
 
         
-<meta itemprop="name" content="Monitoring 101">
+<meta itemprop="name" content="Datadog 101 - Monitoring 101">
 <meta itemprop="description" content="Get started working with metrics and graphs">
 
 
 
-<meta itemprop="wordCount" content="409">
+<meta itemprop="wordCount" content="400">
 
 
 
@@ -85,7 +85,7 @@
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session/css/add-on.css" />
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
         
 
@@ -251,7 +251,7 @@
 
       
     <div id="main">
-    <h1>Monitoring 101 (Hands On Instructions)</h1>
+    <h1>Datadog 101 - Monitoring 101 (Hands On Instructions)</h1>
     
 
 <p>Everyone should get login information for a Datadog account they can use for this session. If you haven&rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.</p>
@@ -259,22 +259,22 @@
 <ol>
 <li>Login to your Demo Datadog Account. <em>Note: Use this demo even if you have the credentials for your company&rsquo;s account since it has been setup to collect data from the demo environment</em></li>
 <li>Navigate to the Metrics Explorer (<a href="https://app.datadoghq.com/metric/explorer">https://app.datadoghq.com/metric/explorer</a>).</li>
-<li>Type <code>haproxy</code> in the <strong>Graph</strong> textbox. <br>
-This filters down the metrics available to just the ones with <strong>haproxy</strong> in the name.</li>
-<li>Select one of the metrics available, for instance <code>haproxy.backend.response.2xx</code></li>
+<li>Type <code>elasticsearch</code> in the <strong>Graph</strong> textbox. <br>
+This filters down the metrics available to just the ones with <strong>elasticsearch</strong> in the name.</li>
+<li>Select one of the metrics available, for instance <code>elasticsearch.primaries.search.query.total</code></li>
 <li>Notice the <strong>Over</strong> dropdown is a list of all the tags relevant to this metric.</li>
-<li>If you choose <strong>One graph per:<code>host</code></strong> you will only see a single graph, since you have only one haproxy host.</li>
+<li>Select <strong>One graph per:<code>host</code></strong>. How many graphs do you see? Why?</li>
 <li>Change the metric to <code>apache.net.request_per_s</code> and set <strong>One graph per</strong> to <code>host</code>. You now have 3 graphs since your environment includes 3 webservers.</li>
 <li>Navigate to Dashboards and create a new Dashboard. Enter <code>First Test</code> for the name and choose <strong>New TimeBoard</strong>. We will talk about the differences soon.</li>
 <li>Notice the different visualization types. We have already talked about each of these.</li>
 <li>Drag and drop a Timeseries graph onto the canvas.</li>
-<li>Choose <code>apache.net.request_per_s</code> and <strong>avg by</strong> <code>host</code>.</li>
+<li>Choose <code>elasticsearch.primaries.search.query.total</code> and <strong>avg by</strong> <code>host</code>.</li>
 <li>Try out the different <strong>Display</strong> types (Lines, Area, Bar) to see the differences.</li>
 <li>Add a Query Value viz to the canvas using the same metric.</li>
 <li>Add a Heat Map with the same metric.</li>
 <li>Repeat with the Distribution, Top List, Change, and Hostmap.</li>
 <li>Which graphs work well for this metric with 3 hosts? Take a look at the instructor&rsquo;s dashboard to see how this is different for all of your hosts on one dashboard.</li>
-<li>Navigate to the Host Map. Click on one of the webservers running <strong>apache</strong>.</li>
+<li>Navigate to the Host Map. Click on one of the servers running <strong>elasticsearch</strong>.</li>
 <li>Notice the tags assigned to the host.</li>
 </ol>
 
@@ -291,7 +291,7 @@ This filters down the metrics available to just the ones with <strong>haproxy</s
 
 
     
-    <a href="https://datadog.github.io/summit-training-session//preso/monitoring101">Presentation</a> | <a href="https://datadog.github.io/summit-training-session//notes/monitoring101">Notes</a>
+    <a href="https://datadog.github.io/summit-training-session/preso/monitoring101">Presentation</a> | <a href="https://datadog.github.io/summit-training-session/notes/monitoring101">Notes</a>
 
     </div>
 

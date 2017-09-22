@@ -11,7 +11,7 @@
     <div id="main">
     <h1>{{ .Title }} (Notes)</h1>
     {{ .Content }}
-    <a href="{{ .Site.BaseURL }}/preso/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Presentation</a> | <a href="{{ .Site.BaseURL }}/handson/{{ replace ( replace .File.LogicalName .File.Ext "" ) "." "" }}">Hands On Instruction</a>
+    <a href="{{ .Site.BaseURL }}preso/{{ .File.BaseFileName }}">Presentation</a> | <a href="{{ .Site.BaseURL }}handson/{{ .File.BaseFileName }}">Hands On Instruction</a>
 
     </div>
 

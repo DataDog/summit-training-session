@@ -2,1785 +2,190 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Datadog Training Site</title>
-    <link>https://datadog.github.io/summit-training-session/index.xml</link>
+    <link>https://datadog.github.io/summit-training-session/</link>
     <description>Recent content on Datadog Training Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Oct 2016 08:46:04 -0400</lastBuildDate>
-    <atom:link href="https://datadog.github.io/summit-training-session/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://datadog.github.io/summit-training-session/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>Monitoring 101</title>
+      <title>Datadog 101 - Monitoring 101</title>
       <link>https://datadog.github.io/summit-training-session/handson/monitoring101/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/monitoring101/</guid>
-      <description>
-
-&lt;p&gt;Everyone should get login information for a Datadog account they can use for this session. If you haven&amp;rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Login to your Demo Datadog Account. &lt;em&gt;Note: Use this demo even if you have the credentials for your company&amp;rsquo;s account since it has been setup to collect data from the demo environment&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Navigate to the Metrics Explorer (&lt;a href=&#34;https://app.datadoghq.com/metric/explorer&#34;&gt;https://app.datadoghq.com/metric/explorer&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;Type &lt;code&gt;haproxy&lt;/code&gt; in the &lt;strong&gt;Graph&lt;/strong&gt; textbox. &lt;br&gt;
-This filters down the metrics available to just the ones with &lt;strong&gt;haproxy&lt;/strong&gt; in the name.&lt;/li&gt;
-&lt;li&gt;Select one of the metrics available, for instance &lt;code&gt;haproxy.backend.response.2xx&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Notice the &lt;strong&gt;Over&lt;/strong&gt; dropdown is a list of all the tags relevant to this metric.&lt;/li&gt;
-&lt;li&gt;If you choose &lt;strong&gt;One graph per:&lt;code&gt;host&lt;/code&gt;&lt;/strong&gt; you will only see a single graph, since you have only one haproxy host.&lt;/li&gt;
-&lt;li&gt;Change the metric to &lt;code&gt;apache.net.request_per_s&lt;/code&gt; and set &lt;strong&gt;One graph per&lt;/strong&gt; to &lt;code&gt;host&lt;/code&gt;. You now have 3 graphs since your environment includes 3 webservers.&lt;/li&gt;
-&lt;li&gt;Navigate to Dashboards and create a new Dashboard. Enter &lt;code&gt;First Test&lt;/code&gt; for the name and choose &lt;strong&gt;New TimeBoard&lt;/strong&gt;. We will talk about the differences soon.&lt;/li&gt;
-&lt;li&gt;Notice the different visualization types. We have already talked about each of these.&lt;/li&gt;
-&lt;li&gt;Drag and drop a Timeseries graph onto the canvas.&lt;/li&gt;
-&lt;li&gt;Choose &lt;code&gt;apache.net.request_per_s&lt;/code&gt; and &lt;strong&gt;avg by&lt;/strong&gt; &lt;code&gt;host&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Try out the different &lt;strong&gt;Display&lt;/strong&gt; types (Lines, Area, Bar) to see the differences.&lt;/li&gt;
-&lt;li&gt;Add a Query Value viz to the canvas using the same metric.&lt;/li&gt;
-&lt;li&gt;Add a Heat Map with the same metric.&lt;/li&gt;
-&lt;li&gt;Repeat with the Distribution, Top List, Change, and Hostmap.&lt;/li&gt;
-&lt;li&gt;Which graphs work well for this metric with 3 hosts? Take a look at the instructor&amp;rsquo;s dashboard to see how this is different for all of your hosts on one dashboard.&lt;/li&gt;
-&lt;li&gt;Navigate to the Host Map. Click on one of the webservers running &lt;strong&gt;apache&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Notice the tags assigned to the host.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;In this hands-on exercise, you created a heat map. Was it interesting? How could it be more interesting?&lt;/li&gt;
-&lt;li&gt;What is the width in pixels for each graph? How many data points are shown in that space? Does this change for the different sizes on the graph? How about as you zoom in and out.&lt;/li&gt;
-&lt;li&gt;How do you adjust how data is aggregated over time?&lt;/li&gt;
-&lt;li&gt;How do you adjust how data is aggregated over space?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;a target=&#34;_blank&#34; href=&#34;http://twitter.com/?status=I%27m%20getting%20up%20to%20speed%20on%20Monitoring%20101%20in%20Datadog - Follow along here: https%3a%2f%2fdatadog.github.io%2fsummit-training-session%2fhandson%2fmonitoring101%2f&#34; &gt;Tweet your status&lt;/a&gt;&lt;br&gt;
-
-</description>
+      <description>Everyone should get login information for a Datadog account they can use for this session. If you haven&amp;rsquo;t received this information (and you are here in the room with us), contact the instructors. This will include a username and password for a Datadog account, as well as the IP Address for the load balancer of your cluster of servers.
+ Login to your Demo Datadog Account. Note: Use this demo even if you have the credentials for your company&amp;rsquo;s account since it has been setup to collect data from the demo environment Navigate to the Metrics Explorer (https://app.</description>
     </item>
     
     <item>
-      <title>Monitoring 101</title>
+      <title>Datadog 101 - Monitoring 101</title>
       <link>https://datadog.github.io/summit-training-session/notes/monitoring101/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/notes/monitoring101/</guid>
-      <description>
-
-&lt;p&gt;In this section we will learn about Monitoring 101. This is largely based on articles found on our blog:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.datadoghq.com/?s=monitoring+101&#34;&gt;&lt;strong&gt;Search for all Monitoring 101 posts&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datadoghq.com/blog/monitoring-101-investigation/&#34;&gt;Investigation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datadoghq.com/blog/monitoring-101-collecting-data/&#34;&gt;Collecting Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datadoghq.com/blog/monitoring-101-alerting/&#34;&gt;Alerting&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Metric Graphs 101&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datadoghq.com/blog/timeseries-metric-graphs-101/&#34;&gt;Timeseries graphs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datadoghq.com/blog/summary-graphs-metric-graphs-101/&#34;&gt;Summary graph&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datadoghq.com/blog/anti-patterns-metric-graphs-101/&#34;&gt;Graphing anti-patterns&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;questions-to-think-about&#34;&gt;Questions to think about&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;What are some work metrics that are important to you? Why?&lt;/li&gt;
-&lt;li&gt;Are you currently alerting on metrics in the resources group?&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <description> In this section we will learn about Monitoring 101. This is largely based on articles found on our blog:
+Search for all Monitoring 101 posts
+ Investigation Collecting Data Alerting  Metric Graphs 101
+ Timeseries graphs Summary graph Graphing anti-patterns  Questions to think about  What are some work metrics that are important to you? Why? Are you currently alerting on metrics in the resources group?  </description>
     </item>
     
     <item>
-      <title>Monitoring 101 - Getting Started</title>
+      <title>Datadog 101 - Monitoring 101</title>
       <link>https://datadog.github.io/summit-training-session/preso/monitoring101/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/preso/monitoring101/</guid>
-      <description>#Monitoring 101
-Note: This is a speaker note
----
-&lt;!-- .slide: data-background-image=&#34;../../images/monitoring101/rainondash.png&#34; --&gt;
---
-&lt;!-- .slide: data-background-image=&#34;../../images/monitoring101/splat.png&#34; --&gt;
----
-# Collecting data is cheap
-&lt;!-- .slide: data-transition=&#34;fade-out&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Collecting data is cheap &lt;!-- .element: style=&#34;color: grey;&#34; --&gt;
-#**Not having it when you need it is expensive**
----
-&lt;!-- .slide: data-background-image=&#34;../../images/monitoring101/blogseries.png&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
-![](../../images/monitoring101/workresourceevents-1.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
-![](../../images/monitoring101/workresourceevents-2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
-![](../../images/monitoring101/workresourceevents-3.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-![](../../images/monitoring101/pageandinvestigate.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-![](../../images/monitoring101/recurse-1.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
-![](../../images/monitoring101/recurse-2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
-![](../../images/monitoring101/recurse-3.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;none&#34; --&gt;
-![](../../images/monitoring101/recurse-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
----
-# Examples of Metrics &lt;hr&gt;
-## Web Server
---
-#Work Metrics
-##Page Requests per Second
-##Successful Requests
---
-#Resource Metrics
-##CPU Utilization
-##Queue Length
----
-# Tags All the Way Down
-![](../../images/monitoring101/awstags.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-![](../../images/monitoring101/tagexample.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-![](../../images/monitoring101/tagcube.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 79%&#34; --&gt;
---
-# Asking Better Questions
-![](../../images/monitoring101/betterq1.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-# Asking Better Questions
-![](../../images/monitoring101/betterq2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-
----
-# Metric Graphs 101
-## Timeseries Graphs
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Line Graphs
-![](../../images/monitoring101/linegraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-Note: Use Line Graphs for the same metric reported by diff scopes to spot outliers at a glance
-
-for tracking single metrics to see evolution over time
-
-related metrics with same units to see correlations 
-
-metrics with clear acceptable domain
-
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Stacked Area Graphs
-![](../../images/monitoring101/stackedareagraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-
-Note: Same metric from different scopes, to check both sum and contribution of each
-
-sum complementary metrics sharing the same unit
-
-If the metrics can&#39;t be added sensibly, don&#39;t use this
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Bar Graphs
-![](../../images/monitoring101/bargraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-
-Note: use this for sparse metrics to convey values without jumpy or misleading interpolation
-
-metrics that represent a count and not a gauge
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Heat Maps
-![](../../images/monitoring101/heatmap.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-
-Note: single metrics reported by a large number of groups to see trends and variations across a group
-
-But if there are few sources, not so useful
-
----
-# Metric Graphs 101
-## Summary Graphs
-Visualizations that flatten a span
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Aggregation Across Time
-![](../../images/monitoring101/timeaggregation.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Aggregation Across Space
-![](../../images/monitoring101/spaceaggregation.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 80%&#34; --&gt;
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Single Value Summary
-![](../../images/monitoring101/singlevalue.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
-
-Note: work metrics from a given system to make them more visible
-
-critical resource metrics to provide overview at a glance
-
-error metrics to draw attention
-
-computed metric changes compared to previous value
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Top Lists
-![](../../images/monitoring101/toplists.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
-
-Note: work or resource metrics from different hosts or groups to spot outliers or overconsumers
-
-custom metrics to see kpis in a easy to read format
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Change Graphs
-![](../../images/monitoring101/changegraphs.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 50%&#34; --&gt;
-
-Note: cyclic metrics that rise and fall seasonally, to separate trends from periodic baselines
-
-high level infra metrics to spot large scale trends
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Host Maps
-![](../../images/monitoring101/hostmaps.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
-
-Note: resource utilization to spot overloaded components at a glance
-
-id resource misallocation
-
-id degraded hosts
-
-correlation in a single graph or related metrics
---
-&lt;!-- .slide: data-transition=&#34;fade-in&#34; --&gt;
-#Distributions
-![](../../images/monitoring101/distributions.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 70%&#34; --&gt;
-
-Note: single metric to see general health or variations across members of a group
-</description>
+      <description>#Monitoring 101 Note: This is a speaker note --- --- --- # Collecting data is cheap --- #Collecting data is cheap #**Not having it when you need it is expensive** --- --- ![](../../images/monitoring101/workresourceevents-1.png)--- ![](../../images/monitoring101/workresourceevents-2.png)--- ![](../../images/monitoring101/workresourceevents-3.png)--- ![](../../images/monitoring101/workresourceevents-4.png)--- ![](../../images/monitoring101/workresourceevents-4.png)**Work - Throughput**: The server does something. How many of those things did it do? --- ![](../../images/monitoring101/workresourceevents-4.png)**Work - Performance**: The server does something. How long does it take to do those things? --- ![](../../images/monitoring101/workresourceevents-4.png)**Work - Success**: The server does something.</description>
     </item>
     
     <item>
-      <title>Building Great Dashboards</title>
+      <title>Datadog 101 - Building Great Dashboards</title>
       <link>https://datadog.github.io/summit-training-session/notes/buildinggreatdashboards/</link>
       <pubDate>Mon, 17 Oct 2016 08:46:04 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/notes/buildinggreatdashboards/</guid>
-      <description>
-
-&lt;h1 id=&#34;ha-proxy-metrics&#34;&gt;HA Proxy Metrics&lt;/h1&gt;
-
-&lt;table class=&#34;table&#34;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend_hosts&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of backend hosts.&lt;br&gt;&lt;em&gt;shown as host&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.bytes.in_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Rate of bytes in on backend hosts.&lt;br&gt;&lt;em&gt;shown as byte/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.bytes.out_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Rate of bytes out on backend hosts.&lt;br&gt;&lt;em&gt;shown as byte/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.connect.time&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Average connect time over the last 1024 requests.&lt;br&gt;&lt;em&gt;shown as millisecond&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.denied.req_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of requests denied due to security concerns.&lt;br&gt;&lt;em&gt;shown as request/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.denied.resp_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of responses denied due to security concerns.&lt;br&gt;&lt;em&gt;shown as response/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.errors.con_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Rate of requests that encountered an error trying to connect to a backend server.&lt;br&gt;&lt;em&gt;shown as error/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.errors.resp_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Rate of responses aborted due to error.&lt;br&gt;&lt;em&gt;shown as error/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.queue.current&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of requests without an assigned backend.&lt;br&gt;&lt;em&gt;shown as request&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.queue.time&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Average queue time over the last 1024 requests.&lt;br&gt;&lt;em&gt;shown as millisecond&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.response.1xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Backend HTTP responses with 1xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.response.2xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Backend HTTP responses with 2xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.response.3xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Backend HTTP responses with 3xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.response.4xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Backend HTTP responses with 4xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.response.5xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Backend HTTP responses with 5xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.response.other&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Backend HTTP responses with other code (protocol error).&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.response.time&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Average response time over the last 1024 requests (0 for TCP).&lt;br&gt;&lt;em&gt;shown as millisecond&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.session.current&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of active backend sessions.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.session.limit&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Configured backend session limit.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.session.pct&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Percentage of sessions in use (backend.session.current/backend.session.limit * 100).&lt;br&gt;&lt;em&gt;shown as percent&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.session.rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of backend sessions created per second.&lt;br&gt;&lt;em&gt;shown as connection/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.session.time&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Average total session time over the last 1024 requests.&lt;br&gt;&lt;em&gt;shown as millisecond&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.warnings.redis_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of times a connection to a server was retried.&lt;br&gt;&lt;em&gt;shown as error/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.backend.warnings.retr_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of times a request was redispatched to another server.&lt;br&gt;&lt;em&gt;shown as error/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.count_per_status&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of hosts by status (UP/DOWN/NOLB/MAINT).&lt;br&gt;&lt;em&gt;shown as host&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.bytes.in_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Rate of bytes in on frontend hosts.&lt;br&gt;&lt;em&gt;shown as byte/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.bytes.out_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Rate of bytes out on frontend hosts.&lt;br&gt;&lt;em&gt;shown as byte/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.denied.req_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of requests denied due to security concerns.&lt;br&gt;&lt;em&gt;shown as request/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.denied.resp_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of responses denied due to security concerns.&lt;br&gt;&lt;em&gt;shown as response/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.errors.req_rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Rate of request errors.&lt;br&gt;&lt;em&gt;shown as error/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.requests.rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of HTTP requests per second.&lt;br&gt;&lt;em&gt;shown as request/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.response.1xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Frontend HTTP responses with 1xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.response.2xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Frontend HTTP responses with 2xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.response.3xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Frontend HTTP responses with 3xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.response.4xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Frontend HTTP responses with 4xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.response.5xx&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Frontend HTTP responses with 5xx code.&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.response.other&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Frontend HTTP responses with other code (protocol error).&lt;br&gt;&lt;em&gt;shown as response&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.session.current&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of active frontend sessions.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.session.limit&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Configured backend session limit.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.session.pct&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Percentage of sessions in use (frontend.session.current/frontend.session.limit * 100).&lt;br&gt;&lt;em&gt;shown as percent&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;haproxy.frontend.session.rate&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Number of frontend sessions created per second.&lt;br&gt;&lt;em&gt;shown as connection/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&#34;apache-metrics&#34;&gt;Apache Metrics&lt;/h1&gt;
-
-&lt;p&gt;&lt;table class=&#34;table&#34;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.net.bytes&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The total number of bytes served.&lt;br&gt;&lt;em&gt;shown as byte&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.net.bytes_per_s&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of bytes served per second.&lt;br&gt;&lt;em&gt;shown as byte/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.net.hits&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The total number of requests performed.&lt;br&gt;&lt;em&gt;shown as request&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.net.request_per_s&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of requests performed per second.&lt;br&gt;&lt;em&gt;shown as request/second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.performance.cpu_load&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The percent of CPU used.&lt;br&gt;&lt;em&gt;shown as percent&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.performance.busy_workers&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of workers serving requests.&lt;br&gt;&lt;em&gt;shown as thread&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.performance.idle_workers&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of idle workers.&lt;br&gt;&lt;em&gt;shown as thread&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;strong&gt;apache.performance.uptime&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The amount of time the server has been running.&lt;br&gt;&lt;em&gt;shown as second&lt;/em&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;mysql-metrics&#34;&gt;MySQL Metrics&lt;/h1&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Metric&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.galera.wsrep_cluster_size&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The current number of nodes in the Galera cluster.&lt;br&gt;&lt;em&gt;shown as node&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.buffer_pool_free&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of free pages in the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as page&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.buffer_pool_total&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The total number of pages in the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as page&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.buffer_pool_used&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of used pages in the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as page&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.buffer_pool_utilization&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The utilization of the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as fraction&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.current_row_locks&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of current row locks.&lt;br&gt;&lt;em&gt;shown as lock&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.data_reads&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of data reads.&lt;br&gt;&lt;em&gt;shown as read/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.data_writes&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of data writes.&lt;br&gt;&lt;em&gt;shown as write/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.mutex_os_waits&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of mutex OS waits.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.mutex_spin_rounds&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of mutex spin rounds.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.mutex_spin_waits&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of mutex spin waits.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.os_log_fsyncs&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of fsync writes to the log file.&lt;br&gt;&lt;em&gt;shown as write/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.row_lock_time&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Fraction of time spent (ms/s) acquring row locks.&lt;br&gt;&lt;em&gt;shown as fraction&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.innodb.row_lock_waits&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of times per second a row lock had to be waited for.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.net.connections&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of connections to the server.&lt;br&gt;&lt;em&gt;shown as connection/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.net.max_connections&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The maximum number of connections that have been in use simultaneously since the server started.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_delete&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of delete statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_delete_multi&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of delete-multi statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_insert&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of insert statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_insert_select&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of insert-select statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_replace_select&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of replace-select statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_select&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of select statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_update&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of update statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.com_update_multi&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of update-multi.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.created_tmp_disk_tables&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of internal on-disk temporary tables created by second by the server while executing statements.&lt;br&gt;&lt;em&gt;shown as table/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.created_tmp_files&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of temporary files created by second.&lt;br&gt;&lt;em&gt;shown as file/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.created_tmp_tables&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of internal temporary tables created by second by the server while executing statements.&lt;br&gt;&lt;em&gt;shown as table/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.kernel_time&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Percentage of CPU time spent in kernel space by MySQL.&lt;br&gt;&lt;em&gt;shown as percent&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.key_cache_utilization&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The key cache utilization ratio.&lt;br&gt;&lt;em&gt;shown as fraction&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.open_files&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of open files.&lt;br&gt;&lt;em&gt;shown as file&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.open_tables&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of of tables that are open.&lt;br&gt;&lt;em&gt;shown as table&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.qcache_hits&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of query cache hits.&lt;br&gt;&lt;em&gt;shown as hit/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.questions&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of statements executed by the server.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.slow_queries&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of slow queries.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.table_locks_waited&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The total number of times that a request for a table lock could not be granted immediately and a wait was needed.&lt;em&gt;&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.threads_connected&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of currently open connections.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.threads_running&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The number of threads that are not sleeping.&lt;br&gt;&lt;em&gt;shown as thread&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.user_time&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;Percentage of CPU time spent in user space by MySQL.&lt;br&gt;&lt;em&gt;shown as percent&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.replication.seconds_behind_master&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The lag in seconds between the master and the slave.&lt;br&gt;&lt;em&gt;shown as second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.replication.slave_running&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;A boolean showing if this server is a replication slave that is connected to a replication master.&lt;em&gt;&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;strong&gt;mysql.performance.queries&lt;/strong&gt;&lt;br&gt;(gauge)&lt;/td&gt;
-&lt;td&gt;The rate of queries.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-</description>
+      <description>ElasticSearch Metrics    Metric Description     elasticsearch.active_primary_shards
+(gauge) The number of active primary shards in the cluster.
+shown as shard   elasticsearch.active_shards
+(gauge) The number of active shards in the cluster.
+shown as shard   elasticsearch.breakers.fielddata.estimated_size_in_bytes
+(gauge) The estimated size in bytes of the field data circuit breaker.
+shown as byte   elasticsearch.breakers.fielddata.overhead
+(gauge) The constant multiplier for byte estimations of the field data circuit breaker.</description>
     </item>
     
     <item>
-      <title>Building Great Dashboards</title>
+      <title>Datadog 101 - Building Great Dashboards</title>
       <link>https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/</guid>
-      <description>
-
-&lt;h1 id=&#34;first-dashboard&#34;&gt;First Dashboard&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;From the menu, create a new dashboard.&lt;/li&gt;
-&lt;li&gt;Enter the name for your first dashboard. We are going to focus on HAProxy, so you can call it &lt;code&gt;My First HAProxy Dash&lt;/code&gt; or anything you like.&lt;/li&gt;
-&lt;li&gt;Click the &lt;strong&gt;New Timeboard&lt;/strong&gt; button to create a Timeboard.&lt;/li&gt;
-&lt;li&gt;Drag and drop a timeseries widget onto the first well on the canvas. Notice that you can change the visualization at any time without having to drag another widget on the canvas.&lt;/li&gt;
-&lt;li&gt;In the first textbox under &lt;strong&gt;Choose metrics and events&lt;/strong&gt;, select &lt;code&gt;haproxy.frontend.requests.rate&lt;/code&gt;. Notice that the textbox supports a fuzzy search so i can enter &lt;code&gt;hap.fe.rr&lt;/code&gt; and get to the right metric much more quickly.&lt;/li&gt;
-&lt;li&gt;We have only a single host so a line graph should be fine, but try the other display options from the &lt;strong&gt;Display&lt;/strong&gt; dropdown. Play around with the different color palettes, styles, and strokes as well.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;everywhere&lt;/strong&gt; and &lt;strong&gt;everything&lt;/strong&gt; textboxes don&amp;rsquo;t have much effect on our single host, so click the plus sign to the right to see the different functions available. We will learn more about these in the next section.&lt;/li&gt;
-&lt;li&gt;Now click on the &lt;strong&gt;Add Metric&lt;/strong&gt; button to add another metric line to your graph. Add &lt;code&gt;haproxy.backend.session.rate&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;This created a graph with two lines, but sometimes you want a graph with a single line made up of several metrics. Drag another timeseries widget to the canvas.&lt;/li&gt;
-&lt;li&gt;Select &lt;code&gt;system.cpu.user&lt;/code&gt; for the metric.&lt;/li&gt;
-&lt;li&gt;Now click the &lt;strong&gt;Advanced&amp;hellip;&lt;/strong&gt; link on the right.&lt;/li&gt;
-&lt;li&gt;Click the &lt;strong&gt;Add a metric to this expression&lt;/strong&gt; button and choose &lt;code&gt;system.cpu.system&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Now type &lt;code&gt;a+b&lt;/code&gt; in the &lt;strong&gt;Graph these queries as:&lt;/strong&gt; textbox. You now have a single line representing the value of the two metrics combined.&lt;/li&gt;
-&lt;li&gt;Continue adding graphs to represent all the &lt;strong&gt;Work&lt;/strong&gt; and &lt;strong&gt;Resource&lt;/strong&gt; metrics we talked about.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;How does your dashboard compare to the default HAProxy dashboard? Whats different?&lt;/li&gt;
-&lt;li&gt;You added two metrics in the Advanced section. What else can you do with these metrics?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;End of First Dashboard Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/6&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;apache&#34;&gt;Apache&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create a new Timeboard.&lt;/li&gt;
-&lt;li&gt;Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard&lt;/li&gt;
-&lt;li&gt;Ensure that you have added both work metrics and resource metrics.&lt;/li&gt;
-&lt;li&gt;Does anything seem strange?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;End of Apache Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/8&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;notebooks&#34;&gt;Notebooks&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;From the menu, create a &lt;strong&gt;New Notebook&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Choose apache metric that represents what was wrong. Adust the time period to ensure you have the problem in view. Configure the graph to ensure you are showing the problem.&lt;/li&gt;
-&lt;li&gt;Click the gear icon at the top left of the current cell and choose &lt;strong&gt;Insert Markdown above&lt;/strong&gt;. Describe the problem encountered.&lt;/li&gt;
-&lt;li&gt;Click the &lt;strong&gt;insert Markdown cell at end&lt;/strong&gt; link at the bottom. Describe the change that was made to the configuration.&lt;/li&gt;
-&lt;li&gt;Add another graph cell at the end to show that Apache is running as it should.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;End of Notebooks Section - &lt;a href=&#34;../../preso/buildinggreatdashboards/#/9/3&#34;&gt;Return to Presentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;mysql&#34;&gt;MySQL&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create a new Timeboard.&lt;/li&gt;
-&lt;li&gt;Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard&lt;/li&gt;
-&lt;li&gt;Ensure that you have added both work metrics and resource metrics.&lt;/li&gt;
-&lt;li&gt;Try adding some events to some of the graphs.&lt;/li&gt;
-&lt;li&gt;Now do a search at the top for another event.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;combined-dashboard&#34;&gt;Combined Dashboard&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Create a Screenboard.&lt;/li&gt;
-&lt;li&gt;Add a Text widget to the canvas and enter &lt;code&gt;Load Balancer&lt;/code&gt; in the &lt;strong&gt;Text to display&lt;/strong&gt; textbox.&lt;/li&gt;
-&lt;li&gt;Add some of the HAProxy work metrics using any visualization you like.&lt;/li&gt;
-&lt;li&gt;Repeat the last two steps for the Web Servers, choosing Apache metrics.&lt;/li&gt;
-&lt;li&gt;Repeat again for the Database, choosing MySQL metrics.&lt;/li&gt;
-&lt;li&gt;Arrange everything to create an attractive dashboard that tells a complete story. Whats the right timeperiod to show on this dashboard?&lt;/li&gt;
-&lt;li&gt;Click on the gear icon at the top right of the dashboard and choose &lt;strong&gt;Generate public URL&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Try the URL in a new browser window.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;End of Dashboards Hands On&lt;/p&gt;
-</description>
+      <description>First Dashboard  From the menu, return to the dashboard you created earlier. Drag and drop a timeseries widget onto the first well on the canvas. Notice that you can change the visualization at any time without having to drag another widget on the canvas. In the first textbox under Choose metrics and events, select elasticsearch.primaries.search.query.current. Notice that the textbox supports a fuzzy search so i can enter elseapriseaqc and get to the right metric much more quickly.</description>
     </item>
     
     <item>
-      <title>Building Great Dashboards</title>
+      <title>Datadog 101 - Building Great Dashboards</title>
       <link>https://datadog.github.io/summit-training-session/preso/buildinggreatdashboards/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/preso/buildinggreatdashboards/</guid>
-      <description># Building Great Dashboards
----
-# The Environment
-![](../../images/buildinggreatdashboards/environment.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; height: 100%&#34; --&gt;
----
-# Remember the Monitoring Framework
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
----
-# HA Proxy Metrics
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.backend.bytes.in_rate | bytes/second | Rate of bytes in on backend hosts.|
-| haproxy.backend.bytes.out_rate | bytes/second | Rate of bytes out on backend hosts.
-| haproxy.backend.connect.time | milliseconds | Average connect time over the last 1024 requests. |
-| haproxy.backend.denied.req_rate | requests/second | Number of requests denied due to security concerns. |
-| haproxy.backend.denied.resp_rate | responses/second | Number of responses denied due to security concerns. |
-| haproxy.backend.errors.con_rate | errors/second | Rate of requests that encountered an error trying to connect to a backend server. |
-| haproxy.backend.errors.resp_rate  | errors/second | Rate of responses aborted due to error. |
-| haproxy.backend.queue.current | requests | Number of requests without an assigned backend. |
-| haproxy.backend.queue.time | milliseconds | Average queue time over the last 1024 requests. |
-
---
-# HA Proxy Metrics cnt&#39;d
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.backend.response.1xx | responses | Backend HTTP responses with 1xx code. |
-| haproxy.backend.response.2xx | responses | Backend HTTP responses with 2xx code. |
-| haproxy.backend.response.3xx | responses | Backend HTTP responses with 3xx code. |
-| haproxy.backend.response.4xx | responses | Backend HTTP responses with 4xx code. |
-| haproxy.backend.response.5xx | responses | Backend HTTP responses with 5xx code. |
-| haproxy.backend.response.other | responses | Backend HTTP responses with other code (protocol error). |
-| haproxy.backend.response.time| milliseconds | Average response time over the last 1024 requests (0 for TCP). |
-| haproxy.backend.session.current| connections | Number of active backend sessions. |
-| haproxy.backend.session.limit| connections | Configured backend session limit. |
-| haproxy.backend.session.pct | percent | Percentage of sessions in use (backend.session.current/backend.session.limit * 100). |
-| haproxy.backend.session.rate | connections/| second  Number of backend sessions created per second. |
---
-# HA Proxy Metrics cnt&#39;d
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.backend.session.time | milliseconds | Average total session time over the last 1024 requests. |
-| haproxy.backend.warnings.redis_rate | errors/second | Number of times a connection to a server was retried. |
-| haproxy.backend.warnings.retr_rate  | errors/second | Number of times a request was redispatched to another server. |
-| haproxy.backend_hosts | hosts | Number of backend hosts. |
-| haproxy.count_per_status | hosts | Number of hosts by status (UP/DOWN/NOLB/MAINT). |
-| haproxy.frontend.bytes.in_rate  | bytes/second |  Rate of bytes in on frontend hosts. |
-| haproxy.frontend.bytes.out_rate | bytes/second |  Rate of bytes out on frontend hosts. |
-| haproxy.frontend.denied.req_rate  | requests/second | Number of requests denied due to security concerns. |
-| haproxy.frontend.denied.resp_rate | responses/second | Number of responses denied due to security concerns. |
-| haproxy.frontend.errors.req_rate  | errors/second | Rate of request errors. |
-
---
-# HA Proxy Metrics cnt&#39;d
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.frontend.requests.rate  | requests/second | Number of HTTP requests per second. |
-| haproxy.frontend.response.1xx | responses | Frontend HTTP responses with 1xx code. |
-| haproxy.frontend.response.2xx | responses | Frontend HTTP responses with 2xx code. |
-| haproxy.frontend.response.3xx | responses | Frontend HTTP responses with 3xx code. |
-| haproxy.frontend.response.4xx | responses | Frontend HTTP responses with 4xx code. |
-| haproxy.frontend.response.5xx | responses | Frontend HTTP responses with 5xx code. |
-| haproxy.frontend.response.other | responses | Frontend HTTP responses with other code (protocol error). |
-| haproxy.frontend.session.current | connections | Number of active frontend sessions. |
-| haproxy.frontend.session.limit | connections | Configured backend session limit. |
-| haproxy.frontend.session.pct |  percent | Percentage of sessions in use (frontend.session.current/frontend.session.limit * 100). |
-| haproxy.frontend.session.rate| connections/second |  Number of frontend sessions created per second. |
---
-# What do you think the work metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# What do you think the resource metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# Front End Work Metrics
-|Category|Metric|
-|----|---|
-|**Throughput**| `haproxy.frontend.requests.rate`|
-|**Errors**|`haproxy.frontend.errors.req_rate`|
-
-# Front End Resource Metrics
-|Category|Metric|
-|----|---|
-|**Utilization**| `haproxy.frontend.session.rate`|
-|**Utilization**| `haproxy.frontend.session.pct`|
-|**Utilization**| `haproxy.frontend.bytes.in_rate`|
-|**Utilization**| `haproxy.frontend.bytes.out_rate`|
-
-https://www.datadoghq.com/blog/monitoring-haproxy-performance-metrics/#Frontend
---
-# Back End Work Metrics
-|Category|Metric|
-|----|---|
-|**Throughput**| `haproxy.backend.response.time `|
-|**Errors**|`haproxy.backend.errors.con_rate`|
-|**Errors**|`haproxy.backend.denied.resp_rate`|
-
-# Back End Resource Metrics
-|Category|Metric|
-|----|---|
-|**Saturation**| `haproxy.backend.queue.current`|
-|**Saturation**| `haproxy.backend.queue.time `|
-|**Availability**| `haproxy.backend.warnings.retr_rate`|
-|**Availability**| `haproxy.backend.warnings.redis_rate`|
-
-https://www.datadoghq.com/blog/monitoring-haproxy-performance-metrics/#Backend
----
-# Two Types Of Dashboards
-![](../../images/buildinggreatdashboards/2dashboards.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-# Two Sets of Widgets
-###Timeboards
-![](../../images/buildinggreatdashboards/timeboardwidgets.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 50%&#34; --&gt;
-###Screenboards
-![](../../images/buildinggreatdashboards/screenboardwidgets.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-# Two Different Goals
-![](../../images/buildinggreatdashboards/dashboards.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
----
-# Building a Timeboard
-1.  Create a Timeboard
-1.  Drag Timeseries to the canvas
-  1.  Select the metric
-  1.  Set the Scope (host, etc)
-  1.  Space Aggregation (avg, max, min, sum; by x)
-  1.  Time Aggregation (optional)(rollup)
-  1.  Functions
-
----
-# Hands-On
-## [Building your first Dashboard](../../handson/buildinggreatdashboards/#first-dashboard)
-
----
-#Apache Metrics
-
-|Name | Units |Description |
-|----|-----|----|
-|apache.net.bytes | bytes |The total number of bytes served. |
-|apache.net.bytes_per_s | bytes/second | The number of bytes served per second. |
-|apache.net.hits | requests |  The total number of requests performed. |
-|apache.net.request_per_s | requests/second | The number of requests performed per second. |
-|apache.performance.busy_workers | threads | The number of workers serving requests. |
-|apache.performance.cpu_load | percent | The percent of CPU used. |
-|apache.performance.idle_workers | threads | The number of idle workers. |
-|apache.performance.uptime | seconds | The amount of time the server has been running. |
---
-# What do you think the work metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# What do you think the resource metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# Apache Metrics
-|Category|Metric|
-|----|---|
-|Work:**Throughput**| `apache.net.hits `|
-|Work:**Performance**|`apache.net.request_per_s`|
-|Resource:**Saturation**|`apache.performance.busy_workers`|
-|Resource:**Availability**|`apache.performance.uptime`|
----
-# Hands-On
-## [Troubleshoot Apache](../../handson/buildinggreatdashboards/#apache)
----
-# Introduction to the Notebook
---
-# What are Notebooks for?
-## Saving time specific information
-### Metric Graphs
-### Markdown Text
-## Living documentation for your infrastructure
-## Sharing organizational knowledge
---
-# Using the Notebook
-![Using the notebook](https://cl.ly/3n3R3g3U3Q1W/Screen%20Recording%202016-10-23%20at%2002.11%20PM.gif)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-# Hands-On
-## [Building a Notebook](../../handson/buildinggreatdashboards/#notebooks)
----
-#MySQL Metrics
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------| 
-| &lt;strong&gt;mysql.galera.wsrep_cluster_size&lt;/strong&gt;&lt;br&gt;(gauge) | The current number of nodes in the Galera cluster.&lt;br&gt;&lt;em&gt;shown as node&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.buffer_pool_free&lt;/strong&gt;&lt;br&gt;(gauge) | The number of free pages in the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as page&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.buffer_pool_total&lt;/strong&gt;&lt;br&gt;(gauge) | The total number of pages in the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as page&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.buffer_pool_used&lt;/strong&gt;&lt;br&gt;(gauge) | The number of used pages in the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as page&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.buffer_pool_utilization&lt;/strong&gt;&lt;br&gt;(gauge) | The utilization of the InnoDB Buffer Pool.&lt;br&gt;&lt;em&gt;shown as fraction&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.current_row_locks&lt;/strong&gt;&lt;br&gt;(gauge) | The number of current row locks.&lt;br&gt;&lt;em&gt;shown as lock&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.data_reads&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of data reads.&lt;br&gt;&lt;em&gt;shown as read/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.data_writes&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of data writes.&lt;br&gt;&lt;em&gt;shown as write/second&lt;/em&gt; |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| &lt;strong&gt;mysql.innodb.mutex_os_waits&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of mutex OS waits.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.mutex_spin_rounds&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of mutex spin rounds.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.mutex_spin_waits&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of mutex spin waits.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.os_log_fsyncs&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of fsync writes to the log file.&lt;br&gt;&lt;em&gt;shown as write/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.row_lock_time&lt;/strong&gt;&lt;br&gt;(gauge) | Fraction of time spent (ms/s) acquring row locks.&lt;br&gt;&lt;em&gt;shown as fraction&lt;/em&gt; |
-| &lt;strong&gt;mysql.innodb.row_lock_waits&lt;/strong&gt;&lt;br&gt;(gauge) | The number of times per second a row lock had to be waited for.&lt;br&gt;&lt;em&gt;shown as event/second&lt;/em&gt; |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| &lt;strong&gt;mysql.net.connections&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of connections to the server.&lt;br&gt;&lt;em&gt;shown as connection/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.net.max_connections&lt;/strong&gt;&lt;br&gt;(gauge) | The maximum number of connections that have been in use simultaneously since the server started.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.com_delete&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of delete statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.com_delete_multi&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of delete-multi statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.com_insert&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of insert statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.com_insert_select&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of insert-select statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.com_replace_select&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of replace-select statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| &lt;strong&gt;mysql.performance.com_select&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of select statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.com_update&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of update statements.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.com_update_multi&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of update-multi.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.created_tmp_disk_tables&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of internal on-disk temporary tables created by second by the server while executing statements.&lt;br&gt;&lt;em&gt;shown as table/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.created_tmp_files&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of temporary files created by second.&lt;br&gt;&lt;em&gt;shown as file/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.created_tmp_tables&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of internal temporary tables created by second by the server while executing statements.&lt;br&gt;&lt;em&gt;shown as table/second&lt;/em&gt; |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| &lt;strong&gt;mysql.performance.kernel_time&lt;/strong&gt;&lt;br&gt;(gauge) | Percentage of CPU time spent in kernel space by MySQL.&lt;br&gt;&lt;em&gt;shown as percent&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.key_cache_utilization&lt;/strong&gt;&lt;br&gt;(gauge) | The key cache utilization ratio.&lt;br&gt;&lt;em&gt;shown as fraction&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.open_files&lt;/strong&gt;&lt;br&gt;(gauge) | The number of open files.&lt;br&gt;&lt;em&gt;shown as file&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.open_tables&lt;/strong&gt;&lt;br&gt;(gauge) | The number of of tables that are open.&lt;br&gt;&lt;em&gt;shown as table&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.qcache_hits&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of query cache hits.&lt;br&gt;&lt;em&gt;shown as hit/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.questions&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of statements executed by the server.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.slow_queries&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of slow queries.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.table_locks_waited&lt;/strong&gt;&lt;br&gt;(gauge) | The total number of times that a request for a table lock could not be granted immediately and a wait was needed.&lt;em&gt;&lt;/em&gt; |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| &lt;strong&gt;mysql.performance.threads_connected&lt;/strong&gt;&lt;br&gt;(gauge) | The number of currently open connections.&lt;br&gt;&lt;em&gt;shown as connection&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.threads_running&lt;/strong&gt;&lt;br&gt;(gauge) | The number of threads that are not sleeping.&lt;br&gt;&lt;em&gt;shown as thread&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.user_time&lt;/strong&gt;&lt;br&gt;(gauge) | Percentage of CPU time spent in user space by MySQL.&lt;br&gt;&lt;em&gt;shown as percent&lt;/em&gt; |
-| &lt;strong&gt;mysql.replication.seconds_behind_master&lt;/strong&gt;&lt;br&gt;(gauge) | The lag in seconds between the master and the slave.&lt;br&gt;&lt;em&gt;shown as second&lt;/em&gt; |
-| &lt;strong&gt;mysql.replication.slave_running&lt;/strong&gt;&lt;br&gt;(gauge) | A boolean showing if this server is a replication slave that is connected to a replication master.&lt;em&gt;&lt;/em&gt; |
-| &lt;strong&gt;mysql.performance.queries&lt;/strong&gt;&lt;br&gt;(gauge) | The rate of queries.&lt;br&gt;&lt;em&gt;shown as query/second&lt;/em&gt; |
-
---
-# What do you think the work metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-[Review the notes for this section to see them all](../../notes/buildinggreatdashboards/)
---
-# What do you think the resource metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
-[Review the notes for this section to see them all](../../notes/buildinggreatdashboards/)
---
-#Some Key Mysql Metrics
-| Category | Metric |
-|------|-----|
-|Work:**Throughput**|`mysql.performance.questions`|
-|Work:**Throughput**|`mysql.performance.com_select`|
-|Resource:**Utilization**| `mysql.performance.threads_connected`|
-|Resource:**Utilization**| `mysql.performance.threads_running`|
-|Resource:**Error**| `mysql.performance.aborted_connects`|
-|Resource:**Utilization**| `mysql.performance.threads_connected`|
-
-See https://www.datadoghq.com/blog/monitoring-mysql-performance-metrics/ for more
-
---
-# Hands-On
-## [MySQL and Combined Dashboards](../../handson/buildinggreatdashboards/#mysql)
-</description>
+      <description># Building Great Dashboards --- # Two Types Of Dashboards ![](../../images/buildinggreatdashboards/2dashboards.png)--- # Two Sets of Widgets ###Timeboards ![](../../images/buildinggreatdashboards/timeboardwidgets.png)###Screenboards ![](../../images/buildinggreatdashboards/screenboardwidgets.png)--- # Two Different Goals ![](../../images/buildinggreatdashboards/dashboards.png)--- #ElasticSearch Metrics ![](../../images/buildinggreatdashboards/elasticsearch-alerts-final2.png)--- #ElasticSearch Metrics | Metric | Description| |------|--------| | elasticsearch.active_primary_shards
+(gauge) | The number of active primary shards in the cluster.
+shown as shard | | elasticsearch.active_shards
+(gauge) | The number of active shards in the cluster.
+shown as shard | | elasticsearch.breakers.fielddata.estimated_size_in_bytes
+(gauge) | The estimated size in bytes of the field data circuit breaker.</description>
     </item>
     
     <item>
-      <title>Monitoring Math</title>
+      <title>Datadog 101 - Monitoring Math</title>
       <link>https://datadog.github.io/summit-training-session/notes/monitoringmath/</link>
       <pubDate>Mon, 17 Oct 2016 08:44:38 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/notes/monitoringmath/</guid>
-      <description>
-
-&lt;h3 id=&#34;8-types-of-functions&#34;&gt;8 Types of Functions&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Interpolation&lt;/strong&gt; - Aligns multiple series together&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Timeshift&lt;/strong&gt; - Helpful for comparing metrics with previously reported values&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Rate&lt;/strong&gt; - Compare metric values with their previous value&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Count&lt;/strong&gt; - Keep track of the number of values reported in your graphs&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Smoothing&lt;/strong&gt; - Even out the values on your graph&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Time Aggregation&lt;/strong&gt; - Smooth out your graphs by aggregating timeseries data&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Ranking&lt;/strong&gt; - Avoid clutter by viewing only the most relevant timeseries&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Algorithm&lt;/strong&gt; - Analyze your metrics compared to concurrent or previous metric data&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description> 8 Types of Functions  Interpolation - Aligns multiple series together Timeshift - Helpful for comparing metrics with previously reported values Rate - Compare metric values with their previous value Count - Keep track of the number of values reported in your graphs Smoothing - Even out the values on your graph Time Aggregation - Smooth out your graphs by aggregating timeseries data Ranking - Avoid clutter by viewing only the most relevant timeseries Algorithm - Analyze your metrics compared to concurrent or previous metric data  </description>
     </item>
     
     <item>
-      <title>Monitoring Math</title>
+      <title>Datadog 101 - Monitoring Math</title>
       <link>https://datadog.github.io/summit-training-session/handson/monitoringmath/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/monitoringmath/</guid>
-      <description>
-
-&lt;ol&gt;
-&lt;li&gt;Create a new Timeboard&lt;/li&gt;
-&lt;li&gt;Add a timeseries graph. Choose any metric; the default &lt;code&gt;system.load.1&lt;/code&gt; will work just fine.&lt;/li&gt;
-&lt;li&gt;Click the Add Metric button and add the same metric.&lt;/li&gt;
-&lt;li&gt;Click the plus sign to the right of the metric query for the second metric. Hover over each of the choices to see what&amp;rsquo;s available.&lt;/li&gt;
-&lt;li&gt;Select Day Before from the Timeshift section. Notice there are now two lines on the graph. Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Change the time window for the current dashboard to &lt;code&gt;The Past Week&lt;/code&gt;. Notice that the lines show the same values separated by a day.&lt;/li&gt;
-&lt;li&gt;Edit the graph you just created. Delete the second metric.&lt;/li&gt;
-&lt;li&gt;Click the Advanced link on the first metric.&lt;/li&gt;
-&lt;li&gt;Click the &lt;strong&gt;Add a metric to this expression&lt;/strong&gt; button. Select the same metric and choose Day Before again in the Math Functions dialog.&lt;/li&gt;
-&lt;li&gt;Change the math function from &lt;code&gt;a ; b&lt;/code&gt; to &lt;code&gt;a - b&lt;/code&gt;. Notice that the values are sometimes negative.&lt;/li&gt;
-&lt;li&gt;Change the math function again to &lt;code&gt;abs( a - b )&lt;/code&gt;. Click &lt;strong&gt;Save&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Add a new graph with the same metric you used before. Click the Plus sign and choose Anomalies. Hover over the graph and select different values for bounds to see what changes.&lt;/li&gt;
-&lt;li&gt;Change the anomaly aggregation method to each of the options. How does the graph change?&lt;/li&gt;
-&lt;li&gt;Add another metric to the graph. If the metric was added with the anomaly function attached, remove it.&lt;/li&gt;
-&lt;li&gt;Add a Robust Trend line to this second metric. Try out the other two trend lines to see the difference.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Above you worked with anomalies. Why do you think I didn&amp;rsquo;t have you work with outliers?&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <description>We don&amp;rsquo;t have time to go through the hands on training for this section at the summit, but please follow along when you get home.
+ Create a new Timeboard Add a timeseries graph. Choose any metric; the default system.load.1 will work just fine. Click the Add Metric button and add the same metric. Click the plus sign to the right of the metric query for the second metric. Hover over each of the choices to see what&amp;rsquo;s available.</description>
     </item>
     
     <item>
-      <title>Monitoring Math</title>
+      <title>Datadog 101 - Monitoring Math</title>
       <link>https://datadog.github.io/summit-training-session/preso/monitoringmath/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/preso/monitoringmath/</guid>
-      <description># Monitoring Math
-Getting more out of your graphs
----
-#Metric Aggregation
---
-# Timeseries Data
-* Metrics are stored as timeseries based on combinations of the metric name and tag combinations
-* Queries require an aggregation function (sum, min, max, avg) to aggregate over timeseries matching the query
-* Aggregation is applied at each point on the graph, bringing multiple timeseries value into one point on the graph
---
-# Aggregation Example
-* Start with a basic query “sum:system.disk.used{host:oracle-xe}”
-* Disk metrics are tagged by disk using the “device” tag, with an individual timeseries created on each host for every device reported
-
-![](../../images/monitoringmath/aggexample.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Aggregation Example
-
-* Using “by {device}” break the graph down to show one stacked are per disk
-* Sum from previous graph is now broken down by individual disks making up the previous aggregate
-
-![](../../images/monitoringmath/aggexample2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
----
-#Functions
---
-# Function Types
-* Arithmetic
-* Interpolation
-* Timeshift
-* Rate
-* Count
-* Smoothing
-* Time Aggregation
-* Ranking
-* Algorithm
----
-# Arithmetic
-## Absolute Value
-* Always displays the absolute value of the metric.
-
-## Log2/Log10
-* The occasional spike may skew the scale of a graph. Log will smooth out the spike while not eliminating them.
-
-## Cumulative Sum / Integral
-* Adds each value shown on the graph cumulatively.
----
-# Interpolation - .fill()
-
-* Not meant to fill in empty spaces, but to align multiple series together
-* Helpful for aggregation and arithmetic across multiple sources
-* Available options include linear interpolation or inserting 0’s or the most recent value
-* More on this in our KBs: http://dtdg.co/kb-fill
----
-# Timeshift
-## Helpful for comparing metrics with previously reported values
---
-# hour_before()
-![](../../images/monitoringmath/hour_before.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# day_before()
-![](../../images/monitoringmath/day_before.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# week_before()
-![](../../images/monitoringmath/week_before.png)
---
-# month_before()
-![](../../images/monitoringmath/month_before.png)
----
-# Rate
-## Compare metric values with their previous value
---
-# per_second()
-Compare the metric with the previous value, returning difference in value divided by the difference in time
-![](../../images/monitoringmath/rate_per_second.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-
---
-# per_minute()
-Compare the metric with the previous value, returning difference in value divided by the difference in time
-
-![](../../images/monitoringmath/rate_per_minute.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-Note: 60 * the per_second() value
---
-# per_hour()  Rate
-Compare the metric with the previous value, returning difference in value divided by the difference in time
-![](../../images/monitoringmath/rate_per_hour.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-
-Note: 3600 * the per_second() value
---
-# dt()
-![](../../images/monitoringmath/dt.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-Note: Time in seconds between the current and previous points
---
-# diff()
-![](../../images/monitoringmath/diff.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-Note: The difference in value between the current and previous points
---
-# derivative()
-![](../../images/monitoringmath/derivative.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-
-Note: 1st order derivative function applied to the graph: diff() / dt()
----
-# Count
-## Keep track of the number of values reported in your graphs
---
-# count_nonzero()
-![](../../images/monitoringmath/count_nonzero.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-Note: Current track of all non-zero values graphed at a given moment in time
---
-# count_not_null()
-![](../../images/monitoringmath/count_not_null.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-Note: Current track of all non-null values graphed at a given moment in time
----
-# Smoothing
-## Even out the values on your graph
---
-# ewma_3()
-![](../../images/monitoringmath/ewma_3.png)
-Note: Exponentially weighted moving average spanning 3 points (previous, current, next)
---
-# ewma_5()
-![](../../images/monitoringmath/ewma_5.png)
-Note: Exponentially weighted moving average spanning 5 points
---
-# ewma_10()
-![](../../images/monitoringmath/ewma_10.png)
-Note: Exponentially weighted moving average spanning 10 points
---
-# ewma_20()
-![](../../images/monitoringmath/ewma_20.png)
-Note: Exponentially weighted moving average spanning 20 points
---
-# median_3()
-![](../../images/monitoringmath/median_3.png)
-Note: Median value spanning 3 points (median of the previous, current, and next point)
---
-# median_5()
-![](../../images/monitoringmath/median_5.png)
-Note: Median value spanning 5 points
---
-# median_7()
-![](../../images/monitoringmath/median_7.png)
-Note: Median value spanning 7 points
---
-# median_9()
-![](../../images/monitoringmath/median_9.png)
-Note: Median value spanning 9 points
----
-# Time Aggregation
-## Smooth out your graphs by aggregating timeseries data
---
-# .rollup($method, $time)
-* Apply aggregation $method to multiple values over $time in seconds
-* Available methods: sum, min, max, avg
-* Allows overriding the default rollup function used for smoothing graphs over larger timeframes
-* Various methods available can allow preservation of spikes/dips in graphs
-* More on our default rollups and the rollup function’s use in our KBs: http://dtdg.co/zoomsmooth
----
-# Ranking
-## Avoid clutter by viewing only the most relevant timeseries
---
-# top()
-Avoid clutter by viewing only the most relevant timeseries
-![](../../images/monitoringmath/top.png)
-Note: * Select the top series responsive to a given query, according to a provided ranking method
-* Parameters for the top function include
-  * metric query itself
-  * the number of series you’d like returned
-  * a ranking function (one of &#39;max&#39;, &#39;min&#39;, &#39;last&#39;, &#39;l2norm&#39;, or &#39;area&#39;)
-  * sort order (either &#39;desc&#39; for descending order or &#39;asc&#39; for ascending order)
---
-# top_offset()
-Avoid clutter by viewing only the most relevant timeseries
-
-![](../../images/monitoringmath/topoffset.png)
-
-Note: Similar to top(), except with an additional offset parameter, which controls where in the ordered sequence of series the graphing starts.
-
-For example, an offset of 2 would start graphing at the number 3 ranked series, according to the chosen ranking metric.
----
-# Algorithm
-## Analyze your metrics compared to concurrent or previous metric data
---
-#outliers()
-* Compare timeseries values with each other
-* Highlights individual timeseries based on ones that deviate too far from the norm at a given moment in time
-* More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect
---
-#anomalies()
-* Compares historic metric data
-* Allows comparison of the current value with norms calculated across previous timeframes
-* Can alert on anomalous spikes/dips in metric values based on deviation from this norm
-
-</description>
+      <description># Monitoring Math Getting more out of your graphs --- #Metric Aggregation --- # Timeseries Data * Metrics are stored as timeseries based on combinations of the metric name and tag combinations * Queries require an aggregation function (sum, min, max, avg) to aggregate over timeseries matching the query * Aggregation is applied at each point on the graph, bringing multiple timeseries value into one point on the graph --- # Aggregation Example * Start with a basic query “sum:system.</description>
     </item>
     
     <item>
-      <title>The Right Alerts</title>
+      <title>Datadog 101 - The Right Alerts</title>
       <link>https://datadog.github.io/summit-training-session/handson/therightalerts/</link>
       <pubDate>Mon, 17 Oct 2016 08:46:34 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/therightalerts/</guid>
-      <description>&lt;ol&gt;
-&lt;li&gt;Click on the &lt;strong&gt;New Monitor&lt;/strong&gt; link under &lt;strong&gt;Monitors&lt;/strong&gt; on the main menu.&lt;/li&gt;
-&lt;li&gt;Select &lt;strong&gt;Integration&lt;/strong&gt; and choose &lt;strong&gt;Apache&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Switch to the &lt;strong&gt;Integration Metric&lt;/strong&gt; tab at the top right.&lt;/li&gt;
-&lt;li&gt;Select one of the work metrics for Apache. Decide whether you want an alert for each Apache host or for all of them as a group.&lt;/li&gt;
-&lt;li&gt;Set the appropriate alert conditions based on what you have seen.&lt;/li&gt;
-&lt;li&gt;Enter a Monitor Message. Use the template variables to make it a dynamic message. Format the message using Markdown.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <description>We don&amp;rsquo;t have time to go through the hands on training for this section at the summit, but please follow along when you get home.
+ Click on the New Monitor link under Monitors on the main menu. Select Integration and choose Elasticsearch. Switch to the Integration Metric tab at the top right. Select one of the work metrics for Elasticsearch. Decide whether you want an alert for each Elasticsearch host or for all of them as a group.</description>
     </item>
     
     <item>
-      <title>The Right Alerts</title>
+      <title>Datadog 101 - The Right Alerts</title>
       <link>https://datadog.github.io/summit-training-session/preso/therightalerts/</link>
       <pubDate>Mon, 17 Oct 2016 08:46:22 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/preso/therightalerts/</guid>
-      <description># Creating the Right Alerts
----
-# Two Rules for Effective Alerting
-1.  Alert liberally; page judiciously
-1.  Page on symptoms, rather than causes
---
-# What does that mean?
-* Create lots of alerts for everything.
-* Alerts become the living history of your infrastructure
-* But only notify people about the **Work Metrics** going awry
----
-# Paged Alerts Should Always Be Easily Actionable
-## Alerts should be:
-* Grokkable at 3AM, drunk, with one eye closed
-* Filled with all the info you need
-  *     Including who to wake up if you have trouble
-* Consumable by the non-experts
----
-# Levels of Alerting Urgency
-## Alerts as Records (low severity)
-Use to document the system. Helpful when trying to troubleshoot later.
-## Alerts as Notifications (moderate severity)
-These are things that require intervention, but not right away
-## Alerts as Pages (high severity)
-Wake the right people up and address it immediately!
----
-# How to Determine the Right Level of Urgency?
-## Is the issue real?
-Don&#39;t notify on things that shouldn&#39;t be important, like:
-* Test environments
-* System down during planned upgrade
---
-# How to Determine the Right Level of Urgency?
-## Does the issue require attention?
-* If you can automate a response, do it
-* The costs of calling someone away from work/sleep/personal time is significant. Avoid if you can.
-* If it&#39;s **real** and **require&#39;s attention**, notify and let the engineer prioritize.
---
-# How to Determine the Right Level of Urgency?
-## Is the issue urgent?
-* IIF the issue is **real** AND **require&#39;s attention** AND is **urgent**, generate a page.
----
-# Page on Symptoms
-## **Work metrics** not Resource metrics
-![](../../images/monitoring101/workresourceevents-4.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
----
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-# ...except when its an early warning...
----
-# Early Warning Signs
-Also page on the early warning signs that come before really bad things:
-* If you are about to run out of disk
-* If you are about to hit a quota limit
-* etc.
----
-# How To Build an Alert
-## https://app.datadoghq.com/monitors#/create
-![](../../images/therightalerts/createmonitor.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Eight Types
-
-* **Host** - notify on the status of the agent heartbeat
-* **Metric** - metrics collected by agent or API can trigger alerts
-* **Integration** - same as metrics above, applied to specific integrations
-* **Process** - check if a process is running or not
-* **Network Service** - check if a network endpoint is active or not
-* **Custom Check** - run a custom script and alert on the results
-* **Event** - trigger alerts if the quantity of events goes over a threshold
-* **Outlier** - detect when a member of a group is different than the rest
---
-# Define the Metric
-![](../../images/therightalerts/definemetric.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Set the conditions
-![](../../images/therightalerts/setconditions.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Preview What the Monitor Sees
-![](../../images/therightalerts/monitorview.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Enter a Message
-![](../../images/therightalerts/say.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Make it Dynamic
-![](../../images/therightalerts/makeitdynamic.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Choose Who To Notify
-![](../../images/therightalerts/notify.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
----
-# View the Triggered Monitors
-https://app.datadoghq.com/monitors#triggered
-![](../../images/therightalerts/triggered.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Click on One
-![](../../images/therightalerts/click.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
-# Schedule Downtime
-![](../../images/therightalerts/downtime.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
-
-
-
-
-</description>
+      <description># Creating the Right Alerts --- # Two Rules for Effective Alerting 1. Alert liberally; page judiciously 1. Page on symptoms, rather than causes -- # What does that mean? * Create lots of alerts for everything. * Alerts become the living history of your infrastructure * But only notify people about the **Work Metrics** going awry --- # Paged Alerts Should Always Be Easily Actionable ## Alerts should be: * Grokkable at 3AM, drunk, with one eye closed * Filled with all the info you need * Including who to wake up if you have trouble * Consumable by the non-experts --- # Levels of Alerting Urgency ## Alerts as Records (low severity) Use to document the system.</description>
     </item>
     
     <item>
-      <title>The Right Alerts</title>
+      <title>Datadog 101 - The Right Alerts</title>
       <link>https://datadog.github.io/summit-training-session/notes/therightalerts/</link>
       <pubDate>Mon, 17 Oct 2016 08:46:17 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/notes/therightalerts/</guid>
-      <description>
-
-&lt;h1 id=&#34;2-rules-for-effective-alerting&#34;&gt;2 Rules for Effective Alerting&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Alert liberally; page judiciously&lt;/li&gt;
-&lt;li&gt;Page on symptoms, rather than causes&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&#34;paged-alerts-should-always-be-easily-actionable&#34;&gt;Paged Alerts Should Always Be Easily Actionable&lt;/h1&gt;
-
-&lt;h1 id=&#34;page-on-symptoms-the-work-metrics&#34;&gt;Page on Symptoms: the Work Metrics&lt;/h1&gt;
-
-&lt;h1 id=&#34;except-when-it-s-an-early-warning&#34;&gt;Except when it&amp;rsquo;s an early warning&lt;/h1&gt;
-</description>
+      <description> 2 Rules for Effective Alerting  Alert liberally; page judiciously Page on symptoms, rather than causes  Paged Alerts Should Always Be Easily Actionable Page on Symptoms: the Work Metrics Except when it&amp;rsquo;s an early warning </description>
     </item>
     
     <item>
-      <title>Building a Custom Agent Check</title>
-      <link>https://datadog.github.io/summit-training-session/preso/customagentcheck/</link>
-      <pubDate>Mon, 17 Oct 2016 08:47:05 -0400</pubDate>
+      <title>Monitoring Docker</title>
+      <link>https://datadog.github.io/summit-training-session/handson/monitordocker/</link>
+      <pubDate>Mon, 17 Oct 2016 08:47:25 -0400</pubDate>
       
-      <guid>https://datadog.github.io/summit-training-session/preso/customagentcheck/</guid>
-      <description># Building a Custom Agent Check
-
----
-# Agent Architecture
-
-## Four components
-### Collector
-### Forwarder
-### DogstatsD
-### SupervisorD
---
-# The Collector
-## Runs every 15 seconds
-## Runs each enabled integration check
-## Also runs any custom agent checks
---
-# The Forwarder
-## Forwards collected metrics to Datadog
-## Stores metrics collected in case of network disruption
---
-# DogStatsD
-## Python implementation of StatsD (Etsy)
-## Implements tags
---
-# SupervisorD
-## Runs master process
-## Forks all subprocesses as the user **dd-agent**
----
-# Running Checks
-## Every 15 seconds Collector collects
-## Official integrations
-## Custom Checks
---
-# Custom Checks
-
-## Checks have both a Python check and YAML configuration
---
-# Custom Checks
-## Checks in `/etc/dd-agent/checks.d`
-## Configurations in `/etc/dd-agent/conf.d`
-
- **On Linux, see http://docs.datadoghq.com/guides/agent_checks/#directory for other platforms.*
- 
---
-# Example Configuration
-
-```
-init_config:
-  min_collection_interval: 20
-  key1: val1
-  key2: val2
-instances:
-  - username: jon_smith
-    password: 1234
-
-  - username: jane_smith
-    password: 5678
-```
---
-# Checks
-## Inherit from **AgentCheck**
-## Require a `check(self, instance)` method 
---
-# Simple Check 
-```
-from checks import AgentCheck
-class HelloCheck(AgentCheck):
-    def check(self, instance):
-        self.gauge(&#39;hello.world&#39;, 1)
-```
----
-# Datadog Metric Types
-## Gauge
-## Rate
-## Count
---
-# Gauge
-* Record any value
-* If not updated, uses previous value
---
-# Rate
-* Count per unit of time
---
-# Count
-* Quantity
-
-</description>
+      <guid>https://datadog.github.io/summit-training-session/handson/monitordocker/</guid>
+      <description>This exercise requires Docker to be installed somewhere. You could do this on your laptop, on the Vagrant box you created earlier, or on any machine you can remotely access. If installing for the first time on your laptop, see https://www.docker.com/products/overview for links to the installers for your platform.
+ Navigate to the Agent Installation page in the Datadog application (https://app.datadoghq.com/account/settings#agent/docker). Select Docker and copy the first command. Run it where ever you have Docker installed.</description>
     </item>
     
     <item>
-      <title>Building a Custom Agent Check</title>
-      <link>https://datadog.github.io/summit-training-session/notes/customagentcheck/</link>
-      <pubDate>Mon, 17 Oct 2016 08:46:59 -0400</pubDate>
+      <title>Monitoring Docker</title>
+      <link>https://datadog.github.io/summit-training-session/notes/monitordocker/</link>
+      <pubDate>Mon, 17 Oct 2016 08:47:20 -0400</pubDate>
       
-      <guid>https://datadog.github.io/summit-training-session/notes/customagentcheck/</guid>
-      <description>&lt;p&gt;Review &lt;a href=&#34;http://docs.datadoghq.com/guides/agent_checks/&#34;&gt;the Agent Check documentation&lt;/a&gt; for more details about creating checks.&lt;/p&gt;
-</description>
+      <guid>https://datadog.github.io/summit-training-session/notes/monitordocker/</guid>
+      <description> Install Docker - https://www.docker.com/products/overview Find interesting Docker Images - https://hub.docker.com/ Read the Docker Datadog Image Docs - https://github.com/DataDog/docker-dd-agent Find the configuration files for the agent - https://github.com/DataDog/dd-agent/tree/master/conf.d  </description>
     </item>
     
     <item>
-      <title>Building a Custom Agent Check</title>
-      <link>https://datadog.github.io/summit-training-session/handson/customagentcheck/</link>
-      <pubDate>Mon, 17 Oct 2016 08:46:50 -0400</pubDate>
+      <title>Monitoring Docker</title>
+      <link>https://datadog.github.io/summit-training-session/preso/monitordocker/</link>
+      <pubDate>Mon, 17 Oct 2016 08:47:14 -0400</pubDate>
       
-      <guid>https://datadog.github.io/summit-training-session/handson/customagentcheck/</guid>
-      <description>&lt;p&gt;In this example we will create a metric that records a value generated by a custom application. The value generated is a count of the widgets created since the last request. The purpose of the exercise is to see how to submit a metric to Datadog.&lt;/p&gt;
-
-&lt;p&gt;So far, we have only used remote machines that you do not have direct access to. For this exercise we need to run a new agent. You can either install the agent on your local laptop, or install to a vagrant machine.&lt;/p&gt;
-
-&lt;p&gt;If you want to use Vagrant (and have Vagrant and VirtualBox installed), create a new directory and run the following command:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;vagrant init ubuntu/trusty64; vagrant up --provider virtualbox;vagrant ssh&lt;/code&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Go to the Agent installation page (&lt;a href=&#34;https://app.datadoghq.com/account/settings#agent&#34;&gt;https://app.datadoghq.com/account/settings#agent&lt;/a&gt;) and select the operating system you are using.&lt;/li&gt;
-&lt;li&gt;Copy the command and execute it in your shell.&lt;/li&gt;
-&lt;li&gt;Change to the &lt;code&gt;conf.d&lt;/code&gt; directory on your system. On the vagrant machine, the directory is &lt;code&gt;/etc/dd-agent/conf.d&lt;/code&gt;. To find it for other operating systems, review &lt;a href=&#34;http://docs.datadoghq.com/guides/agent_checks/#directory&#34;&gt;the documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Create a new config file for your new agent check. Name the file &lt;code&gt;checkvalue.yaml&lt;/code&gt;.&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Edit the file to include the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;init_config:
-
-instances:
-  [{}]
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Create a new check file in the checks.d directory. Name the file &lt;code&gt;checkvalue.py&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Edit the file to include the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from checks import AgentCheck
-class HelloCheck(AgentCheck):
-  def check(self, instance):
-    self.gauge(&#39;hello.world&#39;, 1)
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Restart the agent. On the vagrant machine, run the following command: &lt;code&gt;sudo /etc/init.d/datadog-agent restart&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Within a minute, you should see a new metric show up in the Metric Summary called &lt;code&gt;hello.world&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now lets expand the script to be something a bit more useful.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Replace the code in &lt;code&gt;checkvalue.py&lt;/code&gt; with the following (replacing the value of lburl with the address of your loadbalancer:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import urllib2
-import simplejson
-from checks import AgentCheck
-
-class CheckValue(AgentCheck):
-  def check(self, instance):
-
-    lburl = 1.2.3.4
-
-    response = urllib2.urlopen(&amp;quot;http://&amp;quot; + lburl + &amp;quot;/rest&amp;quot;)
-    data = simplejson.load(response)
-
-    self.gauge(&#39;coreapp.update.value&#39;, data[&amp;quot;value&amp;quot;])
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Restart the agent. Now run the info command. On the vagrant machine, the command is &lt;code&gt;sudo /etc/init.d/datadog-agent info&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;If you have any issues with the agent, you can debug using the following command: &lt;code&gt;sudo -u dd-agent dd-agent check checkvalue&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now let&amp;rsquo;s make the configuration file a bit more useful.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Update the &lt;code&gt;checkvalue.yaml&lt;/code&gt; file as follows (replacing the &lt;code&gt;ipaddress&lt;/code&gt; with your loadbalancer&amp;rsquo;s ip address):&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;init_config:
-
-instances:
-  - ipaddress: 1.2.3.4
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Update the &lt;code&gt;checkvalue.py&lt;/code&gt; file to be as follows:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import urllib2
-import simplejson
-from checks import AgentCheck
-
-class CheckValue(AgentCheck):
-  def check(self, instance):
-
-    lburl = instance[&#39;ipaddress&#39;]
-
-    response = urllib2.urlopen(&amp;quot;http://&amp;quot; + lburl + &amp;quot;/rest&amp;quot;)
-    data = simplejson.load(response)
-
-    self.gauge(&#39;coreapp.update.value&#39;, data[&amp;quot;value&amp;quot;])
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Create a dashboard for this metric.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <guid>https://datadog.github.io/summit-training-session/preso/monitordocker/</guid>
+      <description># Monitoring Docker --- # General Docker Workflow 1. Start Datadog container on host 1. Start application containers 1. Edit config files on Datadog container and restart container --- # Docker commands docker run ... docker ps docker logs ... docker stop ... docker rm ... docker network ...  --- # Understanding the Datadog Agent Docker command docker run -d --name dd-agent \ -v /var/run/docker.sock: /var/run/docker.sock:ro \ -v /proc/:/host/proc/:ro \ -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \ -e API_KEY=[api_key] \ datadog/docker-dd-agent:latest  --- # Understanding the Datadog Agent Docker command docker run -d --name dd-agent \ -v /var/run/docker.</description>
+    </item>
+    
+    <item>
+      <title>About the site</title>
+      <link>https://datadog.github.io/summit-training-session/about/</link>
+      <pubDate>Fri, 14 Oct 2016 16:27:42 -0400</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/about/</guid>
+      <description>This site was created for the First Annual Datadog Customer Summit in NYC on October 26, 2016 and updated for the second Summit in San Francisco on March 14, 2017. We had about 40 people in the room the first time around and it was very successful.
+The site is built using Hugo (http://gohugo.io) and Reveal.js (http://lab.hakim.se/reveal-js/#/).
+To see the source for this site, visit https://github.com/DataDog/summit-training-session and go to the website directory.</description>
+    </item>
+    
+    <item>
+      <title>Agenda</title>
+      <link>https://datadog.github.io/summit-training-session/</link>
+      <pubDate>Fri, 14 Oct 2016 16:27:42 -0400</pubDate>
+      
+      <guid>https://datadog.github.io/summit-training-session/</guid>
+      <description>Summit Training is split up into two main segments. Datadog 101 will cover the basics of monitoring, dashboards, math, and alerts. Monitoring Docker will cover several different ways to monitor Docker containers and Kubernetes including Auto Discovery.
+Datadog 101 Monitoring 101 What metrics do I need to monitor
+Presentation | Notes | Hands On Instructions
+Building Great Dashboards Start building the dashboards that will help you discover the issues of your environment Presentation | Notes | Hands On Instructions</description>
     </item>
     
   </channel>

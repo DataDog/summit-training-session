@@ -1,6 +1,6 @@
 ---
 type: "notes"
-title: "The Right Alerts"
+title: "Datadog 101 - The Right Alerts"
 date: "2016-10-17T08:46:17-04:00"
 weight: 4
 description: Start triggering the right alerts

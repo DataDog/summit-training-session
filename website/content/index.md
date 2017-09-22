@@ -3,37 +3,36 @@ date: 2016-10-14T16:27:42-04:00
 title: Agenda
 type: homepage
 ---
-This training will cover four main topics (plus three others if we have time):
+Summit Training is split up into two main segments.  Datadog 101 will cover the basics of monitoring, dashboards, math, and alerts. Monitoring Docker will cover several different ways to monitor Docker containers and Kubernetes including Auto Discovery.
 
+## Datadog 101
 ### Monitoring 101
 *What metrics do I need to monitor*<br>
 [Presentation](preso/monitoring101) | [Notes][2] | [Hands On Instructions][3]
+
 ### Building Great Dashboards
 *Start building the dashboards that will help you discover the issues of your environment* <br>
 [Presentation][7] | [Notes][8] | [Hands On Instructions][9]
+
 ### Monitoring Math
 *Learn about the functions that will provide additional value to your graphs* <br>
-[Presentation][4] | [Notes][5] | [Hands On Instructions][6]
-
+[Presentation][4] | [Notes][5] 
 
 ### Creating the Right Alerts
 *Get notified for the right things and sleep peacefully through everything else* <br>
-[Presentation][10] | [Notes][11] | [Hands On Instructions][12]
+[Presentation][10] | [Notes][11] 
 
 
+<hr>
 
-***If we have time...***
-### Building a Custom Agent Check
-*Monitor something we don't have an integration for*<br>
-[Presentation][13] | [Notes][14] | [Hands On Instructions][15]
 
-### Monitoring Docker
-*How is monitoring different for containers*<br>
+## Monitoring Docker
+*Learn how to monitor your Docker and Kubernetes containers using AutoDiscovery*.<br>*This session assumes existing knowledge of Docker and Kubernetes* <br>
 [Presentation][16] | [Notes][17] | [Hands On Instructions][18]
 
-### Custom Metrics
-*Have an application? Monitor it!*<br>
-[Presentation][19] | [Notes][20] | [Hands On Instructions][21]
+
+
+
 
 
 

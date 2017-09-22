@@ -5,6 +5,7 @@ title: "Custom Metrics"
 weight: 7
 duration: 30 minutes
 description: Add Metrics to YOUR app
+draft: true
 ---
 
 Create a custom application to manipulate images, and monitor it. A Docker image has already been created and published to https://hub.docker.com/r/technovangelist/dd-summit-docker-image-manip/ for this session. This image was created using the following Dockerfile:

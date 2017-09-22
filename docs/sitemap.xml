@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://datadog.github.io/summit-training-session/handson/monitoring101/</loc>
@@ -55,21 +56,6 @@
   </url>
   
   <url>
-    <loc>https://datadog.github.io/summit-training-session/preso/customagentcheck/</loc>
-    <lastmod>2016-10-17T08:47:05-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://datadog.github.io/summit-training-session/notes/customagentcheck/</loc>
-    <lastmod>2016-10-17T08:46:59-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://datadog.github.io/summit-training-session/handson/customagentcheck/</loc>
-    <lastmod>2016-10-17T08:46:50-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://datadog.github.io/summit-training-session/handson/monitordocker/</loc>
     <lastmod>2016-10-17T08:47:25-04:00</lastmod>
   </url>
@@ -85,21 +71,6 @@
   </url>
   
   <url>
-    <loc>https://datadog.github.io/summit-training-session/preso/custommetrics/</loc>
-    <lastmod>2016-10-17T08:47:47-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://datadog.github.io/summit-training-session/notes/custommetrics/</loc>
-    <lastmod>2016-10-17T08:47:41-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://datadog.github.io/summit-training-session/handson/custommetrics/</loc>
-    <lastmod>2016-10-17T08:47:36-04:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://datadog.github.io/summit-training-session/about/</loc>
     <lastmod>2016-10-14T16:27:42-04:00</lastmod>
   </url>
@@ -112,6 +83,11 @@
   <url>
     <loc>https://datadog.github.io/summit-training-session/about/</loc>
     <lastmod>2016-10-14T16:27:42-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/categories/</loc>
     <priority>0</priority>
   </url>
   
@@ -136,6 +112,11 @@
   <url>
     <loc>https://datadog.github.io/summit-training-session/preso/</loc>
     <lastmod>2016-10-17T08:46:22-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datadog.github.io/summit-training-session/tags/</loc>
     <priority>0</priority>
   </url>
   

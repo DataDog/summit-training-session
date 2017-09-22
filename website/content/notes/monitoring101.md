@@ -1,5 +1,5 @@
 +++
-title = "Monitoring 101"
+title = "Datadog 101 - Monitoring 101"
 type = "notes"
 description = "Learn about the basics of Monitoring."
 weight = 1

@@ -1,5 +1,5 @@
 +++
-title = "Monitoring Math"
+title = "Datadog 101 - Monitoring Math"
 type = "notes"
 date = "2016-10-17T08:44:38-04:00"
 weight = 3

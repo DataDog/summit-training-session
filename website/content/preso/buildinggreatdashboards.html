@@ -1,132 +1,141 @@
 ---
 description: Assemble your graphs into comprehensive dashboards
-title: Building Great Dashboards
+title: Datadog 101 - Building Great Dashboards
 type: preso
 weight: 2
 ---
+
 # Building Great Dashboards
----
-# The Environment
-![](../../images/buildinggreatdashboards/environment.png)<!-- .element: style="background: none; box-shadow: none; height: 100%" -->
----
-# Remember the Monitoring Framework
-![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
----
-# HA Proxy Metrics
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.backend.bytes.in_rate | bytes/second | Rate of bytes in on backend hosts.|
-| haproxy.backend.bytes.out_rate | bytes/second | Rate of bytes out on backend hosts.
-| haproxy.backend.connect.time | milliseconds | Average connect time over the last 1024 requests. |
-| haproxy.backend.denied.req_rate | requests/second | Number of requests denied due to security concerns. |
-| haproxy.backend.denied.resp_rate | responses/second | Number of responses denied due to security concerns. |
-| haproxy.backend.errors.con_rate | errors/second | Rate of requests that encountered an error trying to connect to a backend server. |
-| haproxy.backend.errors.resp_rate  | errors/second | Rate of responses aborted due to error. |
-| haproxy.backend.queue.current | requests | Number of requests without an assigned backend. |
-| haproxy.backend.queue.time | milliseconds | Average queue time over the last 1024 requests. |
-
---
-# HA Proxy Metrics cnt'd
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.backend.response.1xx | responses | Backend HTTP responses with 1xx code. |
-| haproxy.backend.response.2xx | responses | Backend HTTP responses with 2xx code. |
-| haproxy.backend.response.3xx | responses | Backend HTTP responses with 3xx code. |
-| haproxy.backend.response.4xx | responses | Backend HTTP responses with 4xx code. |
-| haproxy.backend.response.5xx | responses | Backend HTTP responses with 5xx code. |
-| haproxy.backend.response.other | responses | Backend HTTP responses with other code (protocol error). |
-| haproxy.backend.response.time| milliseconds | Average response time over the last 1024 requests (0 for TCP). |
-| haproxy.backend.session.current| connections | Number of active backend sessions. |
-| haproxy.backend.session.limit| connections | Configured backend session limit. |
-| haproxy.backend.session.pct | percent | Percentage of sessions in use (backend.session.current/backend.session.limit * 100). |
-| haproxy.backend.session.rate | connections/| second  Number of backend sessions created per second. |
---
-# HA Proxy Metrics cnt'd
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.backend.session.time | milliseconds | Average total session time over the last 1024 requests. |
-| haproxy.backend.warnings.redis_rate | errors/second | Number of times a connection to a server was retried. |
-| haproxy.backend.warnings.retr_rate  | errors/second | Number of times a request was redispatched to another server. |
-| haproxy.backend_hosts | hosts | Number of backend hosts. |
-| haproxy.count_per_status | hosts | Number of hosts by status (UP/DOWN/NOLB/MAINT). |
-| haproxy.frontend.bytes.in_rate  | bytes/second |  Rate of bytes in on frontend hosts. |
-| haproxy.frontend.bytes.out_rate | bytes/second |  Rate of bytes out on frontend hosts. |
-| haproxy.frontend.denied.req_rate  | requests/second | Number of requests denied due to security concerns. |
-| haproxy.frontend.denied.resp_rate | responses/second | Number of responses denied due to security concerns. |
-| haproxy.frontend.errors.req_rate  | errors/second | Rate of request errors. |
-
---
-# HA Proxy Metrics cnt'd
-
-| Metric | Unit | Description |
-|--------|------|-------------|
-| haproxy.frontend.requests.rate  | requests/second | Number of HTTP requests per second. |
-| haproxy.frontend.response.1xx | responses | Frontend HTTP responses with 1xx code. |
-| haproxy.frontend.response.2xx | responses | Frontend HTTP responses with 2xx code. |
-| haproxy.frontend.response.3xx | responses | Frontend HTTP responses with 3xx code. |
-| haproxy.frontend.response.4xx | responses | Frontend HTTP responses with 4xx code. |
-| haproxy.frontend.response.5xx | responses | Frontend HTTP responses with 5xx code. |
-| haproxy.frontend.response.other | responses | Frontend HTTP responses with other code (protocol error). |
-| haproxy.frontend.session.current | connections | Number of active frontend sessions. |
-| haproxy.frontend.session.limit | connections | Configured backend session limit. |
-| haproxy.frontend.session.pct |  percent | Percentage of sessions in use (frontend.session.current/frontend.session.limit * 100). |
-| haproxy.frontend.session.rate| connections/second |  Number of frontend sessions created per second. |
---
-# What do you think the work metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# What do you think the resource metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# Front End Work Metrics
-|Category|Metric|
-|----|---|
-|**Throughput**| `haproxy.frontend.requests.rate`|
-|**Errors**|`haproxy.frontend.errors.req_rate`|
-
-# Front End Resource Metrics
-|Category|Metric|
-|----|---|
-|**Utilization**| `haproxy.frontend.session.rate`|
-|**Utilization**| `haproxy.frontend.session.pct`|
-|**Utilization**| `haproxy.frontend.bytes.in_rate`|
-|**Utilization**| `haproxy.frontend.bytes.out_rate`|
-
-https://www.datadoghq.com/blog/monitoring-haproxy-performance-metrics/#Frontend
---
-# Back End Work Metrics
-|Category|Metric|
-|----|---|
-|**Throughput**| `haproxy.backend.response.time `|
-|**Errors**|`haproxy.backend.errors.con_rate`|
-|**Errors**|`haproxy.backend.denied.resp_rate`|
-
-# Back End Resource Metrics
-|Category|Metric|
-|----|---|
-|**Saturation**| `haproxy.backend.queue.current`|
-|**Saturation**| `haproxy.backend.queue.time `|
-|**Availability**| `haproxy.backend.warnings.retr_rate`|
-|**Availability**| `haproxy.backend.warnings.redis_rate`|
-
-https://www.datadoghq.com/blog/monitoring-haproxy-performance-metrics/#Backend
 ---
 # Two Types Of Dashboards
 ![](../../images/buildinggreatdashboards/2dashboards.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
---
+<!-- .slide: data-state="whitebackground" -->
+
+---
 # Two Sets of Widgets
+
 ###Timeboards
 ![](../../images/buildinggreatdashboards/timeboardwidgets.png)<!-- .element: style="background: none; box-shadow: none; width: 50%" -->
 ###Screenboards
 ![](../../images/buildinggreatdashboards/screenboardwidgets.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
---
+<!-- .slide: data-state="whitebackground" -->
+
+---
 # Two Different Goals
 ![](../../images/buildinggreatdashboards/dashboards.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+<!-- .slide: data-state="whitebackground" -->
+
+---
+#ElasticSearch Metrics
+![](../../images/buildinggreatdashboards/elasticsearch-alerts-final2.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
+
+---
+
+
+#ElasticSearch Metrics
+
+
+| Metric | Description|
+|------|--------| 
+| <strong class=tabletext>elasticsearch.active_primary_shards</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active primary shards in the cluster.</span><br><em><span class=tabletext>shown as shard</span></em> |
+| <strong class=tabletext>elasticsearch.active_shards</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active shards in the cluster.</span><br><em><span class=tabletext>shown as shard</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.fielddata.estimated_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The estimated size in bytes of the field data circuit breaker.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.fielddata.overhead</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The constant multiplier for byte estimations of the field data circuit breaker.</span> |
+| <strong class=tabletext>elasticsearch.breakers.fielddata.tripped</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of times the field data circuit breaker has tripped.</span> |
+| <strong class=tabletext>elasticsearch.breakers.parent.estimated_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The estimated size in bytes of the parent circuit breaker.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.parent.overhead</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The constant multiplier for byte estimations of the parent circuit breaker.</span> |
+| <strong class=tabletext>elasticsearch.breakers.parent.tripped</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of times the parent circuit breaker has tripped.</span> |
+| <strong class=tabletext>elasticsearch.breakers.request.estimated_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The estimated size in bytes of the request circuit breaker.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.request.overhead</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The constant multiplier for byte estimations of the request circuit breaker.</span> |
+| <strong class=tabletext>elasticsearch.breakers.request.tripped</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of times the request circuit breaker has tripped.</span> |
+
+---
+
+| Metric | Description|
+|------|--------| 
+| <strong class=tabletext>elasticsearch.cache.field.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of evictions from the field data cache.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.cache.field.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the field cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.cache.filter.count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of items in the filter cache.</span><br><em><span class=tabletext>shown as item</span></em> |
+| <strong class=tabletext>elasticsearch.cache.filter.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of evictions from the filter cache.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.cache.filter.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the filter cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.cluster_status</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The elasticsearch cluster health as a number: red = 0, yellow = 1, green = 2</span> |
+| <strong class=tabletext>elasticsearch.docs.count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents in the cluster across all shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.docs.deleted</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents deleted from the cluster across all shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.fielddata.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of evictions from the fielddata cache.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.fielddata.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the fielddata cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.flush.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of index flushes to disk since start.</span><br><em><span class=tabletext>shown as flush</span></em> |
+| <strong class=tabletext>elasticsearch.flush.total.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent flushing the index to disk.</span><br><em><span class=tabletext>shown as second</span></em> |
+
+---
+
+| Metric | Description|
+|------|--------| 
+| <strong class=tabletext>elasticsearch.fs.total.available_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of bytes available to this Java virtual machine on this file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_io_op</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total I/O operations on the file store.</span><br><em><span class=tabletext>shown as operation</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_io_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>Total bytes used for all I/O operations on the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_read_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total bytes read from the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_reads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of reads from the file store.</span><br><em><span class=tabletext>shown as read</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_write_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total bytes written to the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_writes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of writes to the file store.</span><br><em><span class=tabletext>shown as write</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.free_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of unallocated bytes in the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.total_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size in bytes of the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.get.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of get requests currently running.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.get.exists.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests where the document existed.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.get.exists.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests where the document existed.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.get.missing.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests where the document was missing.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.get.missing.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests where the document was missing.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.get.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.get.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests.</span><br><em><span class=tabletext>shown as request</span></em> |
+
+---
+
+| Metric | Description|
+|------|--------| 
+| <strong class=tabletext>elasticsearch.http.current_open</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of current open HTTP connections.</span><br><em><span class=tabletext>shown as connection</span></em> |
+| <strong class=tabletext>elasticsearch.http.total_opened</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of opened HTTP connections.</span><br><em><span class=tabletext>shown as connection</span></em> |
+| <strong class=tabletext>elasticsearch.id_cache.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the id cache</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.delete.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents currently being deleted from an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.delete.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent deleting documents from an index.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.delete.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents deleted from an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.index.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents currently being indexed to an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.index.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent indexing documents to an index.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.index.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents indexed to an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+
+See all of [the metrics for Elasticsearch](/summit-training-session/notes/buildinggreatdashboards/)
+---
+# What do you think the work metrics should be?
+The server does something.
+* **Throughput Metrics**: How many of those things did it do?
+* **Performance Metrics**: How long does it take to do those things?
+* **Success Metrics**: How many of those things were done successfully?
+* **Error Metrics**: How many of those things were not done successfully?
+
+[Review the notes for this section to see them all](../../notes/buildinggreatdashboards/)
+---
+# What do you think the resource metrics should be?
+The server does something and relies on a resource.
+
+* **Utilization Metrics**: How busy was the resource while the server did its thing?
+* **Saturation Metrics**: How long is the queue of things waiting for the server?
+* **Error Metrics**: How many errors is the resource experiencing with regards to the server?
+* **Availability Metrics**: How long is the resource available for?
+
+[Review the notes for this section to see them all](../../notes/buildinggreatdashboards/)
+---
+#Some Key Elasticsearch Metrics
+| Category | Metric |
+|------|-----|
+|Work:**Throughput**|`elasticsearch.primaries.search.query.total`|
+|Work:**Throughput**|`elasticsearch.primaries.search.query.current`|
+|Work:**Throughput**|`elasticsearch.primaries.search.fetch.current`|
+|Work:**Performance**|`elasticsearch.primaries.search.query.time`|
+|Resource:**Utilization**| `jvm.mem.non_heap_committed`|
+|Resource:**Utilization**| `jvm.mem.heap_committed`|
+|Resource:**Availability**| `elasticsearch.initializing_shards`|
+|Resource:**Saturation**| `elasticsearch.thread_pool.bulk.queue`|
+
+See https://www.datadoghq.com/blog/monitor-elasticsearch-performance-metrics/ for more
+
 ---
 # Building a Timeboard
 1.  Create a Timeboard
@@ -137,146 +146,3 @@ https://www.datadoghq.com/blog/monitoring-haproxy-performance-metrics/#Backend
   1.  Time Aggregation (optional)(rollup)
   1.  Functions
 
----
-# Hands-On
-## [Building your first Dashboard](../../handson/buildinggreatdashboards/#first-dashboard)
-
----
-#Apache Metrics
-
-|Name | Units |Description |
-|----|-----|----|
-|apache.net.bytes | bytes |The total number of bytes served. |
-|apache.net.bytes_per_s | bytes/second | The number of bytes served per second. |
-|apache.net.hits | requests |  The total number of requests performed. |
-|apache.net.request_per_s | requests/second | The number of requests performed per second. |
-|apache.performance.busy_workers | threads | The number of workers serving requests. |
-|apache.performance.cpu_load | percent | The percent of CPU used. |
-|apache.performance.idle_workers | threads | The number of idle workers. |
-|apache.performance.uptime | seconds | The amount of time the server has been running. |
---
-# What do you think the work metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# What do you think the resource metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
-[Review the notes for this section to see them all again](../../notes/buildinggreatdashboards/)
---
-# Apache Metrics
-|Category|Metric|
-|----|---|
-|Work:**Throughput**| `apache.net.hits `|
-|Work:**Performance**|`apache.net.request_per_s`|
-|Resource:**Saturation**|`apache.performance.busy_workers`|
-|Resource:**Availability**|`apache.performance.uptime`|
----
-# Hands-On
-## [Troubleshoot Apache](../../handson/buildinggreatdashboards/#apache)
----
-# Introduction to the Notebook
---
-# What are Notebooks for?
-## Saving time specific information
-### Metric Graphs
-### Markdown Text
-## Living documentation for your infrastructure
-## Sharing organizational knowledge
---
-# Using the Notebook
-![Using the notebook](https://cl.ly/3n3R3g3U3Q1W/Screen%20Recording%202016-10-23%20at%2002.11%20PM.gif)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
---
-# Hands-On
-## [Building a Notebook](../../handson/buildinggreatdashboards/#notebooks)
----
-#MySQL Metrics
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------| 
-| <strong>mysql.galera.wsrep_cluster_size</strong><br>(gauge) | The current number of nodes in the Galera cluster.<br><em>shown as node</em> |
-| <strong>mysql.innodb.buffer_pool_free</strong><br>(gauge) | The number of free pages in the InnoDB Buffer Pool.<br><em>shown as page</em> |
-| <strong>mysql.innodb.buffer_pool_total</strong><br>(gauge) | The total number of pages in the InnoDB Buffer Pool.<br><em>shown as page</em> |
-| <strong>mysql.innodb.buffer_pool_used</strong><br>(gauge) | The number of used pages in the InnoDB Buffer Pool.<br><em>shown as page</em> |
-| <strong>mysql.innodb.buffer_pool_utilization</strong><br>(gauge) | The utilization of the InnoDB Buffer Pool.<br><em>shown as fraction</em> |
-| <strong>mysql.innodb.current_row_locks</strong><br>(gauge) | The number of current row locks.<br><em>shown as lock</em> |
-| <strong>mysql.innodb.data_reads</strong><br>(gauge) | The rate of data reads.<br><em>shown as read/second</em> |
-| <strong>mysql.innodb.data_writes</strong><br>(gauge) | The rate of data writes.<br><em>shown as write/second</em> |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| <strong>mysql.innodb.mutex_os_waits</strong><br>(gauge) | The rate of mutex OS waits.<br><em>shown as event/second</em> |
-| <strong>mysql.innodb.mutex_spin_rounds</strong><br>(gauge) | The rate of mutex spin rounds.<br><em>shown as event/second</em> |
-| <strong>mysql.innodb.mutex_spin_waits</strong><br>(gauge) | The rate of mutex spin waits.<br><em>shown as event/second</em> |
-| <strong>mysql.innodb.os_log_fsyncs</strong><br>(gauge) | The rate of fsync writes to the log file.<br><em>shown as write/second</em> |
-| <strong>mysql.innodb.row_lock_time</strong><br>(gauge) | Fraction of time spent (ms/s) acquring row locks.<br><em>shown as fraction</em> |
-| <strong>mysql.innodb.row_lock_waits</strong><br>(gauge) | The number of times per second a row lock had to be waited for.<br><em>shown as event/second</em> |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| <strong>mysql.net.connections</strong><br>(gauge) | The rate of connections to the server.<br><em>shown as connection/second</em> |
-| <strong>mysql.net.max_connections</strong><br>(gauge) | The maximum number of connections that have been in use simultaneously since the server started.<br><em>shown as connection</em> |
-| <strong>mysql.performance.com_delete</strong><br>(gauge) | The rate of delete statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_delete_multi</strong><br>(gauge) | The rate of delete-multi statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_insert</strong><br>(gauge) | The rate of insert statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_insert_select</strong><br>(gauge) | The rate of insert-select statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_replace_select</strong><br>(gauge) | The rate of replace-select statements.<br><em>shown as query/second</em> |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| <strong>mysql.performance.com_select</strong><br>(gauge) | The rate of select statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_update</strong><br>(gauge) | The rate of update statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_update_multi</strong><br>(gauge) | The rate of update-multi.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.created_tmp_disk_tables</strong><br>(gauge) | The rate of internal on-disk temporary tables created by second by the server while executing statements.<br><em>shown as table/second</em> |
-| <strong>mysql.performance.created_tmp_files</strong><br>(gauge) | The rate of temporary files created by second.<br><em>shown as file/second</em> |
-| <strong>mysql.performance.created_tmp_tables</strong><br>(gauge) | The rate of internal temporary tables created by second by the server while executing statements.<br><em>shown as table/second</em> |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| <strong>mysql.performance.kernel_time</strong><br>(gauge) | Percentage of CPU time spent in kernel space by MySQL.<br><em>shown as percent</em> |
-| <strong>mysql.performance.key_cache_utilization</strong><br>(gauge) | The key cache utilization ratio.<br><em>shown as fraction</em> |
-| <strong>mysql.performance.open_files</strong><br>(gauge) | The number of open files.<br><em>shown as file</em> |
-| <strong>mysql.performance.open_tables</strong><br>(gauge) | The number of of tables that are open.<br><em>shown as table</em> |
-| <strong>mysql.performance.qcache_hits</strong><br>(gauge) | The rate of query cache hits.<br><em>shown as hit/second</em> |
-| <strong>mysql.performance.questions</strong><br>(gauge) | The rate of statements executed by the server.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.slow_queries</strong><br>(gauge) | The rate of slow queries.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.table_locks_waited</strong><br>(gauge) | The total number of times that a request for a table lock could not be granted immediately and a wait was needed.<em></em> |
---
-#MySQL Metrics
-| Metric | Description|
-|------|--------|
-| <strong>mysql.performance.threads_connected</strong><br>(gauge) | The number of currently open connections.<br><em>shown as connection</em> |
-| <strong>mysql.performance.threads_running</strong><br>(gauge) | The number of threads that are not sleeping.<br><em>shown as thread</em> |
-| <strong>mysql.performance.user_time</strong><br>(gauge) | Percentage of CPU time spent in user space by MySQL.<br><em>shown as percent</em> |
-| <strong>mysql.replication.seconds_behind_master</strong><br>(gauge) | The lag in seconds between the master and the slave.<br><em>shown as second</em> |
-| <strong>mysql.replication.slave_running</strong><br>(gauge) | A boolean showing if this server is a replication slave that is connected to a replication master.<em></em> |
-| <strong>mysql.performance.queries</strong><br>(gauge) | The rate of queries.<br><em>shown as query/second</em> |
-
---
-# What do you think the work metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
-[Review the notes for this section to see them all](../../notes/buildinggreatdashboards/)
---
-# What do you think the resource metrics should be?
-![](../../images/monitoring101/workresourceevents-4.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
-[Review the notes for this section to see them all](../../notes/buildinggreatdashboards/)
---
-#Some Key Mysql Metrics
-| Category | Metric |
-|------|-----|
-|Work:**Throughput**|`mysql.performance.questions`|
-|Work:**Throughput**|`mysql.performance.com_select`|
-|Resource:**Utilization**| `mysql.performance.threads_connected`|
-|Resource:**Utilization**| `mysql.performance.threads_running`|
-|Resource:**Error**| `mysql.performance.aborted_connects`|
-|Resource:**Utilization**| `mysql.performance.threads_connected`|
-
-See https://www.datadoghq.com/blog/monitoring-mysql-performance-metrics/ for more
-
---
-# Hands-On
-## [MySQL and Combined Dashboards](../../handson/buildinggreatdashboards/#mysql)

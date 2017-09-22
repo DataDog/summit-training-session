@@ -7,121 +7,376 @@ description: Add Docker to the Monitoring mix
 
 # Monitoring Docker
 ---
-# Why Use Docker
+# General Docker Workflow
+1.  Start Datadog container on host
+1.  Start application containers
+1.  Edit config files on Datadog container and restart container
 
-* Rapid application deployment
-* Portability across machines
-* Version control and component reuse
-* Sharing
-* Lightweight footprint and minimal overhead
-* Simplified maintenance
-
-*Source: Redhat Docs*
---
-# Docker Architecture
-![](../../images/monitordocker/architecture.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
---
-# Docker Hub
-![](../../images/monitordocker/hub1.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
---
-# Docker Hub
-![](../../images/monitordocker/hub2.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
---
-# Docker Hub
-![](../../images/monitordocker/hub3.png)<!-- .element: style="background: none; box-shadow: none; width: 100%" -->
----
+--- 
 # Docker commands
-```
-docker run ...
+
+<pre ><code class="sh" data-trim data-noescape>docker run ...
 docker ps 
 docker logs ...
 docker stop ...
 docker rm ...
 docker network ...
-```
+</code></pre>
 ---
 # Understanding the Datadog Agent Docker command
 
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+<pre><code class="sh" data-noescape>docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
   -v /proc/:/host/proc/:ro \
   -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=<api_key> \
+  -e API_KEY=[api_key] \
   datadog/docker-dd-agent:latest
-```
+</code></pre>
+---
+# Understanding the Datadog Agent Docker command
+
+<pre><code class="sh" data-noescape><mark>docker run</mark> -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=[api_key] \
+  datadog/docker-dd-agent:latest
+</code></pre>
+
 <br>
 ## **docker run**: Run a container
---
+---
 # Understanding the Datadog Agent Docker command
 
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+<pre ><code class="sh" data-noescape>docker run <mark>-d</mark> --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
   -v /proc/:/host/proc/:ro \
   -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=<api_key> \
+  -e API_KEY=[api_key] \
   datadog/docker-dd-agent:latest
-```
+</code></pre>
 <br>
 ## **-d**: As a daemon
---
+---
 # Understanding the Datadog Agent Docker command
 
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+<pre><code class=sh data-noescape>docker run -d <mark>--name dd-agent</mark> \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
   -v /proc/:/host/proc/:ro \
   -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=<api_key> \
+  -e API_KEY=[api_key] \
   datadog/docker-dd-agent:latest
-```
+</code></pre>
+
 <br>
 ##  **--name dd-agent**: Name the container `dd-agent`
---
-# Understanding the Datadog Agent Docker command
-
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=<api_key> \
-  datadog/docker-dd-agent:latest
-```
-<br>
-## **-v &lt;host directory>:&lt;docker directory>** mount the host directory in this directory on the container
---
-# Understanding the Datadog Agent Docker command
-
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=<api_key> \
-  datadog/docker-dd-agent:latest
-```
-<br>
-## **-e API_KEY=&lt;api_key>** Pass a string as an environment variable
---
-# Understanding the Datadog Agent Docker command
-
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=<api_key> \
-  datadog/docker-dd-agent:latest
-```
-<br>
-## **org/imagename:label** Find an image on DockerHub created by this org. Use the version of the image with this label.
 ---
-# Ways of running Docker
+# Understanding the Datadog Agent Docker command
 
-## `docker run` is fun for this session but doesn't scale well
+<pre><code class=sh data-noescape>docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  <mark>-v /proc/:/host/proc/:ro</mark> \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=[api_key] \
+  datadog/docker-dd-agent:latest
+</code></pre>
+<br>
+## **-v &lt;host directory>:&lt;container directory>** mount the host directory in this directory on the container
+---
+# Understanding the Datadog Agent Docker command
 
-## `docker-compose` orchestrates multiple containers
-## `swarm` deals with docker clusters
-## kubernetes, ec2, and other solutions exist
+<pre><code class=sh data-noescape>docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  <mark>-e API_KEY=[api_key]</mark> \
+  datadog/docker-dd-agent:latest
+</code></pre>
+<br>
+## **-e API_KEY=[api_key]** Pass a string as an environment variable
+---
+# Understanding the Datadog Agent Docker command
+
+<pre><code class=sh data-noescape>docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=[api_key] \
+  <mark>datadog/docker-dd-agent:latest</mark>
+</code></pre>
+<br>
+## **org/imagename:label** Find image on DockerHub created by this org. Use the version of the image with this label.
+---
+# Run the container from docker-compose
+<pre><code class=yaml style="line-height: 1.1em;font-size: 70%;">version: "3"
+networks:
+  main:
+
+services:
+  datadog:
+    image: datadog/docker-dd-agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc:/host/proc:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    environment:
+      - API_KEY
+      - SD_BACKEND=docker
+    networks:
+      - main
+          
+</code></pre>
+---
+# Add a configuration volume
+
+1.  Go to [https://github.com/DataDog/integrations-core](https://github.com/DataDog/integrations-core)
+1.  Find the integration
+1.  Modify and save to local directory
+1.  *(Stop and remove Datadog container if running)*
+1.  Mount directory and launch Datadog container
+1.  Launch application container
+---
+# Integrations Core
+
+![](../../images/monitordocker/intcore.png) 
+
+---
+# Find the integration
+![](../../images/monitordocker/nginxyaml.png)
+
+---
+# Mount the local configuration directory
+
+<pre><code class=yaml data-noescape style="line-height: 1.1em;font-size: 70%;">version: "3"
+  networks:
+    main:
+  
+  services:
+    datadog:
+      image: datadog/docker-dd-agent
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /proc:/host/proc:ro
+        - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+        <mark>- ./conf:/conf.d:ro</mark>
+      environment:
+        - API_KEY
+        - SD_BACKEND=docker
+      networks:
+        - main
+            
+  </code></pre>
+---
+# If the container is running
+<pre><code class=shell>docker-compose stop;docker-compose rm -f;docker-compose up  
+</code></pre>
+---
+
+# Using Auto Discovery
+
+1.  Go to [https://github.com/DataDog/integrations-core](https://github.com/DataDog/integrations-core)
+1.  Find the integration
+1.  Add config to labels
+1.  Launch application container  
+
+
+---
+# docker-compose file with autodiscovery
+
+---
+# datadog yaml for kubernetes
+
+<pre><code class=kubernetes style="line-height: 1.1em;font-size: 70%;">apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: dd-agent
+spec:
+  template:
+    metadata:
+      labels:
+        app: dd-agent
+      name: dd-agent
+    spec:
+      containers:
+      - image: datadog/docker-dd-agent:latest
+        imagePullPolicy: Always
+        name: dd-agent
+        ports:
+          - containerPort: 8125
+            name: dogstatsdport
+            protocol: UDP
+        env:
+          - name: API_KEY
+            value: "7588af212420a628ddbb3c7f3cc5fac6,7588af212420a628ddbb3c7f3cc5fac6"
+          - name: KUBERNETES
+            value: "yes"
+          - name: SD_BACKEND
+            value: docker
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+        volumeMounts:
+          - name: dockersocket
+            mountPath: /var/run/docker.sock
+          - name: procdir
+            mountPath: /host/proc
+            readOnly: true
+          - name: cgroups
+            mountPath: /host/sys/fs/cgroup
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+</code></pre>
+
+---
+# datadog yaml for kubernetes
+
+<pre><code class=kubernetes style="line-height: 1.1em;font-size: 70%;">    spec: 
+      containers:
+      - image: datadog/docker-dd-agent:latest
+        imagePullPolicy: Always
+        name: dd-agent
+        ports:
+          - containerPort: 8125
+            name: dogstatsdport
+            protocol: UDP
+        env:
+          - name: API_KEY
+            value: "7588afAPIKEYVALUE420a62APIKEYVALUEaf212420a628ddbb3c7f3cc5fac6"
+          - name: KUBERNETES
+            value: "yes"
+          - name: SD_BACKEND
+            value: docker
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+        volumeMounts:
+          - name: dockersocket
+            mountPath: /var/run/docker.sock
+          - name: procdir
+            mountPath: /host/proc
+            readOnly: true
+          - name: cgroups
+            mountPath: /host/sys/fs/cgroup
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+</code></pre>
+---
+# datadog yaml for kubernetes
+
+<pre><code class=kubernetes style="line-height: 1.1em;font-size: 70%;">        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+        volumeMounts:
+          - name: dockersocket
+            mountPath: /var/run/docker.sock
+          - name: procdir
+            mountPath: /host/proc
+            readOnly: true
+          - name: cgroups
+            mountPath: /host/sys/fs/cgroup
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+</code></pre>
+---
+# datadog yaml for kubernetes
+
+<pre><code class=kubernetes style="line-height: 1.1em;font-size: 70%;">      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+</code></pre>
+
+---
+# adding annotations for autodiscovery on k8s
+
+<pre><code class=kubernetes style="line-height: 1.1em;font-size: 70%;">apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: es-data
+  labels:
+    component: elasticsearch
+    role: data
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        service-discovery.datadoghq.com/es-data.check_names: '["elastic"]'
+        service-discovery.datadoghq.com/es-data.init_configs: '[{}]'
+        service-discovery.datadoghq.com/es-data.instances: '[{"url": "http://%%host%%:9200", "tags": "demo:matt"}]'
+
+      labels:
+        component: elasticsearch
+        role: data
+    spec:
+      serviceAccount: elasticsearch
+      containers:
+      - name: es-data
+        securityContext:
+          capabilities:
+            add:
+              - IPC_LOCK
+</code></pre>
+---
+# adding annotations for autodiscovery on k8s
+
+service-discovery.datadoghq.com/**name**.check_names: '["**integration**"]'<br>
+service-discovery.datadoghq.com/**name**.init_configs: '[{}]'<br>
+service-discovery.datadoghq.com/**name**.instances: '[**configuration**]'  
+</code></pre>

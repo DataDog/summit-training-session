@@ -1,105 +1,113 @@
 <!DOCTYPE HTML>
 
 <html>
-    <head>
-        <title>Monitoring Docker</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.19" />
-        
+
+<head>
+    <title>Monitoring Docker</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta name="generator" content="Hugo 0.25.1" /> 
 
 
-        
+    
 
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/reveal.css">
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/theme/simple.css">
-
-<style type="text/css">
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+    
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/theme/whitesimple.css">
+    <style type="text/css">
         #wrapper {
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: flex;
-        -moz-flex-direction: row-reverse;
-        -webkit-flex-direction: row-reverse;
-        -ms-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-        -moz-transition: opacity 0.5s ease;
-        -webkit-transition: opacity 0.5s ease;
-        -ms-transition: opacity 0.5s ease;
-        transition: opacity 0.5s ease;
-        margin: 0 auto;
-        max-width: 100%;
-        height: 100%;
-        opacity: 1;
-        padding: 4.5em;
-        width: 100%;
-    }
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -moz-flex-direction: row-reverse;
+            -webkit-flex-direction: row-reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+            -moz-transition: opacity 0.5s ease;
+            -webkit-transition: opacity 0.5s ease;
+            -ms-transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease;
+            margin: 0 auto;
+            max-width: 100%;
+            height: 100%;
+            opacity: 1;
+            padding: 4.5em;
+            width: 100%;
+        }
+
         .reveal section img {
             border: none;
         }
+
         .reveal .slides {
             text-align: left;
         }
+
         .reveal h1 {
             margin-bottom: 2%;
         }
+
         .reveal h2 {
             margin-top: 2%;
-        }.reveal li, .reveal p {
+        }
+
+        .reveal li,
+        .reveal p {
             font-size: 150%;
         }
+
         .reveal li li {
             margin-left: 10px;
             font-size: 90%
         }
+
         .reveal pre {
             font-size: 150%;
         }
-        .hljs-params, .hljs-class .hljs-title {
-            color: grey;
-        }
-        .hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable {
-            color: #919;
-        }
+ 
+
         .reveal pre code {
             max-height: 80%;
         }
+
         .slides {
             z-index: 10;
         }
+
         .footer {
-          position: absolute; 
-          right: 94%;
-          bottom: 1px;
-          z-index: 1;
+            position: absolute;
+            right: 94%;
+            bottom: 1px;
+            z-index: 1;
         }
+
         .footer img {
-            width:100%;
+            width: 100%;
             right: 10px;
             z-index: 1;
         }
-</style>
-
-        
-        
-        
-            
-        
-
-    </head>
-    <body>
-
-        
-        <div id="wrapper">
-
+    </style>
 
     
+    
+      
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/lib/css/sunburst.css">
+    
+    
+</head>
+
+<body>
+
+    
+    <div id="wrapper">
+
+
+
+        
 <header id="header">
     
         <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
@@ -224,171 +232,436 @@
         
 </section>
 
-    
         
-            <div class="reveal">
-                <div class="slides">
-                    <section data-markdown
-                        data-separator="^---"
-                        data-separator-vertical="^--"
-                        data-background="^background:"
-                        data-separator-notes="^Note:"
-                        data-charset="iso-8859-15">
-                        # Monitoring Docker
+        
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown data-separator="^---" data-separator-vertical="^--" data-background="^background:" data-separator-notes="^Note:"
+                    data-charset="iso-8859-15">
+                    <textarea data-template>
+                    # Monitoring Docker
 ---
-# Why Use Docker
+# General Docker Workflow
+1.  Start Datadog container on host
+1.  Start application containers
+1.  Edit config files on Datadog container and restart container
 
-* Rapid application deployment
-* Portability across machines
-* Version control and component reuse
-* Sharing
-* Lightweight footprint and minimal overhead
-* Simplified maintenance
-
-*Source: Redhat Docs*
---
-# Docker Architecture
-![](../../images/monitordocker/architecture.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-# Docker Hub
-![](../../images/monitordocker/hub1.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-# Docker Hub
-![](../../images/monitordocker/hub2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
---
-# Docker Hub
-![](../../images/monitordocker/hub3.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width: 100%&#34; --&gt;
----
+--- 
 # Docker commands
-```
-docker run ...
+
+&lt;pre &gt;&lt;code class=&#34;sh&#34; data-trim data-noescape&gt;docker run ...
 docker ps 
 docker logs ...
 docker stop ...
 docker rm ...
 docker network ...
-```
+&lt;/code&gt;&lt;/pre&gt;
 ---
 # Understanding the Datadog Agent Docker command
 
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+&lt;pre&gt;&lt;code class=&#34;sh&#34; data-noescape&gt;docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
   -v /proc/:/host/proc/:ro \
   -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=&lt;api_key&gt; \
+  -e API_KEY=[api_key] \
   datadog/docker-dd-agent:latest
-```
+&lt;/code&gt;&lt;/pre&gt;
+---
+# Understanding the Datadog Agent Docker command
+
+&lt;pre&gt;&lt;code class=&#34;sh&#34; data-noescape&gt;&lt;mark&gt;docker run&lt;/mark&gt; -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=[api_key] \
+  datadog/docker-dd-agent:latest
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;br&gt;
 ## **docker run**: Run a container
---
+---
 # Understanding the Datadog Agent Docker command
 
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+&lt;pre &gt;&lt;code class=&#34;sh&#34; data-noescape&gt;docker run &lt;mark&gt;-d&lt;/mark&gt; --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
   -v /proc/:/host/proc/:ro \
   -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=&lt;api_key&gt; \
+  -e API_KEY=[api_key] \
   datadog/docker-dd-agent:latest
-```
+&lt;/code&gt;&lt;/pre&gt;
 &lt;br&gt;
 ## **-d**: As a daemon
---
+---
 # Understanding the Datadog Agent Docker command
 
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+&lt;pre&gt;&lt;code class=sh data-noescape&gt;docker run -d &lt;mark&gt;--name dd-agent&lt;/mark&gt; \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
   -v /proc/:/host/proc/:ro \
   -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=&lt;api_key&gt; \
+  -e API_KEY=[api_key] \
   datadog/docker-dd-agent:latest
-```
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;br&gt;
 ##  **--name dd-agent**: Name the container `dd-agent`
---
-# Understanding the Datadog Agent Docker command
-
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=&lt;api_key&gt; \
-  datadog/docker-dd-agent:latest
-```
-&lt;br&gt;
-## **-v &amp;lt;host directory&gt;:&amp;lt;docker directory&gt;** mount the host directory in this directory on the container
---
-# Understanding the Datadog Agent Docker command
-
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=&lt;api_key&gt; \
-  datadog/docker-dd-agent:latest
-```
-&lt;br&gt;
-## **-e API_KEY=&amp;lt;api_key&gt;** Pass a string as an environment variable
---
-# Understanding the Datadog Agent Docker command
-
-```
-docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -e API_KEY=&lt;api_key&gt; \
-  datadog/docker-dd-agent:latest
-```
-&lt;br&gt;
-## **org/imagename:label** Find an image on DockerHub created by this org. Use the version of the image with this label.
 ---
-# Ways of running Docker
+# Understanding the Datadog Agent Docker command
 
-## `docker run` is fun for this session but doesn&#39;t scale well
+&lt;pre&gt;&lt;code class=sh data-noescape&gt;docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  &lt;mark&gt;-v /proc/:/host/proc/:ro&lt;/mark&gt; \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=[api_key] \
+  datadog/docker-dd-agent:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+## **-v &amp;lt;host directory&gt;:&amp;lt;container directory&gt;** mount the host directory in this directory on the container
+---
+# Understanding the Datadog Agent Docker command
 
-## `docker-compose` orchestrates multiple containers
-## `swarm` deals with docker clusters
-## kubernetes, ec2, and other solutions exist
+&lt;pre&gt;&lt;code class=sh data-noescape&gt;docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  &lt;mark&gt;-e API_KEY=[api_key]&lt;/mark&gt; \
+  datadog/docker-dd-agent:latest
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+## **-e API_KEY=[api_key]** Pass a string as an environment variable
+---
+# Understanding the Datadog Agent Docker command
 
-                    </section>
+&lt;pre&gt;&lt;code class=sh data-noescape&gt;docker run -d --name dd-agent \
+  -v /var/run/docker.sock:
+        /var/run/docker.sock:ro \
+  -v /proc/:/host/proc/:ro \
+  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+  -e API_KEY=[api_key] \
+  &lt;mark&gt;datadog/docker-dd-agent:latest&lt;/mark&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;br&gt;
+## **org/imagename:label** Find image on DockerHub created by this org. Use the version of the image with this label.
+---
+# Run the container from docker-compose
+&lt;pre&gt;&lt;code class=yaml style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;version: &#34;3&#34;
+networks:
+  main:
 
-                    <section>
-                        <p><a href="https://datadog.github.io/summit-training-session/">Back to the Agenda</a></p>
-                        <a href="https://datadog.github.io/summit-training-session//notes/monitordocker">Notes</a> | <a href="https://datadog.github.io/summit-training-session//handson/monitordocker">Hands On Instruction</a>
-                    </section>
+services:
+  datadog:
+    image: datadog/docker-dd-agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc:/host/proc:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    environment:
+      - API_KEY
+      - SD_BACKEND=docker
+    networks:
+      - main
+          
+&lt;/code&gt;&lt;/pre&gt;
+---
+# Add a configuration volume
+
+1.  Go to [https://github.com/DataDog/integrations-core](https://github.com/DataDog/integrations-core)
+1.  Find the integration
+1.  Modify and save to local directory
+1.  *(Stop and remove Datadog container if running)*
+1.  Mount directory and launch Datadog container
+1.  Launch application container
+---
+# Integrations Core
+
+![](../../images/monitordocker/intcore.png) 
+
+---
+# Find the integration
+![](../../images/monitordocker/nginxyaml.png)
+
+---
+# Mount the local configuration directory
+
+&lt;pre&gt;&lt;code class=yaml data-noescape style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;version: &#34;3&#34;
+  networks:
+    main:
+  
+  services:
+    datadog:
+      image: datadog/docker-dd-agent
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /proc:/host/proc:ro
+        - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+        &lt;mark&gt;- ./conf:/conf.d:ro&lt;/mark&gt;
+      environment:
+        - API_KEY
+        - SD_BACKEND=docker
+      networks:
+        - main
+            
+  &lt;/code&gt;&lt;/pre&gt;
+---
+# If the container is running
+&lt;pre&gt;&lt;code class=shell&gt;docker-compose stop;docker-compose rm -f;docker-compose up  
+&lt;/code&gt;&lt;/pre&gt;
+---
+
+# Using Auto Discovery
+
+1.  Go to [https://github.com/DataDog/integrations-core](https://github.com/DataDog/integrations-core)
+1.  Find the integration
+1.  Add config to labels
+1.  Launch application container  
+
+
+---
+# docker-compose file with autodiscovery
+
+---
+# datadog yaml for kubernetes
+
+&lt;pre&gt;&lt;code class=kubernetes style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: dd-agent
+spec:
+  template:
+    metadata:
+      labels:
+        app: dd-agent
+      name: dd-agent
+    spec:
+      containers:
+      - image: datadog/docker-dd-agent:latest
+        imagePullPolicy: Always
+        name: dd-agent
+        ports:
+          - containerPort: 8125
+            name: dogstatsdport
+            protocol: UDP
+        env:
+          - name: API_KEY
+            value: &#34;7588af212420a628ddbb3c7f3cc5fac6,7588af212420a628ddbb3c7f3cc5fac6&#34;
+          - name: KUBERNETES
+            value: &#34;yes&#34;
+          - name: SD_BACKEND
+            value: docker
+        resources:
+          requests:
+            memory: &#34;128Mi&#34;
+            cpu: &#34;100m&#34;
+          limits:
+            memory: &#34;512Mi&#34;
+            cpu: &#34;250m&#34;
+        volumeMounts:
+          - name: dockersocket
+            mountPath: /var/run/docker.sock
+          - name: procdir
+            mountPath: /host/proc
+            readOnly: true
+          - name: cgroups
+            mountPath: /host/sys/fs/cgroup
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+&lt;/code&gt;&lt;/pre&gt;
+
+---
+# datadog yaml for kubernetes
+
+&lt;pre&gt;&lt;code class=kubernetes style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;    spec: 
+      containers:
+      - image: datadog/docker-dd-agent:latest
+        imagePullPolicy: Always
+        name: dd-agent
+        ports:
+          - containerPort: 8125
+            name: dogstatsdport
+            protocol: UDP
+        env:
+          - name: API_KEY
+            value: &#34;7588afAPIKEYVALUE420a62APIKEYVALUEaf212420a628ddbb3c7f3cc5fac6&#34;
+          - name: KUBERNETES
+            value: &#34;yes&#34;
+          - name: SD_BACKEND
+            value: docker
+        resources:
+          requests:
+            memory: &#34;128Mi&#34;
+            cpu: &#34;100m&#34;
+          limits:
+            memory: &#34;512Mi&#34;
+            cpu: &#34;250m&#34;
+        volumeMounts:
+          - name: dockersocket
+            mountPath: /var/run/docker.sock
+          - name: procdir
+            mountPath: /host/proc
+            readOnly: true
+          - name: cgroups
+            mountPath: /host/sys/fs/cgroup
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+&lt;/code&gt;&lt;/pre&gt;
+---
+# datadog yaml for kubernetes
+
+&lt;pre&gt;&lt;code class=kubernetes style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;        resources:
+          requests:
+            memory: &#34;128Mi&#34;
+            cpu: &#34;100m&#34;
+          limits:
+            memory: &#34;512Mi&#34;
+            cpu: &#34;250m&#34;
+        volumeMounts:
+          - name: dockersocket
+            mountPath: /var/run/docker.sock
+          - name: procdir
+            mountPath: /host/proc
+            readOnly: true
+          - name: cgroups
+            mountPath: /host/sys/fs/cgroup
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+&lt;/code&gt;&lt;/pre&gt;
+---
+# datadog yaml for kubernetes
+
+&lt;pre&gt;&lt;code class=kubernetes style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups
+      
+&lt;/code&gt;&lt;/pre&gt;
+
+---
+# adding annotations for autodiscovery on k8s
+
+&lt;pre&gt;&lt;code class=kubernetes style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: es-data
+  labels:
+    component: elasticsearch
+    role: data
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        service-discovery.datadoghq.com/es-data.check_names: &#39;[&#34;elastic&#34;]&#39;
+        service-discovery.datadoghq.com/es-data.init_configs: &#39;[{}]&#39;
+        service-discovery.datadoghq.com/es-data.instances: &#39;[{&#34;url&#34;: &#34;http://%%host%%:9200&#34;, &#34;tags&#34;: &#34;demo:matt&#34;}]&#39;
+
+      labels:
+        component: elasticsearch
+        role: data
+    spec:
+      serviceAccount: elasticsearch
+      containers:
+      - name: es-data
+        securityContext:
+          capabilities:
+            add:
+              - IPC_LOCK
+&lt;/code&gt;&lt;/pre&gt;
+---
+# adding annotations for autodiscovery on k8s
+
+service-discovery.datadoghq.com/**name**.check_names: &#39;[&#34;**integration**&#34;]&#39;&lt;br&gt;
+service-discovery.datadoghq.com/**name**.init_configs: &#39;[{}]&#39;&lt;br&gt;
+service-discovery.datadoghq.com/**name**.instances: &#39;[**configuration**]&#39;  
+&lt;/code&gt;&lt;/pre&gt;
+                </textarea>
+                </section>
+
+                <section>
+                    <p><a href="https://datadog.github.io/summit-training-session/">Back to the Agenda</a></p>
+                    <a href="https://datadog.github.io/summit-training-session/notes/monitordocker">Notes</a>                    
+                    | <a href="https://datadog.github.io/summit-training-session/handson/monitordocker">Hands On Instruction</a>
+
+                </section>
+
+            </div>
+
+        </div>
+        <div class="footer"><img src="https://datadog.github.io/summit-training-session//images/ddlogo.png"></div>
+        <div id="ddlogo"></div>
+        
+
+        <script type="text/javascript" src="https://datadog.github.io/summit-training-session//reveal.js/js/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
+        <script>
+            Reveal.initialize({
+                width: 1920,
+                height: 1280,
+                margin: 0.0,
+                controls: false,
+                center: false,
+                minScale: 0.3,
+                maxScale: 7,
+                slideNumber: false,
+                history: true,
+                embedded: true,
+                transition: 'none', 
+                dependencies: [
                     
-                </div>
-                
-            </div>
-            <div class="footer"><img src="https://datadog.github.io/summit-training-session//images/ddlogo.png"></div>
-        
-    
-    <script type="text/javascript" src="https://datadog.github.io/summit-training-session//reveal.js/js/reveal.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
-<script>Reveal.initialize({
-    width: 1920, 
-    height: 1280,  
-    margin: 0.1,
-    center: false,    
-  minScale: 0.3,
-  maxScale: 7,  
-  slideNumber: true,
-  history: true,  
-  embedded: true,  
-   dependencies: [
-        
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }, 
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/notes/notes.js', async: true },
-
-    ]
-  });</script>
-            </div>
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/notes/notes.js', async: true },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ], 
+            });
+            
+            
+            
+            
+            
+            
+        </script>
+                    </div>
         <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
         
 
@@ -413,4 +686,3 @@ docker run -d --name dd-agent \
             
     </body>
 </html>
-

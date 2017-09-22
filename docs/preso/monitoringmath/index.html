@@ -1,105 +1,113 @@
 <!DOCTYPE HTML>
 
 <html>
-    <head>
-        <title>Monitoring Math</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.19" />
-        
+
+<head>
+    <title>Datadog 101 - Monitoring Math</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta name="generator" content="Hugo 0.25.1" /> 
 
 
-        
+    
 
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/reveal.css">
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/theme/simple.css">
-
-<style type="text/css">
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+    
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/css/theme/whitesimple.css">
+    <style type="text/css">
         #wrapper {
-        display: -moz-flex;
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: flex;
-        -moz-flex-direction: row-reverse;
-        -webkit-flex-direction: row-reverse;
-        -ms-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-        -moz-transition: opacity 0.5s ease;
-        -webkit-transition: opacity 0.5s ease;
-        -ms-transition: opacity 0.5s ease;
-        transition: opacity 0.5s ease;
-        margin: 0 auto;
-        max-width: 100%;
-        height: 100%;
-        opacity: 1;
-        padding: 4.5em;
-        width: 100%;
-    }
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -moz-flex-direction: row-reverse;
+            -webkit-flex-direction: row-reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+            -moz-transition: opacity 0.5s ease;
+            -webkit-transition: opacity 0.5s ease;
+            -ms-transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease;
+            margin: 0 auto;
+            max-width: 100%;
+            height: 100%;
+            opacity: 1;
+            padding: 4.5em;
+            width: 100%;
+        }
+
         .reveal section img {
             border: none;
         }
+
         .reveal .slides {
             text-align: left;
         }
+
         .reveal h1 {
             margin-bottom: 2%;
         }
+
         .reveal h2 {
             margin-top: 2%;
-        }.reveal li, .reveal p {
+        }
+
+        .reveal li,
+        .reveal p {
             font-size: 150%;
         }
+
         .reveal li li {
             margin-left: 10px;
             font-size: 90%
         }
+
         .reveal pre {
             font-size: 150%;
         }
-        .hljs-params, .hljs-class .hljs-title {
-            color: grey;
-        }
-        .hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable {
-            color: #919;
-        }
+ 
+
         .reveal pre code {
             max-height: 80%;
         }
+
         .slides {
             z-index: 10;
         }
+
         .footer {
-          position: absolute; 
-          right: 94%;
-          bottom: 1px;
-          z-index: 1;
+            position: absolute;
+            right: 94%;
+            bottom: 1px;
+            z-index: 1;
         }
+
         .footer img {
-            width:100%;
+            width: 100%;
             right: 10px;
             z-index: 1;
         }
-</style>
-
-        
-        
-        
-            
-        
-
-    </head>
-    <body>
-
-        
-        <div id="wrapper">
-
+    </style>
 
     
+    
+      
+    <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//reveal.js/lib/css/sunburst.css">
+    
+    
+</head>
+
+<body>
+
+    
+    <div id="wrapper">
+
+
+
+        
 <header id="header">
     
         <h2><a href="https://datadog.github.io/summit-training-session/">Session Agenda</i></a></h2>
@@ -224,32 +232,29 @@
         
 </section>
 
-    
         
-            <div class="reveal">
-                <div class="slides">
-                    <section data-markdown
-                        data-separator="^---"
-                        data-separator-vertical="^--"
-                        data-background="^background:"
-                        data-separator-notes="^Note:"
-                        data-charset="iso-8859-15">
-                        # Monitoring Math
+        
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown data-separator="^---" data-separator-vertical="^--" data-background="^background:" data-separator-notes="^Note:"
+                    data-charset="iso-8859-15">
+                    <textarea data-template>
+                    # Monitoring Math
 Getting more out of your graphs
 ---
 #Metric Aggregation
---
+---
 # Timeseries Data
 * Metrics are stored as timeseries based on combinations of the metric name and tag combinations
 * Queries require an aggregation function (sum, min, max, avg) to aggregate over timeseries matching the query
 * Aggregation is applied at each point on the graph, bringing multiple timeseries value into one point on the graph
---
+---
 # Aggregation Example
 * Start with a basic query “sum:system.disk.used{host:oracle-xe}”
 * Disk metrics are tagged by disk using the “device” tag, with an individual timeseries created on each host for every device reported
 
 ![](../../images/monitoringmath/aggexample.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
+---
 # Aggregation Example
 
 * Using “by {device}” break the graph down to show one stacked are per disk
@@ -258,7 +263,7 @@ Getting more out of your graphs
 ![](../../images/monitoringmath/aggexample2.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 ---
 #Functions
---
+---
 # Function Types
 * Arithmetic
 * Interpolation
@@ -289,47 +294,47 @@ Getting more out of your graphs
 ---
 # Timeshift
 ## Helpful for comparing metrics with previously reported values
---
+---
 # hour_before()
 ![](../../images/monitoringmath/hour_before.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
+---
 # day_before()
 ![](../../images/monitoringmath/day_before.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
---
+---
 # week_before()
 ![](../../images/monitoringmath/week_before.png)
---
+---
 # month_before()
 ![](../../images/monitoringmath/month_before.png)
 ---
 # Rate
 ## Compare metric values with their previous value
---
+---
 # per_second()
 Compare the metric with the previous value, returning difference in value divided by the difference in time
 ![](../../images/monitoringmath/rate_per_second.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 
---
+---
 # per_minute()
 Compare the metric with the previous value, returning difference in value divided by the difference in time
 
 ![](../../images/monitoringmath/rate_per_minute.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: 60 * the per_second() value
---
+---
 # per_hour()  Rate
 Compare the metric with the previous value, returning difference in value divided by the difference in time
 ![](../../images/monitoringmath/rate_per_hour.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 
 Note: 3600 * the per_second() value
---
+---
 # dt()
 ![](../../images/monitoringmath/dt.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: Time in seconds between the current and previous points
---
+---
 # diff()
 ![](../../images/monitoringmath/diff.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: The difference in value between the current and previous points
---
+---
 # derivative()
 ![](../../images/monitoringmath/derivative.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 
@@ -337,53 +342,53 @@ Note: 1st order derivative function applied to the graph: diff() / dt()
 ---
 # Count
 ## Keep track of the number of values reported in your graphs
---
+---
 # count_nonzero()
 ![](../../images/monitoringmath/count_nonzero.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: Current track of all non-zero values graphed at a given moment in time
---
+---
 # count_not_null()
 ![](../../images/monitoringmath/count_not_null.png)&lt;!-- .element: style=&#34;background: none; box-shadow: none; width : 100%&#34; --&gt;
 Note: Current track of all non-null values graphed at a given moment in time
 ---
 # Smoothing
 ## Even out the values on your graph
---
+---
 # ewma_3()
 ![](../../images/monitoringmath/ewma_3.png)
 Note: Exponentially weighted moving average spanning 3 points (previous, current, next)
---
+---
 # ewma_5()
 ![](../../images/monitoringmath/ewma_5.png)
 Note: Exponentially weighted moving average spanning 5 points
---
+---
 # ewma_10()
 ![](../../images/monitoringmath/ewma_10.png)
 Note: Exponentially weighted moving average spanning 10 points
---
+---
 # ewma_20()
 ![](../../images/monitoringmath/ewma_20.png)
 Note: Exponentially weighted moving average spanning 20 points
---
+---
 # median_3()
 ![](../../images/monitoringmath/median_3.png)
 Note: Median value spanning 3 points (median of the previous, current, and next point)
---
+---
 # median_5()
 ![](../../images/monitoringmath/median_5.png)
 Note: Median value spanning 5 points
---
+---
 # median_7()
 ![](../../images/monitoringmath/median_7.png)
 Note: Median value spanning 7 points
---
+---
 # median_9()
 ![](../../images/monitoringmath/median_9.png)
 Note: Median value spanning 9 points
 ---
 # Time Aggregation
 ## Smooth out your graphs by aggregating timeseries data
---
+---
 # .rollup($method, $time)
 * Apply aggregation $method to multiple values over $time in seconds
 * Available methods: sum, min, max, avg
@@ -393,7 +398,7 @@ Note: Median value spanning 9 points
 ---
 # Ranking
 ## Avoid clutter by viewing only the most relevant timeseries
---
+---
 # top()
 Avoid clutter by viewing only the most relevant timeseries
 ![](../../images/monitoringmath/top.png)
@@ -403,7 +408,7 @@ Note: * Select the top series responsive to a given query, according to a provid
   * the number of series you’d like returned
   * a ranking function (one of &#39;max&#39;, &#39;min&#39;, &#39;last&#39;, &#39;l2norm&#39;, or &#39;area&#39;)
   * sort order (either &#39;desc&#39; for descending order or &#39;asc&#39; for ascending order)
---
+---
 # top_offset()
 Avoid clutter by viewing only the most relevant timeseries
 
@@ -415,52 +420,66 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
 ---
 # Algorithm
 ## Analyze your metrics compared to concurrent or previous metric data
---
+---
 #outliers()
 * Compare timeseries values with each other
 * Highlights individual timeseries based on ones that deviate too far from the norm at a given moment in time
 * More on the available DBSCAN and MAD functions used here: http://dtdg.co/outlierdetect
---
+---
 #anomalies()
 * Compares historic metric data
 * Allows comparison of the current value with norms calculated across previous timeframes
 * Can alert on anomalous spikes/dips in metric values based on deviation from this norm
 
 
-                    </section>
+                </textarea>
+                </section>
 
-                    <section>
-                        <p><a href="https://datadog.github.io/summit-training-session/">Back to the Agenda</a></p>
-                        <a href="https://datadog.github.io/summit-training-session//notes/monitoringmath">Notes</a> | <a href="https://datadog.github.io/summit-training-session//handson/monitoringmath">Hands On Instruction</a>
-                    </section>
+                <section>
+                    <p><a href="https://datadog.github.io/summit-training-session/">Back to the Agenda</a></p>
+                    <a href="https://datadog.github.io/summit-training-session/notes/monitoringmath">Notes</a>                    
+                    | <a href="https://datadog.github.io/summit-training-session/handson/monitoringmath">Hands On Instruction</a>
+
+                </section>
+
+            </div>
+
+        </div>
+        <div class="footer"><img src="https://datadog.github.io/summit-training-session//images/ddlogo.png"></div>
+        <div id="ddlogo"></div>
+        
+
+        <script type="text/javascript" src="https://datadog.github.io/summit-training-session//reveal.js/js/reveal.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
+        <script>
+            Reveal.initialize({
+                width: 1920,
+                height: 1280,
+                margin: 0.0,
+                controls: false,
+                center: false,
+                minScale: 0.3,
+                maxScale: 7,
+                slideNumber: false,
+                history: true,
+                embedded: true,
+                transition: 'none', 
+                dependencies: [
                     
-                </div>
-                
-            </div>
-            <div class="footer"><img src="https://datadog.github.io/summit-training-session//images/ddlogo.png"></div>
-        
-    
-    <script type="text/javascript" src="https://datadog.github.io/summit-training-session//reveal.js/js/reveal.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js"></script>
-<script>Reveal.initialize({
-    width: 1920, 
-    height: 1280,  
-    margin: 0.1,
-    center: false,    
-  minScale: 0.3,
-  maxScale: 7,  
-  slideNumber: true,
-  history: true,  
-  embedded: true,  
-   dependencies: [
-        
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }, 
-        { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/notes/notes.js', async: true },
-
-    ]
-  });</script>
-            </div>
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/notes/notes.js', async: true },
+                    { src: 'https:\/\/datadog.github.io\/summit-training-session\//reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ], 
+            });
+            
+            
+            
+            
+            
+            
+        </script>
+                    </div>
         <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
         
 
@@ -485,4 +504,3 @@ For example, an offset of 2 would start graphing at the number 3 ranked series, 
             
     </body>
 </html>
-

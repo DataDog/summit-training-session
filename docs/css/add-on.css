@@ -1,6 +1,9 @@
 body, input, select, textarea, b, strong {
-    color: #000000;
+    color: #000;
 }
+
+.reveal input, .reveal select, .reveal textarea, .reveal b, .reveal strong {
+    color: black; }
 
 pre {
     display: table;

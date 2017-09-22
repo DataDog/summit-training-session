@@ -1,10 +1,13 @@
 ---
-title: Monitoring Math
+title: Datadog 101 - Monitoring Math
 type: handson
 description: Learn about the functions that provide additional value to your graphs
 weight: 3
-duration: 20-30 minutes
+duration: 15 minutes
 ---
+
+***We don't have time to go through the hands on training for this section at the summit, but please follow along when you get home.***
+
 1.  Create a new Timeboard
 1.  Add a timeseries graph. Choose any metric; the default `system.load.1` will work just fine.
 1.  Click the Add Metric button and add the same metric.

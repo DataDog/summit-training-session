@@ -14,12 +14,12 @@
 <html>
     <head>
         
-            <title>Building Great Dashboards - Datadog Training Site</title>
+            <title>Datadog 101 - Building Great Dashboards - Datadog Training Site</title>
         
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.19" />
+        <meta name="generator" content="Hugo 0.25.1" />
         
 
 
@@ -34,12 +34,12 @@
 
 
 
-<meta name="twitter:text:title" content="Building Great Dashboards"/>
-<meta name="twitter:title" content="Building Great Dashboards"/>
+<meta name="twitter:text:title" content="Datadog 101 - Building Great Dashboards"/>
+<meta name="twitter:title" content="Datadog 101 - Building Great Dashboards"/>
 <meta name="twitter:description" content="Let&#39;s start building a set of dashboards to troubleshoot the test environment"/>
 <meta name="twitter:site" content="@datadoghq"/>
 
-        <meta property="og:title" content="Building Great Dashboards" />
+        <meta property="og:title" content="Datadog 101 - Building Great Dashboards" />
 <meta property="og:description" content="Let&#39;s start building a set of dashboards to troubleshoot the test environment" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/" />
@@ -60,12 +60,12 @@
 
 
         
-<meta itemprop="name" content="Building Great Dashboards">
+<meta itemprop="name" content="Datadog 101 - Building Great Dashboards">
 <meta itemprop="description" content="Let&#39;s start building a set of dashboards to troubleshoot the test environment">
 
 
 
-<meta itemprop="wordCount" content="642">
+<meta itemprop="wordCount" content="392">
 
 
 
@@ -85,7 +85,7 @@
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/google-font.css" />
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/font-awesome.min.css" />
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/main.css" />
-            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/add-on.css" />
+            <link rel="stylesheet" href="https://datadog.github.io/summit-training-session/css/add-on.css" />
             <link rel="stylesheet" href="https://datadog.github.io/summit-training-session//css/monokai-sublime.css">
         
 
@@ -251,20 +251,19 @@
 
       
     <div id="main">
-    <h1>Building Great Dashboards (Hands On Instructions)</h1>
+    <h1>Datadog 101 - Building Great Dashboards (Hands On Instructions)</h1>
     
 
 <h1 id="first-dashboard">First Dashboard</h1>
 
 <ol>
-<li>From the menu, create a new dashboard.</li>
-<li>Enter the name for your first dashboard. We are going to focus on HAProxy, so you can call it <code>My First HAProxy Dash</code> or anything you like.</li>
-<li>Click the <strong>New Timeboard</strong> button to create a Timeboard.</li>
+<li>From the menu, return to the dashboard you created earlier.</li>
 <li>Drag and drop a timeseries widget onto the first well on the canvas. Notice that you can change the visualization at any time without having to drag another widget on the canvas.</li>
-<li>In the first textbox under <strong>Choose metrics and events</strong>, select <code>haproxy.frontend.requests.rate</code>. Notice that the textbox supports a fuzzy search so i can enter <code>hap.fe.rr</code> and get to the right metric much more quickly.</li>
-<li>We have only a single host so a line graph should be fine, but try the other display options from the <strong>Display</strong> dropdown. Play around with the different color palettes, styles, and strokes as well.</li>
-<li>The <strong>everywhere</strong> and <strong>everything</strong> textboxes don&rsquo;t have much effect on our single host, so click the plus sign to the right to see the different functions available. We will learn more about these in the next section.</li>
-<li>Now click on the <strong>Add Metric</strong> button to add another metric line to your graph. Add <code>haproxy.backend.session.rate</code>.</li>
+<li>In the first textbox under <strong>Choose metrics and events</strong>, select <code>elasticsearch.primaries.search.query.current</code>. Notice that the textbox supports a fuzzy search so i can enter <code>elseapriseaqc</code> and get to the right metric much more quickly.</li>
+<li>A line graph should be fine, but try the other display options from the <strong>Display</strong> dropdown. Play around with the different color palettes, styles, and strokes as well.</li>
+<li>What do you see in the <strong>everywhere</strong> and <strong>everything</strong> textboxes? What does this mean?</li>
+<li>Click the plus sign to the right to see the different functions available. We will learn more about these in the next section.</li>
+<li>Now click on the <strong>Add Metric</strong> button to add another metric line to your graph. Add <code>elasticsearch.primaries.search.fetch.current</code>.</li>
 <li>This created a graph with two lines, but sometimes you want a graph with a single line made up of several metrics. Drag another timeseries widget to the canvas.</li>
 <li>Select <code>system.cpu.user</code> for the metric.</li>
 <li>Now click the <strong>Advanced&hellip;</strong> link on the right.</li>
@@ -282,17 +281,6 @@
 
 <p>End of First Dashboard Section - <a href="../../preso/buildinggreatdashboards/#/6">Return to Presentation</a></p>
 
-<h1 id="apache">Apache</h1>
-
-<ol>
-<li>Create a new Timeboard.</li>
-<li>Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard</li>
-<li>Ensure that you have added both work metrics and resource metrics.</li>
-<li>Does anything seem strange?</li>
-</ol>
-
-<p>End of Apache Section - <a href="../../preso/buildinggreatdashboards/#/8">Return to Presentation</a></p>
-
 <h1 id="notebooks">Notebooks</h1>
 
 <ol>
@@ -305,33 +293,8 @@
 
 <p>End of Notebooks Section - <a href="../../preso/buildinggreatdashboards/#/9/3">Return to Presentation</a></p>
 
-<h1 id="mysql">MySQL</h1>
-
-<ol>
-<li>Create a new Timeboard.</li>
-<li>Look back at the metrics we determined are the most important to watch. Create graphs that show them on this dashboard</li>
-<li>Ensure that you have added both work metrics and resource metrics.</li>
-<li>Try adding some events to some of the graphs.</li>
-<li>Now do a search at the top for another event.</li>
-</ol>
-
-<h1 id="combined-dashboard">Combined Dashboard</h1>
-
-<ol>
-<li>Create a Screenboard.</li>
-<li>Add a Text widget to the canvas and enter <code>Load Balancer</code> in the <strong>Text to display</strong> textbox.</li>
-<li>Add some of the HAProxy work metrics using any visualization you like.</li>
-<li>Repeat the last two steps for the Web Servers, choosing Apache metrics.</li>
-<li>Repeat again for the Database, choosing MySQL metrics.</li>
-<li>Arrange everything to create an attractive dashboard that tells a complete story. Whats the right timeperiod to show on this dashboard?</li>
-<li>Click on the gear icon at the top right of the dashboard and choose <strong>Generate public URL</strong>.</li>
-<li>Try the URL in a new browser window.</li>
-</ol>
-
-<p>End of Dashboards Hands On</p>
-
     
-    <a href="https://datadog.github.io/summit-training-session//preso/buildinggreatdashboards">Presentation</a> | <a href="https://datadog.github.io/summit-training-session//notes/buildinggreatdashboards">Notes</a>
+    <a href="https://datadog.github.io/summit-training-session/preso/buildinggreatdashboards">Presentation</a> | <a href="https://datadog.github.io/summit-training-session/notes/buildinggreatdashboards">Notes</a>
 
     </div>
 

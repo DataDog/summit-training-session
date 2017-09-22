@@ -1,0 +1,1 @@
+docker run -d --name webserver -e TAGS=role:frontend -l com.datadoghq.ad.check_names:'["nginx"]' -l com.datadoghq.ad.init_configs:'[{}]' -l com.datadoghq.ad.instances:'[{"nginx_status_url:http://localhost/nginx_status"}]'

@@ -1,354 +1,233 @@
 +++
-title = "Building Great Dashboards"
+title = "Datadog 101 - Building Great Dashboards"
 type = "notes"
 date = "2016-10-17T08:46:04-04:00"
 weight = 2
 description = "Assemble your graphs into comprehensive dashboards"
 +++
 
-# HA Proxy Metrics
 
-<table class="table">
-<tr>
-<td>
-<strong>haproxy.backend_hosts</strong><br>(gauge)</td>
-<td>Number of backend hosts.<br><em>shown as host</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.bytes.in_rate</strong><br>(gauge)</td>
-<td>Rate of bytes in on backend hosts.<br><em>shown as byte/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.bytes.out_rate</strong><br>(gauge)</td>
-<td>Rate of bytes out on backend hosts.<br><em>shown as byte/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.connect.time</strong><br>(gauge)</td>
-<td>Average connect time over the last 1024 requests.<br><em>shown as millisecond</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.denied.req_rate</strong><br>(gauge)</td>
-<td>Number of requests denied due to security concerns.<br><em>shown as request/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.denied.resp_rate</strong><br>(gauge)</td>
-<td>Number of responses denied due to security concerns.<br><em>shown as response/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.errors.con_rate</strong><br>(gauge)</td>
-<td>Rate of requests that encountered an error trying to connect to a backend server.<br><em>shown as error/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.errors.resp_rate</strong><br>(gauge)</td>
-<td>Rate of responses aborted due to error.<br><em>shown as error/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.queue.current</strong><br>(gauge)</td>
-<td>Number of requests without an assigned backend.<br><em>shown as request</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.queue.time</strong><br>(gauge)</td>
-<td>Average queue time over the last 1024 requests.<br><em>shown as millisecond</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.response.1xx</strong><br>(gauge)</td>
-<td>Backend HTTP responses with 1xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.response.2xx</strong><br>(gauge)</td>
-<td>Backend HTTP responses with 2xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.response.3xx</strong><br>(gauge)</td>
-<td>Backend HTTP responses with 3xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.response.4xx</strong><br>(gauge)</td>
-<td>Backend HTTP responses with 4xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.response.5xx</strong><br>(gauge)</td>
-<td>Backend HTTP responses with 5xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.response.other</strong><br>(gauge)</td>
-<td>Backend HTTP responses with other code (protocol error).<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.response.time</strong><br>(gauge)</td>
-<td>Average response time over the last 1024 requests (0 for TCP).<br><em>shown as millisecond</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.session.current</strong><br>(gauge)</td>
-<td>Number of active backend sessions.<br><em>shown as connection</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.session.limit</strong><br>(gauge)</td>
-<td>Configured backend session limit.<br><em>shown as connection</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.session.pct</strong><br>(gauge)</td>
-<td>Percentage of sessions in use (backend.session.current/backend.session.limit * 100).<br><em>shown as percent</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.session.rate</strong><br>(gauge)</td>
-<td>Number of backend sessions created per second.<br><em>shown as connection/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.session.time</strong><br>(gauge)</td>
-<td>Average total session time over the last 1024 requests.<br><em>shown as millisecond</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.warnings.redis_rate</strong><br>(gauge)</td>
-<td>Number of times a connection to a server was retried.<br><em>shown as error/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.backend.warnings.retr_rate</strong><br>(gauge)</td>
-<td>Number of times a request was redispatched to another server.<br><em>shown as error/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.count_per_status</strong><br>(gauge)</td>
-<td>Number of hosts by status (UP/DOWN/NOLB/MAINT).<br><em>shown as host</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.bytes.in_rate</strong><br>(gauge)</td>
-<td>Rate of bytes in on frontend hosts.<br><em>shown as byte/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.bytes.out_rate</strong><br>(gauge)</td>
-<td>Rate of bytes out on frontend hosts.<br><em>shown as byte/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.denied.req_rate</strong><br>(gauge)</td>
-<td>Number of requests denied due to security concerns.<br><em>shown as request/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.denied.resp_rate</strong><br>(gauge)</td>
-<td>Number of responses denied due to security concerns.<br><em>shown as response/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.errors.req_rate</strong><br>(gauge)</td>
-<td>Rate of request errors.<br><em>shown as error/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.requests.rate</strong><br>(gauge)</td>
-<td>Number of HTTP requests per second.<br><em>shown as request/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.response.1xx</strong><br>(gauge)</td>
-<td>Frontend HTTP responses with 1xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.response.2xx</strong><br>(gauge)</td>
-<td>Frontend HTTP responses with 2xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.response.3xx</strong><br>(gauge)</td>
-<td>Frontend HTTP responses with 3xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.response.4xx</strong><br>(gauge)</td>
-<td>Frontend HTTP responses with 4xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.response.5xx</strong><br>(gauge)</td>
-<td>Frontend HTTP responses with 5xx code.<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.response.other</strong><br>(gauge)</td>
-<td>Frontend HTTP responses with other code (protocol error).<br><em>shown as response</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.session.current</strong><br>(gauge)</td>
-<td>Number of active frontend sessions.<br><em>shown as connection</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.session.limit</strong><br>(gauge)</td>
-<td>Configured backend session limit.<br><em>shown as connection</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.session.pct</strong><br>(gauge)</td>
-<td>Percentage of sessions in use (frontend.session.current/frontend.session.limit * 100).<br><em>shown as percent</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>haproxy.frontend.session.rate</strong><br>(gauge)</td>
-<td>Number of frontend sessions created per second.<br><em>shown as connection/second</em>
-</td>
-</tr>
-</table>
 
-# Apache Metrics
-<table class="table">
-<tr>
-<td>
-<strong>apache.net.bytes</strong><br>(gauge)</td>
-<td>The total number of bytes served.<br><em>shown as byte</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>apache.net.bytes_per_s</strong><br>(gauge)</td>
-<td>The number of bytes served per second.<br><em>shown as byte/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>apache.net.hits</strong><br>(gauge)</td>
-<td>The total number of requests performed.<br><em>shown as request</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>apache.net.request_per_s</strong><br>(gauge)</td>
-<td>The number of requests performed per second.<br><em>shown as request/second</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>apache.performance.cpu_load</strong><br>(gauge)</td>
-<td>The percent of CPU used.<br><em>shown as percent</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>apache.performance.busy_workers</strong><br>(gauge)</td>
-<td>The number of workers serving requests.<br><em>shown as thread</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>apache.performance.idle_workers</strong><br>(gauge)</td>
-<td>The number of idle workers.<br><em>shown as thread</em>
-</td>
-</tr>
-<tr>
-<td>
-<strong>apache.performance.uptime</strong><br>(gauge)</td>
-<td>The amount of time the server has been running.<br><em>shown as second</em>
-</td>
-</tr>
-</table>
-# MySQL Metrics
+### ElasticSearch Metrics
+
+
 | Metric | Description|
 |------|--------| 
-| <strong>mysql.galera.wsrep_cluster_size</strong><br>(gauge) | The current number of nodes in the Galera cluster.<br><em>shown as node</em> |
-| <strong>mysql.innodb.buffer_pool_free</strong><br>(gauge) | The number of free pages in the InnoDB Buffer Pool.<br><em>shown as page</em> |
-| <strong>mysql.innodb.buffer_pool_total</strong><br>(gauge) | The total number of pages in the InnoDB Buffer Pool.<br><em>shown as page</em> |
-| <strong>mysql.innodb.buffer_pool_used</strong><br>(gauge) | The number of used pages in the InnoDB Buffer Pool.<br><em>shown as page</em> |
-| <strong>mysql.innodb.buffer_pool_utilization</strong><br>(gauge) | The utilization of the InnoDB Buffer Pool.<br><em>shown as fraction</em> |
-| <strong>mysql.innodb.current_row_locks</strong><br>(gauge) | The number of current row locks.<br><em>shown as lock</em> |
-| <strong>mysql.innodb.data_reads</strong><br>(gauge) | The rate of data reads.<br><em>shown as read/second</em> |
-| <strong>mysql.innodb.data_writes</strong><br>(gauge) | The rate of data writes.<br><em>shown as write/second</em> |
-| <strong>mysql.innodb.mutex_os_waits</strong><br>(gauge) | The rate of mutex OS waits.<br><em>shown as event/second</em> |
-| <strong>mysql.innodb.mutex_spin_rounds</strong><br>(gauge) | The rate of mutex spin rounds.<br><em>shown as event/second</em> |
-| <strong>mysql.innodb.mutex_spin_waits</strong><br>(gauge) | The rate of mutex spin waits.<br><em>shown as event/second</em> |
-| <strong>mysql.innodb.os_log_fsyncs</strong><br>(gauge) | The rate of fsync writes to the log file.<br><em>shown as write/second</em> |
-| <strong>mysql.innodb.row_lock_time</strong><br>(gauge) | Fraction of time spent (ms/s) acquring row locks.<br><em>shown as fraction</em> |
-| <strong>mysql.innodb.row_lock_waits</strong><br>(gauge) | The number of times per second a row lock had to be waited for.<br><em>shown as event/second</em> |
-| <strong>mysql.net.connections</strong><br>(gauge) | The rate of connections to the server.<br><em>shown as connection/second</em> |
-| <strong>mysql.net.max_connections</strong><br>(gauge) | The maximum number of connections that have been in use simultaneously since the server started.<br><em>shown as connection</em> |
-| <strong>mysql.performance.com_delete</strong><br>(gauge) | The rate of delete statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_delete_multi</strong><br>(gauge) | The rate of delete-multi statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_insert</strong><br>(gauge) | The rate of insert statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_insert_select</strong><br>(gauge) | The rate of insert-select statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_replace_select</strong><br>(gauge) | The rate of replace-select statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_select</strong><br>(gauge) | The rate of select statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_update</strong><br>(gauge) | The rate of update statements.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.com_update_multi</strong><br>(gauge) | The rate of update-multi.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.created_tmp_disk_tables</strong><br>(gauge) | The rate of internal on-disk temporary tables created by second by the server while executing statements.<br><em>shown as table/second</em> |
-| <strong>mysql.performance.created_tmp_files</strong><br>(gauge) | The rate of temporary files created by second.<br><em>shown as file/second</em> |
-| <strong>mysql.performance.created_tmp_tables</strong><br>(gauge) | The rate of internal temporary tables created by second by the server while executing statements.<br><em>shown as table/second</em> |
-| <strong>mysql.performance.kernel_time</strong><br>(gauge) | Percentage of CPU time spent in kernel space by MySQL.<br><em>shown as percent</em> |
-| <strong>mysql.performance.key_cache_utilization</strong><br>(gauge) | The key cache utilization ratio.<br><em>shown as fraction</em> |
-| <strong>mysql.performance.open_files</strong><br>(gauge) | The number of open files.<br><em>shown as file</em> |
-| <strong>mysql.performance.open_tables</strong><br>(gauge) | The number of of tables that are open.<br><em>shown as table</em> |
-| <strong>mysql.performance.qcache_hits</strong><br>(gauge) | The rate of query cache hits.<br><em>shown as hit/second</em> |
-| <strong>mysql.performance.questions</strong><br>(gauge) | The rate of statements executed by the server.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.slow_queries</strong><br>(gauge) | The rate of slow queries.<br><em>shown as query/second</em> |
-| <strong>mysql.performance.table_locks_waited</strong><br>(gauge) | The total number of times that a request for a table lock could not be granted immediately and a wait was needed.<em></em> |
-| <strong>mysql.performance.threads_connected</strong><br>(gauge) | The number of currently open connections.<br><em>shown as connection</em> |
-| <strong>mysql.performance.threads_running</strong><br>(gauge) | The number of threads that are not sleeping.<br><em>shown as thread</em> |
-| <strong>mysql.performance.user_time</strong><br>(gauge) | Percentage of CPU time spent in user space by MySQL.<br><em>shown as percent</em> |
-| <strong>mysql.replication.seconds_behind_master</strong><br>(gauge) | The lag in seconds between the master and the slave.<br><em>shown as second</em> |
-| <strong>mysql.replication.slave_running</strong><br>(gauge) | A boolean showing if this server is a replication slave that is connected to a replication master.<em></em> |
-| <strong>mysql.performance.queries</strong><br>(gauge) | The rate of queries.<br><em>shown as query/second</em> |
+| <strong class=tabletext>elasticsearch.active_primary_shards</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active primary shards in the cluster.</span><br><em><span class=tabletext>shown as shard</span></em> |
+| <strong class=tabletext>elasticsearch.active_shards</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active shards in the cluster.</span><br><em><span class=tabletext>shown as shard</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.fielddata.estimated_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The estimated size in bytes of the field data circuit breaker.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.fielddata.overhead</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The constant multiplier for byte estimations of the field data circuit breaker.</span> |
+| <strong class=tabletext>elasticsearch.breakers.fielddata.tripped</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of times the field data circuit breaker has tripped.</span> |
+| <strong class=tabletext>elasticsearch.breakers.parent.estimated_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The estimated size in bytes of the parent circuit breaker.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.parent.overhead</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The constant multiplier for byte estimations of the parent circuit breaker.</span> |
+| <strong class=tabletext>elasticsearch.breakers.parent.tripped</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of times the parent circuit breaker has tripped.</span> |
+| <strong class=tabletext>elasticsearch.breakers.request.estimated_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The estimated size in bytes of the request circuit breaker.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.breakers.request.overhead</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The constant multiplier for byte estimations of the request circuit breaker.</span> |
+| <strong class=tabletext>elasticsearch.breakers.request.tripped</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of times the request circuit breaker has tripped.</span> |
+| <strong class=tabletext>elasticsearch.cache.field.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of evictions from the field data cache.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.cache.field.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the field cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.cache.filter.count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of items in the filter cache.</span><br><em><span class=tabletext>shown as item</span></em> |
+| <strong class=tabletext>elasticsearch.cache.filter.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of evictions from the filter cache.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.cache.filter.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the filter cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.cluster_status</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The elasticsearch cluster health as a number: red = 0, yellow = 1, green = 2</span> |
+| <strong class=tabletext>elasticsearch.docs.count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents in the cluster across all shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.docs.deleted</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents deleted from the cluster across all shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.fielddata.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of evictions from the fielddata cache.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.fielddata.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the fielddata cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.flush.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of index flushes to disk since start.</span><br><em><span class=tabletext>shown as flush</span></em> |
+| <strong class=tabletext>elasticsearch.flush.total.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent flushing the index to disk.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.available_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of bytes available to this Java virtual machine on this file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_io_op</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total I/O operations on the file store.</span><br><em><span class=tabletext>shown as operation</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_io_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>Total bytes used for all I/O operations on the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_read_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total bytes read from the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_reads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of reads from the file store.</span><br><em><span class=tabletext>shown as read</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_write_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total bytes written to the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.disk_writes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of writes to the file store.</span><br><em><span class=tabletext>shown as write</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.free_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of unallocated bytes in the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.fs.total.total_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size in bytes of the file store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.get.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of get requests currently running.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.get.exists.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests where the document existed.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.get.exists.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests where the document existed.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.get.missing.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests where the document was missing.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.get.missing.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests where the document was missing.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.get.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.get.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.http.current_open</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of current open HTTP connections.</span><br><em><span class=tabletext>shown as connection</span></em> |
+| <strong class=tabletext>elasticsearch.http.total_opened</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of opened HTTP connections.</span><br><em><span class=tabletext>shown as connection</span></em> |
+| <strong class=tabletext>elasticsearch.id_cache.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the id cache</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.delete.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents currently being deleted from an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.delete.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent deleting documents from an index.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.delete.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents deleted from an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.index.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents currently being indexed to an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.index.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent indexing documents to an index.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.indexing.index.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents indexed to an index.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.indices.count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of indices in the cluster.</span><br><em><span class=tabletext>shown as index</span></em> |
+| <strong class=tabletext>elasticsearch.indices.indexing.index_failed</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of failed indexing operations.</span> |
+| <strong class=tabletext>elasticsearch.indices.indexing.throttle_time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time indexing waited due to throttling.</span><br><em><span class=tabletext>shown as millisecond</span></em> |
+| <strong class=tabletext>elasticsearch.indices.query_cache.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of query cache evictions.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.indices.query_cache.hit_count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of query cache hits.</span><br><em><span class=tabletext>shown as hit</span></em> |
+| <strong class=tabletext>elasticsearch.indices.query_cache.memory_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by the query cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.query_cache.miss_count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of query cache misses.</span><br><em><span class=tabletext>shown as miss</span></em> |
+| <strong class=tabletext>elasticsearch.indices.recovery.current_as_source</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of ongoing recoveries for which a shard serves as a source.</span> |
+| <strong class=tabletext>elasticsearch.indices.recovery.current_as_target</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of ongoing recoveries for which a shard serves as a target.</span> |
+| <strong class=tabletext>elasticsearch.indices.recovery.throttle_time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time recoveries waited due to throttling.</span><br><em><span class=tabletext>shown as millisecond</span></em> |
+| <strong class=tabletext>elasticsearch.indices.request_cache.evictions</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of request cache evictions.</span><br><em><span class=tabletext>shown as eviction</span></em> |
+| <strong class=tabletext>elasticsearch.indices.request_cache.hit_count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of request cache hits.</span><br><em><span class=tabletext>shown as hit</span></em> |
+| <strong class=tabletext>elasticsearch.indices.request_cache.memory_size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by the request cache.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.request_cache.miss_count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of request cache misses.</span><br><em><span class=tabletext>shown as miss</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of segments in an index shard.</span><br><em><span class=tabletext>shown as segment</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.doc_values_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by doc values.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.fixed_bit_set_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by fixed bit set.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.index_writer_max_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The maximum memory used by the index writer.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.index_writer_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by the index writer.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by index segments.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.norms_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by norms.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.stored_fields_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by stored fields.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.term_vectors_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by term vectors.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.terms_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by terms.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.segments.version_map_memory_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The memory used by the segment version map.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.indices.translog.operations</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of operations in the transaction log.</span><br><em><span class=tabletext>shown as operation</span></em> |
+| <strong class=tabletext>elasticsearch.indices.translog.size_in_bytes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the transaction log.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.initializing_shards</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of shards that are currently initializing.</span><br><em><span class=tabletext>shown as shard</span></em> |
+| <strong class=tabletext>elasticsearch.merges.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of currently active segment merges.</span><br><em><span class=tabletext>shown as merge</span></em> |
+| <strong class=tabletext>elasticsearch.merges.current.docs</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents across segments currently being merged.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.merges.current.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the segments currently being merged.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.merges.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of segment merges.</span><br><em><span class=tabletext>shown as merge</span></em> |
+| <strong class=tabletext>elasticsearch.merges.total.docs</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents across all merged segments.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.merges.total.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size of all merged segments.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.merges.total.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on segment merging.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.number_of_data_nodes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of data nodes in the cluster.</span><br><em><span class=tabletext>shown as node</span></em> |
+| <strong class=tabletext>elasticsearch.number_of_nodes</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of nodes in the cluster.</span><br><em><span class=tabletext>shown as node</span></em> |
+| <strong class=tabletext>elasticsearch.pending_tasks_priority_high</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of high priority pending tasks.</span><br><em><span class=tabletext>shown as task</span></em> |
+| <strong class=tabletext>elasticsearch.pending_tasks_priority_urgent</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of urgent priority pending tasks.</span><br><em><span class=tabletext>shown as task</span></em> |
+| <strong class=tabletext>elasticsearch.pending_tasks_total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of pending tasks.</span><br><em><span class=tabletext>shown as task</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.docs.count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents in the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.docs.deleted</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents deleted from the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.flush.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of index flushes to disk from the primary shards since start.</span><br><em><span class=tabletext>shown as flush</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.flush.total.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent flushing the index to disk from the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.get.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of get requests currently running on the primary shards.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.get.exists.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests from the primary shards where the document existed.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.get.exists.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests on primary shards where the document existed.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.get.missing.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests from the primary shards where the document was missing.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.get.missing.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests from the primary shards where the document was missing.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.get.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on get requests from the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.get.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of get requests from the primary shards.</span><br><em><span class=tabletext>shown as request</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.indexing.delete.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents currently being deleted from an index on the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.indexing.delete.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent deleting documents from an index on the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.indexing.delete.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents deleted from an index on the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.indexing.index.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents currently being indexed to an index on the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.indexing.index.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent indexing documents to an index on the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.indexing.index.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents indexed to an index on the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.merges.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of currently active segment merges on the primary shards.</span><br><em><span class=tabletext>shown as merge</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.merges.current.docs</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of documents across segments currently being merged on the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.merges.current.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The size of the segments currently being merged on the primary shards.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.merges.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of segment merges on the primary shards.</span><br><em><span class=tabletext>shown as merge</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.merges.total.docs</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of documents across all merged segments on the primary shards.</span><br><em><span class=tabletext>shown as document</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.merges.total.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size of all merged segments on the primary shards.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.merges.total.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on segment merging on the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.refresh.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of index refreshes on the primary shards.</span><br><em><span class=tabletext>shown as refresh</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.refresh.total.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on index refreshes on the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.search.fetch.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of query fetches currently running on the primary shards.</span><br><em><span class=tabletext>shown as fetch</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.search.fetch.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on query fetches on the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.search.fetch.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of query fetches on the primary shards.</span><br><em><span class=tabletext>shown as fetch</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.search.query.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of currently active queries on the primary shards.</span><br><em><span class=tabletext>shown as query</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.search.query.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent querying on the primary shards.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.search.query.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of queries to the primary shards.</span><br><em><span class=tabletext>shown as query</span></em> |
+| <strong class=tabletext>elasticsearch.primaries.store.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size of all the primary shards.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.process.open_fd</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of opened file descriptors associated with the current process, or -1 if not supported.</span><br><em><span class=tabletext>shown as file</span></em> |
+| <strong class=tabletext>elasticsearch.refresh.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of index refreshes.</span><br><em><span class=tabletext>shown as refresh</span></em> |
+| <strong class=tabletext>elasticsearch.refresh.total.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on index refreshes.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.relocating_shards</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of shards that are reloacting from one node to another.</span><br><em><span class=tabletext>shown as shard</span></em> |
+| <strong class=tabletext>elasticsearch.search.fetch.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of search fetches currently running.</span><br><em><span class=tabletext>shown as fetch</span></em> |
+| <strong class=tabletext>elasticsearch.search.fetch.open_contexts</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active searches.</span><br><em><span class=tabletext>shown as query</span></em> |
+| <strong class=tabletext>elasticsearch.search.fetch.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on the search fetch.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.search.fetch.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of search fetches.</span><br><em><span class=tabletext>shown as fetch</span></em> |
+| <strong class=tabletext>elasticsearch.search.query.current</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of currently active queries.</span><br><em><span class=tabletext>shown as query</span></em> |
+| <strong class=tabletext>elasticsearch.search.query.time</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on queries.</span><br><em><span class=tabletext>shown as second</span></em> |
+| <strong class=tabletext>elasticsearch.search.query.total</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of queries.</span><br><em><span class=tabletext>shown as query</span></em> |
+| <strong class=tabletext>elasticsearch.store.size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size in bytes of the store.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.bulk.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the bulk pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.bulk.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the bulk pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.bulk.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the bulk pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.bulk.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the bulk pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_started.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the fetch shard started pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_started.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the fetch shard started pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_started.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the fetch shard started pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_started.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the fetch shard started pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_store.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the fetch shard store pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_store.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the fetch shard store pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_store.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the fetch shard store pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.fetch_shard_store.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the fetch shard store pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.flush.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the flush queue.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.flush.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the flush pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.flush.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the flush pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.flush.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the flush pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.force_merge.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads for force merge operations.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.force_merge.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads for force merge operations.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.force_merge.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads for force merge operations.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.force_merge.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads for force merge operations.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.generic.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the generic pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.generic.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the generic pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.generic.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the generic pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.generic.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the generic pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.get.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the get pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.get.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the get pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.get.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the get pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.get.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the get pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.index.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the index pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.index.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the index pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.index.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the index pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.index.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the index pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.listener.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the listener pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.listener.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the listener pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.listener.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the listener pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.listener.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the listener pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.management.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the management pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.management.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the management pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.management.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the management pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.management.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the management pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.merge.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the merge pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.merge.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the merge pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.merge.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the merge pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.merge.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the merge pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.percolate.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the percolate pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.percolate.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the percolate pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.percolate.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the percolate pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.percolate.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the percolate pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.refresh.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the refresh pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.refresh.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the refresh pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.refresh.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the refresh pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.refresh.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the refresh pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.search.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the search pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.search.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the search pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.search.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the search pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.search.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the search pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.snapshot.active</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the snapshot pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.snapshot.queue</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of queued threads in the snapshot pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.snapshot.threads</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of threads in the snapshot pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.thread_pool.snapshot.rejected</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of rejected threads in the snapshot pool.</span><br><em><span class=tabletext>shown as thread</span></em> |
+| <strong class=tabletext>elasticsearch.transport.rx_count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of packets received in cluster communication.</span><br><em><span class=tabletext>shown as packet</span></em> |
+| <strong class=tabletext>elasticsearch.transport.rx_size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size of data received in cluster communication.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.transport.server_open</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of connections opened for cluster communication.</span><br><em><span class=tabletext>shown as connection</span></em> |
+| <strong class=tabletext>elasticsearch.transport.tx_count</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of packets sent in cluster communication.</span><br><em><span class=tabletext>shown as packet</span></em> |
+| <strong class=tabletext>elasticsearch.transport.tx_size</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total size of data sent in cluster communication.</span><br><em><span class=tabletext>shown as byte</span></em> |
+| <strong class=tabletext>elasticsearch.unassigned_shards</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of shards that are unassigned to a node.</span><br><em><span class=tabletext>shown as shard</span></em> |
+| <strong class=tabletext>jvm.gc.collection_count**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total number of garbage collections run by the JVM.</span><br><em><span class=tabletext><em>shown as garbage collection</em> |
+| <strong class=tabletext>jvm.gc.collection_time**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on garbage collection in the JVM.</span><br><em><span class=tabletext><em>shown as second</em> |
+| <strong class=tabletext>jvm.gc.collectors.old.collection_time**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent in major GCs in the JVM that collect old generation objects.</span><br><em><span class=tabletext><em>shown as second</em> |
+| <strong class=tabletext>jvm.gc.collectors.old.count**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total count of major GCs in the JVM that collect old generation objects.</span><br><em><span class=tabletext><em>shown as garbage collection</em> |
+| <strong class=tabletext>jvm.gc.collectors.young.collection_time**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent in minor GCs in the JVM that collects young generation objects.</span><br><em><span class=tabletext><em>shown as second</em> |
+| <strong class=tabletext>jvm.gc.collectors.young.count**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total count of minor GCs in the JVM that collects young generation objects.</span><br><em><span class=tabletext><em>shown as garbage collection</em> |
+| <strong class=tabletext>jvm.gc.concurrent_mark_sweep.collection_time**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on "concurrent mark & sweep" GCs in the JVM.</span><br><em><span class=tabletext><em>shown as second</em> |
+| <strong class=tabletext>jvm.gc.concurrent_mark_sweep.count**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total count of "concurrent mark & sweep" GCs in the JVM.</span><br><em><span class=tabletext><em>shown as garbage collection</em> |
+| <strong class=tabletext>jvm.gc.par_new.collection_time**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total time spent on "parallel new" GCs in the JVM.</span><br><em><span class=tabletext><em>shown as second</em> |
+| <strong class=tabletext>jvm.gc.par_new.count**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The total count of "parallel new" GCs in the JVM.</span><br><em><span class=tabletext><em>shown as garbage collection</em> |
+| <strong class=tabletext>jvm.mem.heap_committed**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The amount of memory guaranteed to be available to the JVM heap.</span><br><em><span class=tabletext><em>shown as byte</em> |
+| <strong class=tabletext>jvm.mem.heap_in_use**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The amount of memory currently used by the JVM heap as a value between 0 and 1.</span><br><em><span class=tabletext><em>shown as</em> |
+| <strong class=tabletext>jvm.mem.heap_max**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The maximum amount of memory that can be used by the JVM heap.</span><br><em><span class=tabletext><em>shown as byte</em> |
+| <strong class=tabletext>jvm.mem.heap_used**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The amount of memory in bytes currently used by the JVM heap.</span><br><em><span class=tabletext><em>shown as byte</em> |
+| <strong class=tabletext>jvm.mem.non_heap_committed**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The amount of memory guaranteed to be available to JVM non-heap.</span><br><em><span class=tabletext><em>shown as byte</em> |
+| <strong class=tabletext>jvm.mem.non_heap_used**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The amount of memory in bytes currently used by the JVM non-heap.</span><br><em><span class=tabletext><em>shown as byte</em> |
+| <strong class=tabletext>jvm.threads.count**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The number of active threads in the JVM.</span><br><em><span class=tabletext><em>shown as thread</em> |
+| <strong class=tabletext>jvm.threads.peak_count**</strong><br><span class=tabletext>(gauge)</span> | <span class=tabletext>The peak number of threads used by the JVM.</span><br><em><span class=tabletext><em>shown as thread</em> |
+  
