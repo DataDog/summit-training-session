@@ -383,7 +383,7 @@ services:
 
 ---
 # Find the integration
-![](../../images/monitordocker/nginxyaml.png)
+![](../../images/monitordocker/zkyaml.png)
 
 ---
 # Mount the local configuration directory
@@ -423,6 +423,21 @@ services:
 
 ---
 # docker-compose file with autodiscovery
+&lt;pre&gt;&lt;code class=yaml data-noescape style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;version: &#34;3&#34;
+networks:
+  main:
+
+services:
+  zookeeper:
+    image: zookeeper
+    networks:
+      - main
+    labels:
+      com.datadoghq.ad.check_names: &#39;[&#34;zk&#34;]&#39;
+      com.datadoghq.ad.init_configs: &#39;[{}]&#39;
+      com.datadoghq.ad.instances: &#39;[{&#34;host&#34;:&#34;%%host%%&#34;, &#34;port&#34;: &#34;2181&#34;}]&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
 
 ---
 # datadog yaml for kubernetes

@@ -65,7 +65,7 @@
 
 
 <meta itemprop="dateModified" content="2016-10-17T08:47:25-04:00" />
-<meta itemprop="wordCount" content="464">
+<meta itemprop="wordCount" content="398">
 
 
 
@@ -261,38 +261,74 @@
 <li>Run <code>docker exec -it dd-agent bash</code> to login to a bash shell on that container.</li>
 <li>You can now run any of the Datadog commands you have on Linux. For instance, run <code>/etc/init.d/datadog-agent info</code>.</li>
 <li>You can try other commands, or type <code>exit</code> to return to your host machine.</li>
-<li>Run the Redis docker image (Find out more about this image on <a href="https://hub.docker.com/_/redis/">https://hub.docker.com/_/redis/</a>) using the command: <code>docker run --name dd-redis -d redis</code>. The Redis docker container is now running.</li>
-</ol>
+<li>Start a Redis container by running the following command: <code>docker run --name ad-redis redis</code>.</li>
+<li>Run the Datadog Agent Info command. Also run the Agent&rsquo;s configcheck command. Is Redis being monitored?</li>
 
-<p>Although Datadog and Redis are running in Docker, the agent is not collecting any metrics about the Redis server. To enable an integration, like Redis, we need to add the configuration file to the container.</p>
+<li><p>Create a new file called <code>Dockerfile</code> in a new directory called <code>redisdocker</code>. Edit the file and add a single line</p>
 
-<ol>
-<li>Stop the Agent container and then delete it using the following commands: <code>docker stop dd-agent;docker rm dd-agent</code></li>
-<li>Create a new directory called <code>dd-conf</code>.</li>
-<li>Add a file named <code>redisdb.yaml</code> to that directory. Add the contents of <strong>redisdb.yaml.example</strong> at <a href="https://github.com/DataDog/dd-agent/tree/master/conf.d">https://github.com/DataDog/dd-agent/tree/master/conf.d</a> to that file</li>
-
-<li><p>Run the following command from the parent of <strong>dd-conf</strong> (replacing your api key and full path name of your dd-conf directory in the appropriate spot):</p>
-
-<pre><code>docker run -d --name dd-agent \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  -v /proc/:/host/proc/:ro \
-  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-  -v {full path name}dd-conf:/conf.d:ro \
-  -e API_KEY={your_api_key_here} \
-  datadog/docker-dd-agent
+<pre><code>FROM redis
 </code></pre></li>
 
-<li><p>To verify that the agent is collecting Redis metrics, run: <code>docker exec -it dd-agent /etc/init.d/datadog-agent info</code></p></li>
+<li><p>Build the new image using the following command: <code>docker build -t redisdocker .</code></p></li>
+
+<li><p>Run the redisdocker image using the command: <code>docker run --name dd-redis -d redisdocker</code>. The Redis docker container based on our modified image is now running.</p></li>
+
+<li><p>Run the Datadog Agent Info command again. Is the new database being monitored?</p></li>
 </ol>
 
-<p>Unless you are already a Docker expert and caught the potential problem, you should see an error here connecting to Redis. You are connecting to Redis on the localhost, but you need to enter the IP address of the Docker container.</p>
+<p>Let&rsquo;s switch over to using docker-compose.</p>
 
 <ol>
-<li>Run <code>docker network inspect bridge</code> to find the <strong>IPv4Address</strong> of the <strong>dd-redis</strong> container.<br /></li>
-<li>Replace <strong>localhost</strong> with the IP Address you just found in <strong>dd-conf/redisdb.yaml</strong>.</li>
-<li>Stop and delete the container (<code>docker stop dd-agent; docker rm dd-agent</code>) then run the <code>docker run</code> command again.</li>
-<li>Run <code>docker exec -it dd-agent /etc/init.d/datadog-agent info</code> to see if the agent is collecting Redis metrics. If you don&rsquo;t see any checks running, give it a few seconds to start and try the command again.</li>
+<li><p>Create a docker-compose.yaml file with the following contents:</p>
+
+<pre><code>version: &quot;3&quot;
+networks:
+  main:
+
+services:
+  datadog:
+    image: datadog/docker-dd-agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc:/host/proc:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    environment:
+      - API_KEY
+      - SD_BACKEND=docker
+    networks:
+      - main
+
+  frontendredis:
+    image: redis
+    networks:
+      - main
+
+  backendredis:
+    build: .
+    networks:
+      - main
+</code></pre></li>
+
+<li><p>Run the datadog info command (<code>docker-compose exec datadog /etc/init.d/datadog-agent info</code>). How many redis instances are being monitored.</p></li>
+
+<li><p>Modify the backendredis service to show the following:</p>
+
+<pre><code>backendredis:
+    build: .
+    networks:
+      - main
+    labels:
+      com.datadoghq.ad.check_names: '[&quot;redisdb&quot;]'
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{&quot;host&quot;:&quot;%%host%%&quot;, &quot;port&quot;: &quot;%%port%%&quot;}]'
+</code></pre></li>
+
+<li><p>Stop and remove the containers then run <code>docker-compose up</code> again.</p></li>
+
+<li><p>Run the Datadog Agent Info command again, how many instances are being monitored?</p></li>
 </ol>
+
+<p>Let&rsquo;s create the same environment in Kubernetes.</p>
 
 <p>Once you have the Redis container running, choose another local integration from the <a href="http://docs.datadoghq.com/integrations/">Integration documentation</a>. Start the container using an image found on the <a href="https://hub.docker.com/">Docker Hub</a> and create a configuration. At the end of this session, lets talk about how you did it.</p>
 
