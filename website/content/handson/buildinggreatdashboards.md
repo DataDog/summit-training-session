@@ -27,14 +27,3 @@ duration: 20 minutes
 1.  You added two metrics in the Advanced section. What else can you do with these metrics?
 
 
-End of First Dashboard Section - [Return to Presentation](../../preso/buildinggreatdashboards/#/6)
-
-# Notebooks
-
-1.  From the menu, create a **New Notebook**.
-1.  Choose apache metric that represents what was wrong. Adust the time period to ensure you have the problem in view. Configure the graph to ensure you are showing the problem.
-1.  Click the gear icon at the top left of the current cell and choose **Insert Markdown above**. Describe the problem encountered.
-2.  Click the **insert Markdown cell at end** link at the bottom. Describe the change that was made to the configuration.
-3.  Add another graph cell at the end to show that Apache is running as it should.
-
-End of Notebooks Section - [Return to Presentation](../../preso/buildinggreatdashboards/#/9/3)

@@ -48,9 +48,9 @@ spec:
   template:
     metadata:
       annotations:
-        service-discovery.datadoghq.com/es-master.check_names: '["elastic"]'
-        service-discovery.datadoghq.com/es-master.init_configs: '[{}]'
-        service-discovery.datadoghq.com/es-master.instances: '[{"url": "http://%%host%%:9200", "tags": ["demo:matt"]}]'
+        auto-discovery.datadoghq.com/es-master.check_names: '["elastic"]'
+        auto-discovery.datadoghq.com/es-master.init_configs: '[{}]'
+        auto-discovery.datadoghq.com/es-master.instances: '[{"url": "http://%%host%%:9200", "tags": ["demo:matt"]}]'
       labels:
         component: elasticsearch
         role: master

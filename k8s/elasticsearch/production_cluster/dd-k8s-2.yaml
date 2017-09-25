@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: dd-agent
+spec:
+  template:
+    metadata:
+      labels:
+        app: dd-agent
+      name: dd-agent
+    spec:
+      containers:
+      - image: datadog/docker-dd-agent:latest
+        imagePullPolicy: Always
+        name: dd-agent
+        ports:
+          - containerPort: 8125
+            name: dogstatsdport
+            protocol: UDP
+        env:
+          - name: API_KEY
+            value: "14a827b49f625cae17b983f6b53bba92,b92d3ef7639ce1110b813d1240630244,f4b450bca1e8cc36d75aa318725eadc1,f026980f2f162d5987d37c47fb3f9173,6a374629500ea9ad03529c40cd240288,6376a88b91bc06b7814f94af1dec4bf2,1eeb4f7ceef8d3f88b14445c95581fb6,161de28a9e41ddec4c1dfb11bfad4fe1,28e18644e4416f4ef2ed7212d074037e,172496adac0443fcf8dcbe31df7cc0aa,9282e62dc184e23ad25c0a9e667477de"
+          - name: KUBERNETES
+            value: "yes"
+          - name: SD_BACKEND
+            value: docker
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+        volumeMounts:
+          - name: dockersocket
+            mountPath: /var/run/docker.sock
+          - name: procdir
+            mountPath: /host/proc
+            readOnly: true
+          - name: cgroups
+            mountPath: /host/sys/fs/cgroup
+            readOnly: true
+      volumes:
+        - hostPath:
+            path: /var/run/docker.sock
+          name: dockersocket
+        - hostPath:
+            path: /proc
+          name: procdir
+        - hostPath:
+            path: /sys/fs/cgroup
+          name: cgroups

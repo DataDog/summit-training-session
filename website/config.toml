@@ -40,7 +40,7 @@ paginate = 3
 [params.intro]
     header    = "Datadog Summit"
 
-    paragraph = "Everything you need to follow along with the training at the Datadog Summit <i class='fa fa-hand-peace-o'></i>"
+    paragraph = "Everything you need to follow along with the training at the Datadog Summit in Austin, TX <i class='fa fa-hand-peace-o'></i>"
 
     #about     = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris."
 
@@ -81,11 +81,6 @@ paginate = 3
     identifier = "fa fa-hand-stop-o"
     weight = 3
 
-[[menu.main]]
-    name = "About"
-    url = "/about/"
-    identifier = "fa fa-question-circle"
-    weight = 4
 
 # Insert your username and the icon will apear on the page as long as
 # socialAppearAtTop or socialAppearAtBottom is set to true in the params area

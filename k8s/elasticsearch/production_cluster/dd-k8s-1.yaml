@@ -19,7 +19,7 @@ spec:
             protocol: UDP
         env:
           - name: API_KEY
-            value: "7588af212420a628ddbb3c7f3cc5fac6,7588af212420a628ddbb3c7f3cc5fac6"
+            value: "c5f301fe2aab6e727c50d9987b6f20c1,25d0cb3a5eb77d35223a4aaea563088d,a32966a01a95d4e4db56b5a9eaebb83f,f9b5ca5f3fb6e54f73a879180b1c9a66,e5d303d1ac53b0739594a2a2b5b7dda4,5ab2b2b9987923d3260e70fd8e386897,6114da4690b4ac129b46973a7aaf1eff,49c0102086418a949355fa88c535bb65,b543782f435b9ee4652c347f3d1ea029,c168e292290d56d8cea2306f9d4a012c"
           - name: KUBERNETES
             value: "yes"
           - name: SD_BACKEND

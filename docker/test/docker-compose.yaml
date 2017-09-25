@@ -1,0 +1,30 @@
+version: "3"
+networks:
+  main:
+
+services:
+  datadog:
+    image: datadog/docker-dd-agent
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc:/host/proc:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    environment:
+      - API_KEY
+      - SD_BACKEND=docker
+    networks:
+      - main
+
+  frontendredis:
+    image: redis:3
+    networks:
+      - main
+
+  backendredis:
+    build: .
+    networks:
+      - main
+    labels:
+      com.datadoghq.ad.check_names: '["redisdb"]'
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{"host":"%%host%%", "port": "%%port%%"}]'

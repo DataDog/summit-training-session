@@ -1,0 +1,19 @@
+{{$.Scratch.Set "showCategories" false}}
+{{$.Scratch.Set "showRecents" false}}
+
+{{ partial "general-title" . }}
+
+{{ partial "header" . }}
+    {{ partial "navbar" . }}
+
+
+    <!-- Main -->
+    <div id="main">
+    <h1>{{ .Title }} </h1>
+    {{ .Content }}
+  
+
+    </div>
+
+    {{ partial "sidebar" . }}
+{{ partial "footer" . }}

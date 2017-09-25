@@ -149,7 +149,7 @@ services:
 
 ---
 # Find the integration
-![](../../images/monitordocker/zkyaml.png)
+![](https://cl.ly/1r1E3f2A2R20/Image%202017-09-25%20at%2011.16.36%20AM.public.png)
 
 ---
 # Mount the local configuration directory
@@ -186,6 +186,16 @@ services:
 1.  Add config to labels
 1.  Launch application container  
 
+
+---
+# Setting up ad docker-compose (original yaml)
+<pre><code class=yaml data-noescape style="line-height: 1.1em;font-size: 70%;">init_config:
+  
+  instances:
+    - host: localhost
+      port: 2181
+      
+</code></pre>
 
 ---
 # docker-compose file with autodiscovery
@@ -389,9 +399,13 @@ spec:
               - IPC_LOCK
 </code></pre>
 ---
-# adding annotations for autodiscovery on k8s
+# adding labels for autodiscovery on docker
+com.datadoghq.ad.check_names: '["**integration**"]'<br>
+com.datadoghq.ad.init_configs: '[{}]'<br>
+com.datadoghq.ad.instances: '[**configuration**]'
 
+---
+# adding annotations for autodiscovery on k8s
 service-discovery.datadoghq.com/**name**.check_names: '["**integration**"]'<br>
 service-discovery.datadoghq.com/**name**.init_configs: '[{}]'<br>
 service-discovery.datadoghq.com/**name**.instances: '[**configuration**]'  
-</code></pre>
