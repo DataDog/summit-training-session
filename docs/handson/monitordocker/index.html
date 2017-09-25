@@ -65,7 +65,7 @@
 
 
 <meta itemprop="dateModified" content="2016-10-17T08:47:25-04:00" />
-<meta itemprop="wordCount" content="398">
+<meta itemprop="wordCount" content="809">
 
 
 
@@ -152,13 +152,6 @@
                     </a>
                 </li>
             
-                <li>
-                    <a href="/summit-training-session/about/">
-                        
-                            <i class="fa fa-question-circle">&nbsp;</i>About
-                    </a>
-                </li>
-            
         </ul>
     </nav>
     <nav class="main">
@@ -226,17 +219,6 @@
                         </a>
                     </li>
                 
-                    <li>
-                        <a href="/summit-training-session/about/">
-                            <h3>
-                                
-                                    <i class="fa fa-question-circle">&nbsp;</i>
-                                
-                                About
-                            </h3>
-                        </a>
-                    </li>
-                
             </ul>
         </section>
 
@@ -252,7 +234,11 @@
       
     <div id="main">
     <h1>Monitoring Docker (Hands On Instructions)</h1>
-    <p>This exercise requires Docker to be installed somewhere. You could do this on your laptop, on the Vagrant box you created earlier, or on any machine you can remotely access. If installing for the first time on your laptop, see <a href="https://www.docker.com/products/overview">https://www.docker.com/products/overview</a> for links to the installers for your platform.</p>
+    
+
+<h3 id="monitoring-on-docker">Monitoring on Docker</h3>
+
+<p>This exercise requires Docker to be installed somewhere. You could do this on your laptop, on a Vagrant box, or on a cloud provider. If installing for the first time visit <a href="https://store.docker.com/search?type=edition&amp;offering=community">https://store.docker.com/search?type=edition&amp;offering=community</a> to get it setup.</p>
 
 <ol>
 <li>Navigate to the Agent Installation page in the Datadog application (<a href="https://app.datadoghq.com/account/settings#agent/docker">https://app.datadoghq.com/account/settings#agent/docker</a>).</li>
@@ -261,27 +247,24 @@
 <li>Run <code>docker exec -it dd-agent bash</code> to login to a bash shell on that container.</li>
 <li>You can now run any of the Datadog commands you have on Linux. For instance, run <code>/etc/init.d/datadog-agent info</code>.</li>
 <li>You can try other commands, or type <code>exit</code> to return to your host machine.</li>
-<li>Start a Redis container by running the following command: <code>docker run --name ad-redis redis</code>.</li>
-<li>Run the Datadog Agent Info command. Also run the Agent&rsquo;s configcheck command. Is Redis being monitored?</li>
-
-<li><p>Create a new file called <code>Dockerfile</code> in a new directory called <code>redisdocker</code>. Edit the file and add a single line</p>
-
+<li>Start a Redis container by running the following command: <code>docker run -d --name ad-redis redis</code>.</li>
+<li>Run the Datadog Agent Info command. Also run the Agent&rsquo;s configcheck command (<code>docker exec -it dd-agent /etc/init.d/datadog-agent configcheck</code>). Is Redis being monitored? (<em>If it isn&rsquo;t try again in a few seconds.</em>)</li>
+<li>Create a new file called <code>Dockerfile</code> in a new directory called <code>redisdocker</code>. Edit the file and add a single line:
 <pre><code>FROM redis
 </code></pre></li>
-
-<li><p>Build the new image using the following command: <code>docker build -t redisdocker .</code></p></li>
-
-<li><p>Run the redisdocker image using the command: <code>docker run --name dd-redis -d redisdocker</code>. The Redis docker container based on our modified image is now running.</p></li>
-
-<li><p>Run the Datadog Agent Info command again. Is the new database being monitored?</p></li>
+<li>Build the new image using the following command: <code>docker build -t redisdocker .</code></li>
+<li>Run the redisdocker image using the command: <code>docker run --name dd-redis -d redisdocker</code>. The Redis docker container based on our modified image is now running.</li>
+<li>Run the Datadog Agent Info command again. Is the new database being monitored? Why do you think that is?</li>
 </ol>
+
+<h3 id="using-docker-compose">Using Docker Compose</h3>
 
 <p>Let&rsquo;s switch over to using docker-compose.</p>
 
 <ol>
-<li><p>Create a docker-compose.yaml file with the following contents:</p>
+<li><p>Create a docker-compose.yaml file in the same directory as your Dockerfile with the following contents:</p>
 
-<pre><code>version: &quot;3&quot;
+<pre><code>version: "3"
 networks:
   main:
 
@@ -309,18 +292,20 @@ services:
       - main
 </code></pre></li>
 
-<li><p>Run the datadog info command (<code>docker-compose exec datadog /etc/init.d/datadog-agent info</code>). How many redis instances are being monitored.</p></li>
+<li><p>Run <code>docker-compose up -d</code>.</p></li>
+
+<li><p>Run the datadog info command (<code>docker-compose exec datadog /etc/init.d/datadog-agent info</code>). How many redis instances are being monitored?</p></li>
 
 <li><p>Modify the backendredis service to show the following:</p>
 
-<pre><code>backendredis:
+<pre><code class=yaml>backendredis:
     build: .
     networks:
       - main
     labels:
-      com.datadoghq.ad.check_names: '[&quot;redisdb&quot;]'
+      com.datadoghq.ad.check_names: '["redisdb"]'
       com.datadoghq.ad.init_configs: '[{}]'
-      com.datadoghq.ad.instances: '[{&quot;host&quot;:&quot;%%host%%&quot;, &quot;port&quot;: &quot;%%port%%&quot;}]'
+      com.datadoghq.ad.instances: '[{"host":"%%host%%", "port": "%%port%%"}]'
 </code></pre></li>
 
 <li><p>Stop and remove the containers then run <code>docker-compose up</code> again.</p></li>
@@ -328,7 +313,142 @@ services:
 <li><p>Run the Datadog Agent Info command again, how many instances are being monitored?</p></li>
 </ol>
 
-<p>Let&rsquo;s create the same environment in Kubernetes.</p>
+<h3 id="now-with-kubernetes">Now with Kubernetes</h3>
+
+<p>Let&rsquo;s create the same environment in Kubernetes. Your Kubernetes environment could be local using miniKube, on a Rancher or similar environment or on a cloud service such as Google Cloud. If you don&rsquo;t have a Kubernetes environment, setting up miniKube is super quick and easy. The easiest install docs I have seen are here: <a href="https://github.com/kubernetes/minikube/releases">https://github.com/kubernetes/minikube/releases</a>. You will also need kubectl which you can find here: <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></p>
+
+<ol>
+<li>Add the Datadog Agent to your Kubernetes environment by creating a dd-agent.yaml file. You can find the contents of this file, will your API KEY already filled in here: <a href="https://app.datadoghq.com/account/settings#agent/kubernetes">https://app.datadoghq.com/account/settings#agent/kubernetes</a></li>
+<li>Start the DaemonSet by running <code>kubectl apply -f dd-agent.yaml</code></li>
+
+<li><p>Create a yaml file called <code>redisapp.yaml</code> with the following contents:</p>
+
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: redis-master
+  labels:
+    app: redis
+    tier: backend
+    role: master
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: redis
+    tier: backend
+    role: master
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis-master
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: master
+        tier: backend
+    spec:
+      containers:
+      - name: master
+        image: gcr.io/google_containers/redis:e2e  # or just image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-slave
+  labels:
+    app: redis
+    tier: backend
+    role: slave
+spec:
+  ports:
+  - port: 6379
+  selector:
+    app: redis
+    tier: backend
+    role: slave
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis-slave
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: slave
+        tier: backend
+    spec:
+      containers:
+      - name: slave
+        image: gcr.io/google_samples/gb-redisslave:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 6379
+</code></pre></li>
+
+<li><p>Add the Deployments by running <code>kubectl apply -f redisapp.yaml</code>.</p></li>
+
+<li><p>Find the name of your agent pod: <code>kubectl get pods -l app=dd-agent</code>. Then run the Datadog Agent info command on that pod: <code>kubectl exec [agent pod]  /etc/init.d/datadog-agent info</code>.</p></li>
+
+<li><p>You should see that only a single redis instance is being monitored.</p></li>
+
+<li><p>Update the redis-slave deployment as follows:</p>
+
+<pre><code>apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis-slave
+spec:
+  replicas: 2
+  template:
+    metadata:
+      annotations:
+        service-discovery.datadoghq.com/slave.check_names: '[&quot;redisdb&quot;]'
+        service-discovery.datadoghq.com/slave.init_configs: '[{}]'
+        service-discovery.datadoghq.com/slave.instances: '[{&quot;host&quot;:&quot;%%host%%&quot;,&quot;port&quot;:&quot;%%port%%&quot;}]'
+      labels:
+        app: redis
+        role: slave
+        tier: backend
+    spec:
+      containers:
+      - name: slave
+        image: gcr.io/google_samples/gb-redisslave:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 6379
+</code></pre></li>
+
+<li><p>Apply the redisapp.yaml file again. Try the Datadog Agent Info command to see how many instances are being monitored.</p></li>
+
+<li><p>Can you see where the info in the annotations come from?</p></li>
+</ol>
 
 <p>Once you have the Redis container running, choose another local integration from the <a href="http://docs.datadoghq.com/integrations/">Integration documentation</a>. Start the container using an image found on the <a href="https://hub.docker.com/">Docker Hub</a> and create a configuration. At the end of this session, lets talk about how you did it.</p>
 
@@ -351,7 +471,7 @@ services:
             
                 <header>
                     <h2>Datadog Summit</h2>
-                    <p>Everything you need to follow along with the training at the Datadog Summit <i class='fa fa-hand-peace-o'></i></p>
+                    <p>Everything you need to follow along with the training at the Datadog Summit in Austin, TX <i class='fa fa-hand-peace-o'></i></p>
                 </header>
             
    

@@ -63,7 +63,7 @@ shown as byte   elasticsearch.breakers.fielddata.overhead
       <pubDate>Mon, 17 Oct 2016 08:47:20 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/notes/monitordocker/</guid>
-      <description> Install Docker - https://www.docker.com/products/overview Find interesting Docker Images - https://hub.docker.com/ Read the Docker Datadog Image Docs - https://github.com/DataDog/docker-dd-agent Find the configuration files for the agent - https://github.com/DataDog/dd-agent/tree/master/conf.d  </description>
+      <description> Install Docker - https://store.docker.com/search?type=edition&amp;amp;offering=community Find interesting Docker Images - https://hub.docker.com/ Read the Docker Datadog Image Docs - https://github.com/DataDog/docker-dd-agent Find the configuration files for the agent - https://github.com/DataDog/integrations-core Install minikube - https://github.com/kubernetes/minikube/releases. Install kubectl - https://kubernetes.io/docs/tasks/tools/install-kubectl/  </description>
     </item>
     
   </channel>

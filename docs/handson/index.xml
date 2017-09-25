@@ -6,7 +6,7 @@
     <description>Recent content in Handsons on Datadog Training Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Oct 2016 08:46:34 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 17 Oct 2016 08:47:25 -0400</lastBuildDate>
     
 	<atom:link href="https://datadog.github.io/summit-training-session/handson/index.xml" rel="self" type="application/rss+xml" />
     
@@ -31,33 +31,13 @@
     </item>
     
     <item>
-      <title>Datadog 101 - Monitoring Math</title>
-      <link>https://datadog.github.io/summit-training-session/handson/monitoringmath/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://datadog.github.io/summit-training-session/handson/monitoringmath/</guid>
-      <description>We don&amp;rsquo;t have time to go through the hands on training for this section at the summit, but please follow along when you get home.
- Create a new Timeboard Add a timeseries graph. Choose any metric; the default system.load.1 will work just fine. Click the Add Metric button and add the same metric. Click the plus sign to the right of the metric query for the second metric. Hover over each of the choices to see what&amp;rsquo;s available.</description>
-    </item>
-    
-    <item>
-      <title>Datadog 101 - The Right Alerts</title>
-      <link>https://datadog.github.io/summit-training-session/handson/therightalerts/</link>
-      <pubDate>Mon, 17 Oct 2016 08:46:34 -0400</pubDate>
-      
-      <guid>https://datadog.github.io/summit-training-session/handson/therightalerts/</guid>
-      <description>We don&amp;rsquo;t have time to go through the hands on training for this section at the summit, but please follow along when you get home.
- Click on the New Monitor link under Monitors on the main menu. Select Integration and choose Elasticsearch. Switch to the Integration Metric tab at the top right. Select one of the work metrics for Elasticsearch. Decide whether you want an alert for each Elasticsearch host or for all of them as a group.</description>
-    </item>
-    
-    <item>
       <title>Monitoring Docker</title>
       <link>https://datadog.github.io/summit-training-session/handson/monitordocker/</link>
       <pubDate>Mon, 17 Oct 2016 08:47:25 -0400</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/monitordocker/</guid>
-      <description>This exercise requires Docker to be installed somewhere. You could do this on your laptop, on the Vagrant box you created earlier, or on any machine you can remotely access. If installing for the first time on your laptop, see https://www.docker.com/products/overview for links to the installers for your platform.
- Navigate to the Agent Installation page in the Datadog application (https://app.datadoghq.com/account/settings#agent/docker). Select Docker and copy the first command. Run it where ever you have Docker installed.</description>
+      <description>Monitoring on Docker This exercise requires Docker to be installed somewhere. You could do this on your laptop, on a Vagrant box, or on a cloud provider. If installing for the first time visit https://store.docker.com/search?type=edition&amp;amp;offering=community to get it setup.
+ Navigate to the Agent Installation page in the Datadog application (https://app.datadoghq.com/account/settings#agent/docker). Select Docker and copy the first command. Run it where ever you have Docker installed. You now have the Datadog agent running on your Docker machine.</description>
     </item>
     
   </channel>

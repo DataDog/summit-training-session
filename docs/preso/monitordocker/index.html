@@ -137,13 +137,6 @@
                     </a>
                 </li>
             
-                <li>
-                    <a href="/summit-training-session/about/">
-                        
-                            <i class="fa fa-question-circle">&nbsp;</i>About
-                    </a>
-                </li>
-            
         </ul>
     </nav>
     <nav class="main">
@@ -207,17 +200,6 @@
                                     <i class="fa fa-hand-stop-o">&nbsp;</i>
                                 
                                 Hands On
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/summit-training-session/about/">
-                            <h3>
-                                
-                                    <i class="fa fa-question-circle">&nbsp;</i>
-                                
-                                About
                             </h3>
                         </a>
                     </li>
@@ -383,7 +365,7 @@ services:
 
 ---
 # Find the integration
-![](../../images/monitordocker/zkyaml.png)
+![](https://cl.ly/1r1E3f2A2R20/Image%202017-09-25%20at%2011.16.36%20AM.public.png)
 
 ---
 # Mount the local configuration directory
@@ -420,6 +402,16 @@ services:
 1.  Add config to labels
 1.  Launch application container  
 
+
+---
+# Setting up ad docker-compose (original yaml)
+&lt;pre&gt;&lt;code class=yaml data-noescape style=&#34;line-height: 1.1em;font-size: 70%;&#34;&gt;init_config:
+  
+  instances:
+    - host: localhost
+      port: 2181
+      
+&lt;/code&gt;&lt;/pre&gt;
 
 ---
 # docker-compose file with autodiscovery
@@ -623,12 +615,17 @@ spec:
               - IPC_LOCK
 &lt;/code&gt;&lt;/pre&gt;
 ---
-# adding annotations for autodiscovery on k8s
+# adding labels for autodiscovery on docker
+com.datadoghq.ad.check_names: &#39;[&#34;**integration**&#34;]&#39;&lt;br&gt;
+com.datadoghq.ad.init_configs: &#39;[{}]&#39;&lt;br&gt;
+com.datadoghq.ad.instances: &#39;[**configuration**]&#39;
 
+---
+# adding annotations for autodiscovery on k8s
 service-discovery.datadoghq.com/**name**.check_names: &#39;[&#34;**integration**&#34;]&#39;&lt;br&gt;
 service-discovery.datadoghq.com/**name**.init_configs: &#39;[{}]&#39;&lt;br&gt;
 service-discovery.datadoghq.com/**name**.instances: &#39;[**configuration**]&#39;  
-&lt;/code&gt;&lt;/pre&gt;
+
                 </textarea>
                 </section>
 
