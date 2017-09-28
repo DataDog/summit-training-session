@@ -14,7 +14,7 @@ Everyone should get login information for a Datadog account they can use for thi
 1.  Select one of the metrics available, for instance `elasticsearch.primaries.search.query.total`
 1.  Notice the **Over** dropdown is a list of all the tags relevant to this metric.
 1.  Select **One graph per:`host`**. How many graphs do you see? Why?
-1.  Change the metric to `apache.net.request_per_s` and set **One graph per** to `host`. You now have 3 graphs since your environment includes 3 webservers.
+1.  Change the metric to some other fun and cool metric and set **One graph per** to `host`. You now have some graphs since your environment includes some machines.
 1.  Navigate to Dashboards and create a new Dashboard. Enter `First Test` for the name and choose **New TimeBoard**. We will talk about the differences soon.
 1.  Notice the different visualization types. We have already talked about each of these.
 1.  Drag and drop a Timeseries graph onto the canvas.
