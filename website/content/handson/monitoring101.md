@@ -11,14 +11,14 @@ Everyone should get login information for a Datadog account they can use for thi
 1.  Navigate to the Metrics Explorer (https://app.datadoghq.com/metric/explorer).
 1.  Type `elasticsearch` in the **Graph** textbox. <br>
     This filters down the metrics available to just the ones with **elasticsearch** in the name.
-1.  Select one of the metrics available, for instance `elasticsearch.primaries.search.query.total`
+1.  Select one of the metrics available, for instance `elasticsearch.search.query.total`
 1.  Notice the **Over** dropdown is a list of all the tags relevant to this metric.
 1.  Select **One graph per:`host`**. How many graphs do you see? Why?
 1.  Change the metric to some other fun and cool metric and set **One graph per** to `host`. You now have some graphs since your environment includes some machines.
 1.  Navigate to Dashboards and create a new Dashboard. Enter `First Test` for the name and choose **New TimeBoard**. We will talk about the differences soon.
 1.  Notice the different visualization types. We have already talked about each of these.
 1.  Drag and drop a Timeseries graph onto the canvas.
-1.  Choose `elasticsearch.primaries.search.query.total` and **avg by** `host`.
+1.  Choose `elasticsearch.search.query.total` and **avg by** `host`.
 1.  Try out the different **Display** types (Lines, Area, Bar) to see the differences.
 2.  Add a Query Value viz to the canvas using the same metric.
 3.  Add a Heat Map with the same metric.
