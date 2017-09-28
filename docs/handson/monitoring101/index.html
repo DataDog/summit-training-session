@@ -65,7 +65,7 @@
 
 
 
-<meta itemprop="wordCount" content="400">
+<meta itemprop="wordCount" content="405">
 
 
 
@@ -243,14 +243,14 @@
 <li>Navigate to the Metrics Explorer (<a href="https://app.datadoghq.com/metric/explorer">https://app.datadoghq.com/metric/explorer</a>).</li>
 <li>Type <code>elasticsearch</code> in the <strong>Graph</strong> textbox. <br>
 This filters down the metrics available to just the ones with <strong>elasticsearch</strong> in the name.</li>
-<li>Select one of the metrics available, for instance <code>elasticsearch.primaries.search.query.total</code></li>
+<li>Select one of the metrics available, for instance <code>elasticsearch.search.query.total</code></li>
 <li>Notice the <strong>Over</strong> dropdown is a list of all the tags relevant to this metric.</li>
 <li>Select <strong>One graph per:<code>host</code></strong>. How many graphs do you see? Why?</li>
-<li>Change the metric to <code>apache.net.request_per_s</code> and set <strong>One graph per</strong> to <code>host</code>. You now have 3 graphs since your environment includes 3 webservers.</li>
+<li>Change the metric to some other fun and cool metric and set <strong>One graph per</strong> to <code>host</code>. You now have some graphs since your environment includes some machines.</li>
 <li>Navigate to Dashboards and create a new Dashboard. Enter <code>First Test</code> for the name and choose <strong>New TimeBoard</strong>. We will talk about the differences soon.</li>
 <li>Notice the different visualization types. We have already talked about each of these.</li>
 <li>Drag and drop a Timeseries graph onto the canvas.</li>
-<li>Choose <code>elasticsearch.primaries.search.query.total</code> and <strong>avg by</strong> <code>host</code>.</li>
+<li>Choose <code>elasticsearch.search.query.total</code> and <strong>avg by</strong> <code>host</code>.</li>
 <li>Try out the different <strong>Display</strong> types (Lines, Area, Bar) to see the differences.</li>
 <li>Add a Query Value viz to the canvas using the same metric.</li>
 <li>Add a Heat Map with the same metric.</li>

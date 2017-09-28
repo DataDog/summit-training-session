@@ -64,7 +64,7 @@ shown as byte   elasticsearch.breakers.fielddata.overhead
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/handson/buildinggreatdashboards/</guid>
-      <description>First Dashboard  From the menu, return to the dashboard you created earlier. Drag and drop a timeseries widget onto the first well on the canvas. Notice that you can change the visualization at any time without having to drag another widget on the canvas. In the first textbox under Choose metrics and events, select elasticsearch.primaries.search.query.current. Notice that the textbox supports a fuzzy search so i can enter elseapriseaqc and get to the right metric much more quickly.</description>
+      <description>First Dashboard  From the menu, return to the dashboard you created earlier. Drag and drop a timeseries widget onto the first well on the canvas. Notice that you can change the visualization at any time without having to drag another widget on the canvas. In the first textbox under Choose metrics and events, select elasticsearch.search.query.current. Notice that the textbox supports a fuzzy search so i can enter elseaseaqc and get to the right metric much more quickly.</description>
     </item>
     
     <item>
@@ -73,12 +73,11 @@ shown as byte   elasticsearch.breakers.fielddata.overhead
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datadog.github.io/summit-training-session/preso/buildinggreatdashboards/</guid>
-      <description># Building Great Dashboards --- # Two Types Of Dashboards ![](../../images/buildinggreatdashboards/2dashboards.png)--- # Two Sets of Widgets ###Timeboards ![](../../images/buildinggreatdashboards/timeboardwidgets.png)###Screenboards ![](../../images/buildinggreatdashboards/screenboardwidgets.png)--- # Two Different Goals ![](../../images/buildinggreatdashboards/dashboards.png)--- #ElasticSearch Metrics ![](../../images/buildinggreatdashboards/elasticsearch-alerts-final2.png)--- #ElasticSearch Metrics | Metric | Description| |------|--------| | elasticsearch.active_primary_shards
+      <description># Building Great Dashboards --- # Two Types Of Dashboards ![](../../images/buildinggreatdashboards/2dashboards.png)--- # Two Sets of Widgets ### Timeboards ![](../../images/buildinggreatdashboards/timeboardwidgets.png)### Screenboards ![](../../images/buildinggreatdashboards/screenboardwidgets.png)--- # Two Different Goals ![](../../images/buildinggreatdashboards/dashboards.png)--- # ElasticSearch Metrics ![](../../images/buildinggreatdashboards/elasticsearch-alerts-final2.png)--- # ElasticSearch Metrics | Metric | Description| |------|--------| | elasticsearch.active_primary_shards
 (gauge) | The number of active primary shards in the cluster.
 shown as shard | | elasticsearch.active_shards
 (gauge) | The number of active shards in the cluster.
-shown as shard | | elasticsearch.breakers.fielddata.estimated_size_in_bytes
-(gauge) | The estimated size in bytes of the field data circuit breaker.</description>
+shown as shard | | elasticsearch.</description>
     </item>
     
     <item>
